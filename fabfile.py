@@ -138,9 +138,13 @@ def deploy():
 
 
 def deployment_control():
+    sudo('apt-get update')
     install_nginx()
     sudo('apt-get install -y supervisor')
-    rsync_project(local_dir='./', remote_dir='~/')
+    sudo('apt-get install -y python-pip')
+    sudo('apt-get install -y libpq-dev')
+    sudo('apt-get install -y python-dev')
+    rsync_project(exclude='.git', local_dir='./', remote_dir='~/')
     upload_template(
         'simple_nginx_config', '~/',
         context={'host_dns': env.active_instance.public_dns_name})
@@ -148,6 +152,7 @@ def deployment_control():
     sudo('mv /etc/nginx/sites-available/default '
          '/etc/nginx/sites-available/default.orig')
     sudo('mv simple_nginx_config /etc/nginx/sites-available/default')
+    sudo('pip install -r requirements.txt')
     sudo('/etc/init.d/nginx restart')
     sudo('/etc/init.d/supervisor stop')
     sudo('/etc/init.d/supervisor start')
