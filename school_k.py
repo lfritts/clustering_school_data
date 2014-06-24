@@ -82,12 +82,16 @@ def find_schools_in_cluster(
     """
     (search_ID_idx, X) = _prep_k_data(search_ID, data)
     # feed data to k_means multiple times, storing centroid results
+    result_centroids_list = []
     for i in range(num_runs):
         print "In run {}\n".format(i)
         init_centroids = km.init_centroids(X, K)
-        k_means_tuple, idx = km.run_k_means(X, init_centroids, max_iters, tol)
+        centroids, idx = km.run_k_means(X, init_centroids, max_iters, tol)
+        # sort the centroids on first column
+        centroids.sort(axis=0)
+        result_centroids_list.append(centroids)
         print "K-Means Run {0} finished.  Centroids are:".format(i)
-        print k_means_tuple
+        print centroids
         raw_input("Press enter to continue...")
 
     # average centroid locations
