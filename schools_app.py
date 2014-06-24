@@ -7,9 +7,11 @@ from flask import request
 from flask import url_for
 from flask import redirect
 from flask import session
-
+from forms import ContactForm
+from gevent.wsgi import WSGIServer
 
 app = Flask(__name__)
+app.secret_key = 'temporary development key'
 
 
 @app.route('/')
@@ -31,5 +33,15 @@ def main_page():
 def results_page():
     return render_template('results.html')
 
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    form = ContactForm()
+    if request.method == 'POST':
+        return 'Form posted.'
+    elif request.method == 'GET':
+        return render_template('contact.html', form=form)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
