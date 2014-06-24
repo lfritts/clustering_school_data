@@ -96,24 +96,32 @@ def compute_centroids(X, idx, K):
     return centroids
 
 
-def run_k_means(X, initial_centroids, max_iters):
+def run_k_means(X, initial_centroids, max_iters, tol=0):
 
-    print "Running K-Means Clusterin on Example Dataset 2"
+    print "Running K-Means Clustering"
     # print "Our Dataset X"
     # print X
     print "\n\n"
-    print "Settings for K-Means"
 
     # grab K from initial_centroids dimensions
     K, dimensions = initial_centroids.shape
 
-    print "{0} clusters, K, and {1} Iterations.".format(K, max_iters)
+    # print "{0} clusters, K, and {1} Iterations.".format(K, max_iters)
 
     # start with the initial centroids
     centroids = initial_centroids
     for i in range(max_iters):
+        # print "inside for loop"
+        last_centroids = centroids
         idx = find_closest_centroids(X, centroids)
         centroids = compute_centroids(X, idx, K)
+        if squared_distance(centroids, last_centroids) <= tol:
+            print "covergence at {0} iterations, instead of max of {1}".format(
+                i, max_iters)
+            break
+
+        # print centroids
+        # raw_input("Press enter to continue...")
 
     print "\nK-Means is done. \n\n"
 

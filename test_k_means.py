@@ -29,7 +29,8 @@ def correct_centroids():
     return centrds
 
 
-def test_run_k_means(X_data, dummy_centroids, correct_centroids, correct_idx):
+def test_run_k_means(
+        X_data, dummy_centroids, correct_centroids, correct_idx):
     """
     this test checks the centroids found against a known working algorithm and
     the results it produces.  Do not alter the number of iterations as it may

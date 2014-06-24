@@ -1,0 +1,22 @@
+import pytest
+import pandas as pd
+import school_k as k
+# import numpy as np
+
+
+@pytest.fixture(scope="module")
+def data_tuples():
+    scData = pd.DataFrame.from_csv('k_demographics_data.txt')
+    ids = scData[:]['School_ID'].values
+    enroll = scData[:]['Enrollment'].values
+    lowSES = scData[:]['LowSES'].values
+    tuples = [(ids[i], enroll[i], lowSES[i]) for i in range(len(ids))]
+    return tuples
+
+
+def test_find_schools_in_cluster(data_tuples):
+    # hardcode a real id for Concrete Twin Cedars High
+    search_id = 1605
+    # print k.find_schools_in_cluster(search_id, data_tuples)
+    k.find_schools_in_cluster(
+        search_id, data_tuples, K=5, tol=0, max_iters=60, num_runs=10)
