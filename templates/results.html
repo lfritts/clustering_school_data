@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 {% block body %}
   <h1>Results</h1>
-  <p class="lead">Clustering results go here.</p>
+  <table id="final_results">
+    <tr>
+        <th>District</th>
+        <th>School</th>
+        <th>Enrollment</th>
+        <th>% Free/Reduced</th>
+    </tr>
+  {% for school in results %}
+    <tr class="schools" id="school_id={{school.buildingid}}">
+        <td>{{ school.district }}</td>
+        <td>{{ school.school }}</td>
+        <td>{{ school.enrollment}}</td>
+        <td>{{ school.lowses }}</td>
+    </tr>
+  </table>
 {% endblock %}
