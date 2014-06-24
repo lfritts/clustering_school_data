@@ -98,10 +98,9 @@ def compute_centroids(X, idx, K):
 
 def run_k_means(X, initial_centroids, max_iters, tol=0):
 
-    print "Running K-Means Clustering"
+    print "Running K-Means Clustering\n"
     # print "Our Dataset X"
     # print X
-    print "\n\n"
 
     # grab K from initial_centroids dimensions
     K, dimensions = initial_centroids.shape
@@ -123,6 +122,6 @@ def run_k_means(X, initial_centroids, max_iters, tol=0):
         # print centroids
         # raw_input("Press enter to continue...")
 
-    print "\nK-Means is done. \n\n"
+    print "K-Means is done. \n\n"
 
     return (centroids, idx)

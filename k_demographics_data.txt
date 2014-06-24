@@ -1,4 +1,4 @@
-,School_ID,School District,School,Enrollment,LowSES
+﻿,School_ID,School District,School,Enrollment,Low_SES
 ,1603,Spokane School District,Daybreak Alternative School,1,100
 ,1767,Spokane School District,The Healing Lodge,1,0
 ,1880,Clover Park School District,Re-Entry High School,1,73.33

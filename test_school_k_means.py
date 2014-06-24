@@ -6,10 +6,10 @@ import school_k as k
 
 @pytest.fixture(scope="module")
 def data_tuples():
-    scData = pd.DataFrame.from_csv('k_demographics_data.txt')
+    scData = pd.DataFrame.from_csv('k_nrml_demographics_data.txt')
     ids = scData[:]['School_ID'].values
-    enroll = scData[:]['Enrollment'].values
-    lowSES = scData[:]['LowSES'].values
+    enroll = scData[:]['NRML_Enroll'].values
+    lowSES = scData[:]['Low_SES'].values
     tuples = [(ids[i], enroll[i], lowSES[i]) for i in range(len(ids))]
     return tuples
 
