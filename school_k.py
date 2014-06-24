@@ -51,6 +51,14 @@ def _prep_k_data(search_ID, data):
     return (search_ID_idx, data_array)
 
 
+def avg_centroids(cents):
+    """
+    takes a list of centroids (as numpy arrays) and returns the
+    element-wise mean of them, returned as a single numpy array.
+    """
+    return np.mean(np.array([cent for cent in cents]), axis=0)
+
+
 def find_schools_in_cluster(
         search_ID, data, K=5, tol=0, max_iters=60, num_runs=10):
     """
@@ -74,7 +82,6 @@ def find_schools_in_cluster(
     """
     (search_ID_idx, X) = _prep_k_data(search_ID, data)
     # feed data to k_means multiple times, storing centroid results
-    avg_centroids = None
     for i in range(num_runs):
         print "In run {}\n".format(i)
         init_centroids = km.init_centroids(X, K)
