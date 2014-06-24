@@ -9,6 +9,7 @@ from flask import redirect
 from flask import session
 from forms import ContactForm
 from gevent.wsgi import WSGIServer
+from db_methods import get_districts, get_schools, get_schools_for_cluster
 
 app = Flask(__name__)
 app.secret_key = 'temporary development key'
@@ -31,7 +32,8 @@ def main_page():
 
 @app.route('/results')
 def results_page():
-    return render_template('results.html')
+    results = get_results(school_id, school_type)
+    return render_template('results.html', results)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
@@ -41,6 +43,9 @@ def contact():
         return 'Form posted.'
     elif request.method == 'GET':
         return render_template('contact.html', form=form)
+
+def get_results(school_id, school_type):
+    return get_schools_for_cluster(school_id, school_type)
 
 if __name__ == '__main__':
     http_server = WSGIServer(('', 5000), app)
