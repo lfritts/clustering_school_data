@@ -9,10 +9,12 @@ DB_SCHEMA = """
 DROP TABLE IF EXISTS demographics;
 CREATE TABLE demographics (
     buildingid INTEGER UNIQUE PRIMARY KEY,
+    schooltype TEXT NOT NULL,
     district TEXT NOT NULL,
     school TEXT NOT NULL,
-    enrollment INTEGER,
-    lowses REAL
+    enrollment INTEGER NOT NULL,
+    lowses REAL NOT NULL,
+    normalized_enrollment REAL NOT NULL
 );
 """
 
