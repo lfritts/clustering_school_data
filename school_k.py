@@ -15,9 +15,9 @@ def _prep_k_data(search_ID, data):
     * data (a list of tuples). The first element of the tuple is always the
     building id for the school represented in the data in the rest of the
     tuple.
-    * returns search_ID, data_array) The index of the search_ID in the data
-        AND a numpy array of the data passed in through the tuple
-        * RAISES a NoSchoolWithIDError Exception if search_ID not in data
+    * returns search_ID, id_list, data_array) The index of the search_ID in
+    the data AND a numpy array of the data passed in through the tuple
+    * RAISES a NoSchoolWithIDError Exception if search_ID not in data
 
     """
     # annoying, but to use np.vstack the array has to be initialized with
@@ -48,7 +48,7 @@ def _prep_k_data(search_ID, data):
     if search_ID_idx == -1:
         raise NoSchoolWithIDError()
 
-    return (search_ID_idx, data_array)
+    return (search_ID_idx, id_list, data_array)
 
 
 def avg_centroids(cents):
@@ -60,7 +60,7 @@ def avg_centroids(cents):
 
 
 def find_schools_in_cluster(
-        search_ID, data, K=5, tol=0, max_iters=60, num_runs=10):
+        search_ID, data, K=5, tol=0, max_iters=60, num_runs=5):
     """
     find_schools_in_cluster will take a
     * search_ID
@@ -72,7 +72,7 @@ def find_schools_in_cluster(
     new centroids squared distance from the previous centroids is less than or
     equal to the tol, K-means will stop iterating.
     * max_iters is the number of iterations K-means algorithm uses to update
-    centroids. Defaults to 10.
+    centroids. Defaults to 5.
     * num_runs is the number of times this method runs K-means and averages
     the results
 
@@ -80,13 +80,13 @@ def find_schools_in_cluster(
 
     Raises NoSchoolWithIDError if search_ID is not in data.
     """
-    (search_ID_idx, X) = _prep_k_data(search_ID, data)
+    (search_ID_idx, id_list, X) = _prep_k_data(search_ID, data)
     # feed data to k_means multiple times, storing centroid results
     result_centroids_list = []
     for i in range(num_runs):
         print "In run {}\n".format(i)
         init_centroids = km.init_centroids(X, K)
-        centroids, idx = km.run_k_means(X, init_centroids, max_iters, tol)
+        centroids, _ = km.run_k_means(X, init_centroids, max_iters, tol)
         # sort the centroids on first column
         centroids.sort(axis=0)
         result_centroids_list.append(centroids)
@@ -95,11 +95,27 @@ def find_schools_in_cluster(
         raw_input("Press enter to continue...")
 
     # average centroid locations
+    avg_cents = avg_centroids(result_centroids_list)
+    print "Average Centroids are:"
+    print avg_cents
 
     # find_closest_centroids one more time on the average centroid locations
+    idx = km.find_closest_centroids(X, avg_cents)
 
     # find what cluster search_ID school is in
+    search_cluster = idx[search_ID_idx]
 
     # build list of ids of schools in same cluster
-
-#    return clustered_IDs
+    """
+    cluster_schools = []
+    for i in range(len(idx)):
+        if search_cluster == idx[i]
+        cluster_schools.append(id_list[i])
+    """
+    clustered_IDs = [
+        id_list[i] for i in range(len(idx)) if idx[i] == search_cluster
+        ]
+    print "Clustered IDs:"
+    print clustered_IDs
+    print "Number of schools in cluster is {}".format(len(clustered_IDs))
+    return clustered_IDs
