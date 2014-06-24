@@ -3,8 +3,8 @@ import db_methods as dbm
 
 def test_get_districts():
     district_list = dbm.get_districts()
-    assert district_list[0][0] == "Aberdeen School District"
-    assert district_list[-1][0] == "Zillah School District"
+    assert district_list[0] == "Aberdeen School District"
+    assert district_list[-1] == "Zillah School District"
 
 
 def test_get_schools():
