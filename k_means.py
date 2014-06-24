@@ -83,7 +83,7 @@ def compute_centroids(X, idx, K):
     # is True or False depending if example m is part of cluster k.
     idxLogical = np.zeros((K, m))
 
-    # loop over centroids and if set row to T/F depending on
+    # loop over centroids and set row to T/F depending on
     # membership in cluster k.
     for k in range(K):
         idxLogical[k] = (idx == k)

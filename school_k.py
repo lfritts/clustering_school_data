@@ -94,6 +94,8 @@ def find_schools_in_cluster(
         print centroids
         raw_input("Press enter to continue...")
 
+    # THIS IS NOT WHAT WE WANT TO DO.  WE NEED TO FIND THE RUN WITH
+    # THE LOWEST COST, NOT THE AVERAGE!!!
     # average centroid locations
     avg_cents = avg_centroids(result_centroids_list)
     print "Average Centroids are:"
