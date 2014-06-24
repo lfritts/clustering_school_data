@@ -88,7 +88,7 @@ def find_schools_in_cluster(
         init_centroids = km.init_centroids(X, K)
         centroids, _ = km.run_k_means(X, init_centroids, max_iters, tol)
         # sort the centroids on first column
-        centroids.sort(axis=0)
+        centroids = centroids[centroids[:, 0].argsort()]
         result_centroids_list.append(centroids)
         print "K-Means Run {0} finished.  Centroids are:".format(i)
         print centroids

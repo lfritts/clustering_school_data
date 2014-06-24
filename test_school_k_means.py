@@ -19,4 +19,4 @@ def test_find_schools_in_cluster(data_tuples):
     search_id = 1605
     # print k.find_schools_in_cluster(search_id, data_tuples)
     k.find_schools_in_cluster(
-        search_id, data_tuples, K=5, tol=0)
+        search_id, data_tuples, K=10, tol=0)
