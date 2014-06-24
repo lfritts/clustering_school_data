@@ -6,7 +6,7 @@ import school_k as k
 
 @pytest.fixture(scope="module")
 def data_tuples():
-    scData = pd.DataFrame.from_csv('k_nrml_demographics_data.txt')
+    scData = pd.DataFrame.from_csv('test_data/k_nrml_demographics_data.txt')
     ids = scData[:]['School_ID'].values
     enroll = scData[:]['NRML_Enroll'].values
     lowSES = scData[:]['Low_SES'].values

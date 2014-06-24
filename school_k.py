@@ -15,8 +15,9 @@ def _prep_k_data(search_ID, data):
     * data (a list of tuples). The first element of the tuple is always the
     building id for the school represented in the data in the rest of the
     tuple.
-    * returns search_ID, id_list, data_array) The index of the search_ID in
-    the data AND a numpy array of the data passed in through the tuple
+    * returns search_ID_idx, id_list, data_array) The index of the search_ID
+    in the data, a list of the school ids, and a numpy array of the data
+    passed in through the tuple
     * RAISES a NoSchoolWithIDError Exception if search_ID not in data
 
     """
