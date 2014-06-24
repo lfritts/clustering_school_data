@@ -23,7 +23,10 @@ WHERE buildingid = %s;
 
 
 def connect_db():
-    con = psycopg2.connect(database="postgres")
+    con = psycopg2.connect('''
+        host=w2-schoolwebapp.cp9cgekjzx3g.us-west-2.rds.amazonaws.com
+        dbname=school_data_2013 user=lfritts
+        password=year2k13:DB:Xl9ux!Y%3v''')
     return con.cursor()
 
 
