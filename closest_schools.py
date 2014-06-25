@@ -3,8 +3,12 @@ import school_k as sk
 # import numpy as np
 
 
-def pick_n(n, school_distance_array):
+def _pick_n(n, school_distance_array):
     """
+    * n is the number of school ids to return.
+    * school_distance_array is a sorted list of 2-tuples, the first element is
+    the school id, the second element is the squared_distance from the search
+    school.  Sorted by distance from the search school.
     take the closest n schools (ignore first! it's your search school)
     IF there are schools with equal distances and this pushes you over n
     schools, then only allow one tie to push you over. E.g. if n = 10, and we
@@ -30,10 +34,19 @@ def find_n_closest_schools(search_ID, data, n):
     by the search_ID. 'Close' is measured by the Euclidean distance between
     school data points.
     * RAISES NoSchoolWithIDError if the the school we are searching on is
-    not in data
+    not in data.
+    * If user calls calls function with n greater than the number of schools,
+    * the function will truncate n to the number of schools.
+    * If a user calls the function with n < 1, it will raise a ValueError
     """
-    # prep the data
+    # check the input
+    if n < 1:
+        raise ValueError("find_n_closest_schools called with n<1")
+    # reduce n if necessary
+    elif n > len(data):
+        n = len(data)
 
+    # prep the data sk._prep_k_data raises Error if search_ID not in data
     search_ID_idx, id_list, X = sk._prep_k_data(search_ID, data)
 
     # find the distance from the search_ID to all other schools in
@@ -52,4 +65,4 @@ def find_n_closest_schools(search_ID, data, n):
 
     # take all but the first item in the dist_list (that is the distance to the
     # school you're searching on, 0)
-    return pick_n(n, dist_list[1:][:])
+    return _pick_n(n, dist_list[1:][:])
