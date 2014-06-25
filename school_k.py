@@ -15,7 +15,7 @@ def _prep_k_data(search_ID, data):
     * data (a list of tuples). The first element of the tuple is always the
     building id for the school represented in the data in the rest of the
     tuple.
-    * returns search_ID_idx, id_list, data_array) The index of the search_ID
+    * returns (search_ID_idx, id_list, data_array) The index of the search_ID
     in the data, a list of the school ids, and a numpy array of the data
     passed in through the tuple
     * RAISES a NoSchoolWithIDError Exception if search_ID not in data
@@ -85,22 +85,22 @@ def find_schools_in_cluster(
     # feed data to k_means multiple times, storing centroid results
     result_centroids_list = []
     for i in range(num_runs):
-        print "In run {}\n".format(i)
+        # print "In run {}\n".format(i)
         init_centroids = km.init_centroids(X, K)
         centroids, _ = km.run_k_means(X, init_centroids, max_iters, tol)
         # sort the centroids on first column
         centroids = centroids[centroids[:, 0].argsort()]
         result_centroids_list.append(centroids)
-        print "K-Means Run {0} finished.  Centroids are:".format(i)
-        print centroids
-        raw_input("Press enter to continue...")
+        # print "K-Means Run {0} finished.  Centroids are:".format(i)
+        # print centroids
+        # raw_input("Press enter to continue...")
 
     # THIS IS NOT WHAT WE WANT TO DO.  WE NEED TO FIND THE RUN WITH
     # THE LOWEST COST, NOT THE AVERAGE!!!
     # average centroid locations
     avg_cents = avg_centroids(result_centroids_list)
-    print "Average Centroids are:"
-    print avg_cents
+    # print "Average Centroids are:"
+    # print avg_cents
 
     # find_closest_centroids one more time on the average centroid locations
     idx = km.find_closest_centroids(X, avg_cents)
@@ -118,7 +118,7 @@ def find_schools_in_cluster(
     clustered_IDs = [
         id_list[i] for i in range(len(idx)) if idx[i] == search_cluster
         ]
-    print "Clustered IDs:"
-    print clustered_IDs
-    print "Number of schools in cluster is {}".format(len(clustered_IDs))
+    # print "Clustered IDs:"
+    # print clustered_IDs
+    # print "Number of schools in cluster is {}".format(len(clustered_IDs))
     return clustered_IDs
