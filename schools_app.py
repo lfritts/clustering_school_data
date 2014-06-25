@@ -28,12 +28,12 @@ def about():
 
 @app.route('/main')
 def main_page():
-    districts = [item[0] for item in get_districts()]
+    districts = get_districts()
     return render_template('main.html', district_list=districts)
 
 
 @app.route('/results')
-def results_page():
+def results_page(school_id, school_type):
     results = get_results(school_id, school_type)
     return render_template('results.html', results)
 
@@ -47,8 +47,8 @@ def contact():
         return render_template('contact.html', form=form)
 
 
-def get_results(school_id, school_type):
-    return get_schools_for_cluster(school_id, school_type)
+def get_results(school_id, school_type, num2return):
+    return get_similar_schools(school_id, school_type, num2return)
 
 if __name__ == '__main__':
     http_server = WSGIServer(('', 5000), app)
