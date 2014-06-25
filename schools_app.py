@@ -9,7 +9,7 @@ from flask import redirect
 from flask import session
 from forms import ContactForm
 from gevent.wsgi import WSGIServer
-from db_methods import get_districts, get_schools, get_schools_for_cluster
+from db_methods import get_districts, get_schools, get_similar_schools
 
 app = Flask(__name__)
 app.secret_key = 'temporary development key'

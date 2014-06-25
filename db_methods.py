@@ -1,6 +1,6 @@
 
 import psycopg2
-#from closest_schools import find_n_closest_schools as find_schools
+from closest_schools import find_n_closest_schools as find_schools
 
 DB_GET_DISTRICTS = """
 SELECT DISTINCT district FROM demographics ORDER BY district;
