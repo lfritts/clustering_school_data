@@ -10,15 +10,15 @@ def pick_n(n, school_distance_array):
     schools, then only allow one tie to push you over. E.g. if n = 10, and we
     have a 10 schools with the same, 4th ranked closest distance, we'll get
     all 10 of those tied schools and the first 3, but no more.
-    returns
+    returns the school_id of closest 'n' schools.
     """
     top_n = []
     i = 0
     while i < n:
-        top_n.append(school_distance_array[i])
+        top_n.append(school_distance_array[i][0])
         i += 1
-        while school_distance_array[i-1] == school_distance_array[i]:
-            top_n.append(school_distance_array[i])
+        while school_distance_array[i-1][1] == school_distance_array[i][1]:
+            top_n.append(school_distance_array[i][0])
             i += 1
     return top_n
 
