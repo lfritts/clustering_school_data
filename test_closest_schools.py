@@ -4,8 +4,30 @@ import closest_schools as cs
 
 
 @pytest.fixture(scope="module")
-def data_tuples():
-    scData = pd.DataFrame.from_csv('test_data/k_nrml_demographics_data.txt')
+def full_data_tuples():
+    scData = pd.DataFrame.from_csv('test_data/k_nrml_demographics_data.csv')
+    ids = scData[:]['School_ID'].values
+    enroll = scData[:]['NRML_Enroll'].values
+    lowSES = scData[:]['Low_SES'].values
+    tuples = [(ids[i], enroll[i], lowSES[i]) for i in range(len(ids))]
+    return tuples
+
+
+@pytest.fixture(scope="module")
+def small_data_tuples():
+    scData = pd.DataFrame.from_csv(
+        'test_data/k_nrml_small_demographics_data.csv')
+    ids = scData[:]['School_ID'].values
+    enroll = scData[:]['NRML_Enroll'].values
+    lowSES = scData[:]['Low_SES'].values
+    tuples = [(ids[i], enroll[i], lowSES[i]) for i in range(len(ids))]
+    return tuples
+
+
+@pytest.fixture(scope="module")
+def mini_big_and_small_data_tuples():
+    scData = pd.DataFrame.from_csv(
+        'test_data/k_mini_big_and_small_nrml_demographics_data.csv')
     ids = scData[:]['School_ID'].values
     enroll = scData[:]['NRML_Enroll'].values
     lowSES = scData[:]['Low_SES'].values
@@ -45,6 +67,22 @@ def test_pick_n_repetitive_data_middle():
     assert top_n == [6, 5, 2, 1]
 
 
-def test_closest_schools(data_tuples):
+def test_find_n_closest_schools_small(small_data_tuples):
+    # search on the one very small school
+    search_id = 5113
+    results = cs.find_n_closest_schools(search_id, small_data_tuples, 9)
+    assert 3588 in results
+    assert 3533 in results
+    assert 5071 in results
+    assert 5049 in results
+    assert 4470 in results
+    assert 3496 in results
+    assert 1903 in results
+    assert 1763 in results
+    assert 1950 in results
+    assert 5113 not in results
+
+
+def test_closest_schools(full_data_tuples):
     search_id = 1605
-    print cs.find_n_closest_schools(search_id, data_tuples, 10)
+    print cs.find_n_closest_schools(search_id, full_data_tuples, 10)
