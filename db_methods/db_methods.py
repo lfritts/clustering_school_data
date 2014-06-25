@@ -17,8 +17,8 @@ schooltype = %s;
 """
 
 DB_GET_SCHOOLS_BY_ID = """
-SELECT district, school, enrollment, lowses FROM demographics WHERE
-buildingid = %s;
+SELECT buildingid, district, school, enrollment, lowses FROM demographics
+WHERE buildingid = %s;
 """
 
 
