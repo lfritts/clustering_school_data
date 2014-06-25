@@ -1,8 +1,40 @@
 {% extends "base.html" %}
+{% block head %}
+  <script>
+    var districtList = {{ district_list|tojson|safe }};
+  </script>
+{% endblock %}
 {% block body %}
-  <h1>Main Page</h1>
-  <p class="lead">Forms will go here.</p>
-  <input type="text" id="district" name="district" placeholder="School District"></br></br>
-  <input type="text" id="school" name="school" placeholder="School Name"></br></br>
-  <a href="/results" class="btn btn-lg btn-primary">Submit</a>
+  <h1>Choose Your School</h1>
+  <p class="lead">Start by entering your school district below.</p>
+  <input type="text" class="form-control" id="district" name="district" placeholder="School District"><br>
+  <input type="text" class="form-control" id="school" name="school" placeholder="School Name"><br>
+  <a href="#" class="btn btn-lg btn-primary" id="next">Next</a>
+  <a href="/main" class="btn btn-lg btn-warning" id="reset">Reset</a>
+  <a href="/results" class="btn btn-lg btn-primary" id="submit">Submit</a>
+{% endblock %}
+{% block scripts %}
+  <script>
+  $(document).ready (function() {
+    $("#school").hide();
+    $("#submit").hide();
+    $("#reset").hide();
+    $("#district").quickselect({data: districtList});
+    $("#next").click(function() {
+      var selectedDistrict = $("#district").val();
+      if ($.inArray(selectedDistrict, districtList) == -1) {
+        alert("You must select a valid district");
+      } else {
+        $("#next").remove();
+        $("#district").remove();
+        $("#school").show();
+        $("#reset").show();
+        $("#submit").show();
+        var newLead = selectedDistrict + "<br />Now enter the name of your school";
+        $(".lead").html(newLead);
+      }
+    });
+    $("#school").quickselect({data:['School1', 'School2', 'School3']});
+  });
+  </script>
 {% endblock %}
