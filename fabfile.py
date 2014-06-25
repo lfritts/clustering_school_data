@@ -144,7 +144,9 @@ def deployment_control():
     sudo('apt-get install -y python-pip')
     sudo('apt-get install -y libpq-dev')
     sudo('apt-get install -y python-dev')
-    rsync_project(exclude='.git', local_dir='./', remote_dir='~/')
+    exclude_list = ['.git', '*.pyc', '/create_db/', '/db_methods/',
+                    'test_*.py']
+    rsync_project(exclude=exclude_list, local_dir='./', remote_dir='~/')
     upload_template(
         'simple_nginx_config', '~/',
         context={'host_dns': env.active_instance.public_dns_name})
