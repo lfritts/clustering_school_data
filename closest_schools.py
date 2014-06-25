@@ -32,13 +32,15 @@ def find_n_closest_schools(search_ID, data, n):
     * RAISES NoSchoolWithIDError if the the school we are searching on is
     not in data
     """
-
     # prep the data
+
     search_ID_idx, id_list, X = sk._prep_k_data(search_ID, data)
+
     # find the distance from the search_ID to all other schools in
     # dataset X
     dist_list = [
         km.squared_distance(X[search_ID_idx, :], school) for school in X]
+
     # join the id_list and the dist_list
     # sort the list by distance from search_ID school
     # the pure python way
@@ -47,8 +49,6 @@ def find_n_closest_schools(search_ID, data, n):
     # the numpy way (which we won't use because it converts int ids to float
     # dist_list = np.vstack((id_list, dist_list)).T
     # dist_list = dist_list[dist_list[:, 1].argsort()]
-    print "\ndist_list after sorting"
-    print dist_list
 
     # take all but the first item in the dist_list (that is the distance to the
     # school you're searching on, 0)
