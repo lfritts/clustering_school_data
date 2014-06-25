@@ -6,13 +6,13 @@ import k_means as km
 
 @pytest.fixture(scope="module")
 def X_data():
-    X = np.loadtxt('k_test_dataset2.csv', delimiter=',')
+    X = np.loadtxt('test_data/k_test_dataset2.csv', delimiter=',')
     return X
 
 
 @pytest.fixture("module")
 def correct_idx():
-    idx = np.loadtxt('k_test_index_values.csv')
+    idx = np.loadtxt('test_data/k_test_index_values.csv')
     # print idx
     return idx
 
