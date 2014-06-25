@@ -3,10 +3,10 @@ import school_k as sk
 # import numpy as np
 
 
-def _pick_n(n, school_distance_array):
+def _pick_n(n, sd_array):
     """
     * n is the number of school ids to return.
-    * school_distance_array is a sorted list of 2-tuples, the first element is
+    * sd_array is a sorted list of 2-tuples, the first element is
     the school id, the second element is the squared_distance from the search
     school.  Sorted by distance from the search school.
     take the closest n schools (ignore first! it's your search school)
@@ -17,12 +17,13 @@ def _pick_n(n, school_distance_array):
     returns the school_id of closest 'n' schools.
     """
     top_n = []
+    array_len = len(sd_array)
     i = 0
     while i < n:
-        top_n.append(school_distance_array[i][0])
+        top_n.append(sd_array[i][0])
         i += 1
-        while school_distance_array[i-1][1] == school_distance_array[i][1]:
-            top_n.append(school_distance_array[i][0])
+        while i < array_len and (sd_array[i-1][1] == sd_array[i][1]):
+            top_n.append(sd_array[i][0])
             i += 1
     return top_n
 
