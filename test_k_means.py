@@ -51,6 +51,13 @@ def test_squared_distance():
     assert km.squared_distance(x1, x2) == correct
 
 
+def test_squared_distance_tuple_input():
+    x1 = (0, 0, 0, 0)
+    x2 = [2, 3, 2, 2]
+    correct = abs(0-2)**2 + abs(0-3)**2 + abs(0-2)**2 + abs(0-2)**2
+    assert km.squared_distance(x1, x2) == correct
+
+
 def test_run_k_means(
         X_data, dummy_centroids, correct_centroids, correct_idx):
     """
