@@ -90,9 +90,6 @@ def test_pick_n_repetitive_data_middle():
 def test_find_n_closest_schools_small(small_data_tuples):
     # search on the one very small school
     search_id = 5113
-    # results are interesting, look at excel file
-    # test_data/k_mini_big_and_small_nrml_demographics_data_RESULTS.xlsx
-    # reason that we get 11 results back.
     results = cs.find_n_closest_schools(search_id, small_data_tuples, 9)
     assert len(results) == 9
     assert 3588 in results
@@ -108,7 +105,9 @@ def test_find_n_closest_schools_small(small_data_tuples):
 
 
 def test_find_n_closest_schools_mini_small_big(mini_big_and_small_data_tuples):
-    # search on the one very small school
+    # results are interesting, look at excel file
+    # test_data/k_mini_big_and_small_nrml_demographics_data_RESULTS.xlsx
+    # reason that we get 11 results back.
     search_id = 5961
     results = cs.find_n_closest_schools(
         search_id, mini_big_and_small_data_tuples, 10)
@@ -128,5 +127,14 @@ def test_find_n_closest_schools_mini_small_big(mini_big_and_small_data_tuples):
 
 
 def test_closest_schools(full_data_tuples):
-    search_id = 1605
-    print cs.find_n_closest_schools(search_id, full_data_tuples, 10)
+    # search on Seattle Pathfinder Elementary
+    # actual results calculated in excel spreadsheet
+    search_id = 1620
+    results = cs.find_n_closest_schools(search_id, full_data_tuples, 5)
+    assert len(results) == 5
+    assert 2256 in results
+    assert 2964 in results
+    assert 4537 in results
+    assert 3002 in results
+    assert 3561 in results
+    assert 1620 not in results
