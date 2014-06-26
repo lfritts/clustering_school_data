@@ -21,7 +21,7 @@ WHERE buildingid = %s;
 """
 
 DB_GET_ID_FOR_SCHOOL = """
-SELECT buildingid FROM demographics WHERE school = %s;
+SELECT buildingid FROM demographics WHERE school = %s AND district = %s;
 """
 
 DB_GET_TYPE_FOR_SCHOOL = """
@@ -51,15 +51,29 @@ def get_schools(district):
     return [i[0] for i in schools]
 
 
-def get_results(school_name, number_to_return):
+def get_school_id(school_name, district):
     cur = connect_db()
-    cur.execute(DB_GET_ID_FOR_SCHOOL, [school_name])
-    school_id = cur.fetchone()
+    cur.execute(DB_GET_ID_FOR_SCHOOL, [school_name, district])
+    return cur.fetchone()[0]
+
+
+def get_school_type(school_id):
+    cur = connect_db()
     cur.execute(DB_GET_TYPE_FOR_SCHOOL, [school_id])
-    school_type = cur.fetchone()
+    return cur.fetchone()[0][0]
+
+
+def get_schools_by_type(school_type):
+    cur = connect_db()
     cur.execute(DB_GET_SCHOOLS_BY_TYPE, [school_type])
-    search_schools = cur.fetchall()
-    return_schools = find_schools(school_id[0], search_schools, number_to_return)
+    return cur.fetchall()
+
+
+def get_results(school_name, number_to_return):
+    school_id = get_school_id(school_name)
+    school_type = get_school_type(school_id)
+    search_schools = get_schools_by_type(school_type)
+    return_schools = find_schools(school_id, search_schools, number_to_return)
     return get_schools_by_id(return_schools)
 
 

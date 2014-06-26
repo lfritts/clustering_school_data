@@ -10,16 +10,20 @@ def test_get_districts():
 def test_get_schools():
     school_list = dbm.get_schools("Zillah School District")
     assert len(school_list) == 4
-    assert school_list[0][0] == 2783
-    assert school_list[3][1] == "Zillah Middle School"
+    assert school_list[0] == "Hilton Elementary School"
+    assert school_list[3] == "Zillah Middle School"
+
 
 def test_get_schools_by_id():
     school_ids = [1559, 5237, 4595]
     my_list = dbm.get_schools_by_id(school_ids)
-    assert my_list[0][1] == "Lewis County Juvenile Detention"
-    assert my_list[1][3] == 100
-    assert my_list[2][2] == 899
+    assert my_list[0][2] == "Lewis County Juvenile Detention"
+    assert my_list[1][4] == 100
+    assert my_list[2][3] == 899
 
-def get_schools_for_cluster():
-    #what is the name of the function to call
-    pass
+
+def test_school_id():
+    school_id = dbm.get_school_id("Jefferson Elementary",
+                                  "Everett School District")
+    assert school_id == 3533
+
