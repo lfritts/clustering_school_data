@@ -1,3 +1,11 @@
 @-moz-document url-prefix() {
   fieldset { display: table-cell; }
 }
+
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):after {
+    content: " \25B4\25BE"
+}
+
+td {
+    text-align: left;
+}
