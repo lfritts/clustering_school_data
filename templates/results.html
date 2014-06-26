@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block head %}
-<!--   <script src="{{ url_for('static', filename='jquery.tablesorter.js') }}">
-  </script> -->
   <title>Results</title>
   <link href="{{ url_for('static', filename='moz_fix.css')}}" rel="stylesheet">
+  <script src="{{ url_for('static', filename='sorttable.js') }}"></script>
 {% endblock %}
 {% block body %}
   <h1>Results</h1>
   <div class="table-responsive">
-    <!-- <table id="final_results" class="tablesorter"> -->
-    <table id="final_results" class="table table-striped">
+    <table id="final_results" class="table table-striped sortable">
       <thead>
         <tr>
             <th>District</th>
@@ -30,14 +28,4 @@
       </tbody>
     </table>
   </div>
-{% endblock %}
-
-{% block scripts %}
-<!-- <script>
-$(document).ready(function()
-  {
-    $('#final_results').tablesorter( {sortList: [[1,0]]} );
-  }
-);
-</script> -->
 {% endblock %}

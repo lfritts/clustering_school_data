@@ -35,15 +35,18 @@ def main_page():
 @app.route('/schools/')
 def choose_school():
     district = request.args.get('district')
+    session['district'] = district
     schools = get_schools(district)
-    return render_template('choose_school.html', school_list=schools)
+    return render_template(
+        'choose_school.html', school_list=schools, district=session['district'])
 
 
 @app.route('/results/')
 def results_page():
     school_name = request.args.get('school')
     number_to_return = request.args.get('numschools')
-    results = get_results(school_name, number_to_return)
+    results = get_results(school_name, session['district'], number_to_return)
+    print results
     return render_template('results.html', results=results)
 
 
@@ -59,3 +62,4 @@ def contact():
 if __name__ == '__main__':
     http_server = WSGIServer(('', 5000), app)
     http_server.serve_forever()
+    # app.run(debug=True)
