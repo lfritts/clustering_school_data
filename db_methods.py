@@ -7,7 +7,7 @@ SELECT DISTINCT district FROM demographics ORDER BY district;
 """
 
 DB_GET_SCHOOLS = """
-SELECT school FROM demographics ORDER BY school;
+SELECT school FROM demographics WHERE DISTRICT = %s ORDER BY school;
 """
 
 DB_GET_SCHOOLS_BY_TYPE = """
@@ -25,7 +25,7 @@ SELECT buildingid FROM demographics WHERE school = %s;
 """
 
 DB_GET_TYPE_FOR_SCHOOL = """
-SELECT schooltype FROM demograhics where buildingid = %s;
+SELECT schooltype FROM demographics where buildingid = %s;
 """
 
 
@@ -59,7 +59,7 @@ def get_results(school_name, number_to_return):
     school_type = cur.fetchone()
     cur.execute(DB_GET_SCHOOLS_BY_TYPE, [school_type])
     search_schools = cur.fetchall()
-    return_schools = find_schools(school_id, search_schools, number_to_return)
+    return_schools = find_schools(school_id[0], search_schools, number_to_return)
     return get_schools_by_id(return_schools)
 
 
