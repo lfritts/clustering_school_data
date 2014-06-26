@@ -10,6 +10,7 @@ from flask import session
 from forms import ContactForm
 from gevent.wsgi import WSGIServer
 from db_methods import get_districts, get_schools, get_similar_schools
+from db_methods import get_id_for_selected_school
 import json
 
 app = Flask(__name__)
@@ -32,9 +33,18 @@ def main_page():
     return render_template('main.html', district_list=districts)
 
 
-@app.route('/results')
-def results_page(school_id, school_type):
-    results = get_results(school_id, school_type)
+@app.route('/schools/')
+def choose_school():
+    district = request.args.get('district')
+    schools = get_schools(district)
+    return render_template('choose_school.html', school_list=schools)
+
+
+@app.route('/results/')
+def results_page():
+    school_name = request.args.get('school')
+    number_to_return = request.args.get('numschools')
+    results = not_implemented_db_get_results(school, numschools)
     return render_template('results.html', results)
 
 
@@ -48,6 +58,7 @@ def contact():
 
 
 def get_results(school_id, school_type, num2return):
+    # not needed
     return get_similar_schools(school_id, school_type, num2return)
 
 if __name__ == '__main__':
