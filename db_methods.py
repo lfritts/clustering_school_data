@@ -29,10 +29,11 @@ SELECT buildingid FROM demographics WHERE school = %s;
 """
 
 def connect_db():
+    #user only has read access
     con = psycopg2.connect('''
-        host=w2-schoolwebapp.cp9cgekjzx3g.us-west-2.rds.amazonaws.com
-        dbname=school_data_2013 user=lfritts
-        password=''')
+        host=mpl-schooldata.cp9cgekjzx3g.us-west-2.rds.amazonaws.com
+        dbname=school_data_2013 user=ourapp
+        password=%t$31Dzw24mo''')
     return con.cursor()
 
 
