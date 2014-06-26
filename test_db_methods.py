@@ -14,14 +14,6 @@ def test_get_schools():
     assert school_list[3] == "Zillah Middle School"
 
 
-def test_get_schools_by_id():
-    school_ids = [1559, 5237, 4595]
-    my_list = dbm.get_schools_by_id(school_ids)
-    assert my_list[0][2] == "Lewis County Juvenile Detention"
-    assert my_list[1][4] == 100
-    assert my_list[2][3] == 899
-
-
 def test_school_id():
     school_id = dbm.get_school_id("Jefferson Elementary",
                                   "Everett School District")
@@ -31,3 +23,8 @@ def test_school_id():
 def test_school_type():
     school_type = dbm.get_school_type(3533)
     assert school_type == "Elementary"
+
+def test_schools_by_id():
+    school_ids = [2824, 2890, 2530, 4149]
+    return_list = dbm.get_schools_by_id(school_ids)
+    assert len(return_list) == 4
