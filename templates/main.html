@@ -5,14 +5,13 @@
   </script>
 {% endblock %}
 {% block body %}
-  <h1>Choose Your School</h1>
+<form id="dist_form" action="/schools/{{ selectedDistrict }}">
+  <h1>Choose Your School District</h1>
   <p class="lead">Start by entering your school district below.</p>
   <input type="text" class="form-control" id="district" name="district" placeholder="School District"><br>
-  <input type="text" class="form-control" id="school" name="school" placeholder="School Name"><br>
-  <a href="#" class="btn btn-lg btn-primary" id="next">Next</a>
-  <a href="/main" class="btn btn-lg btn-warning" id="reset">Reset</a>
-  <a href="/results" class="btn btn-lg btn-primary" id="submit">Submit</a>
-{% endblock %}
+  <button type="submit" id="submit" class="btn btn-lg btn-primary">Next</button>
+</form>
+  {% endblock %}
 {% block scripts %}
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="{{ url_for('static', filename='dist_script.js') }}"></script>
 {% endblock %}
