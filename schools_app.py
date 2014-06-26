@@ -44,7 +44,7 @@ def results_page():
     school_name = request.args.get('school')
     number_to_return = request.args.get('numschools')
     results = get_results(school_name, number_to_return)
-    return render_template('results.html', results)
+    return render_template('results.html', results=results)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
