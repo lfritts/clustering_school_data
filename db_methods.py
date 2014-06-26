@@ -60,7 +60,7 @@ def get_school_id(school_name, district):
 def get_school_type(school_id):
     cur = connect_db()
     cur.execute(DB_GET_TYPE_FOR_SCHOOL, [school_id])
-    return cur.fetchone()[0][0]
+    return cur.fetchone()[0]
 
 
 def get_schools_by_type(school_type):
@@ -69,8 +69,8 @@ def get_schools_by_type(school_type):
     return cur.fetchall()
 
 
-def get_results(school_name, number_to_return):
-    school_id = get_school_id(school_name)
+def get_results(school_name, district, number_to_return):
+    school_id = get_school_id(school_name, district)
     school_type = get_school_type(school_id)
     search_schools = get_schools_by_type(school_type)
     return_schools = find_schools(school_id, search_schools, number_to_return)

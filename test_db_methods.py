@@ -27,3 +27,7 @@ def test_school_id():
                                   "Everett School District")
     assert school_id == 3533
 
+
+def test_school_type():
+    school_type = dbm.get_school_type(3533)
+    assert school_type == "Elementary"
