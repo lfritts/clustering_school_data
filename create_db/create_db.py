@@ -14,7 +14,16 @@ CREATE TABLE demographics (
     school TEXT NOT NULL,
     enrollment INTEGER NOT NULL,
     lowses REAL NOT NULL,
-    normalized_enrollment REAL NOT NULL
+    normalized_enrollment REAL NOT NULL,
+    per_native REAL NOT NULL,
+    per_asian REAL NOT NULL,
+    per_PI REAL NOT NULL,
+    per_API REAL NOT NULL,
+    per_black REAL NOT NULL,
+    per_hispanic REAL NOT NULL,
+    per_migrant REAL NOT NULL,
+    per_bil REAL NOT NULL,
+    per_sped REAL NOT NULL
 );
 """
 
@@ -28,7 +37,20 @@ SELECT buildingid, enrollment, lowses FROM demographics WHERE buildingid
 """
 
 def connect_db():
-    return psycopg2.connect(database="postgres")
+
+    if 'RDS_HOSTNAME' in os.environ:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'postgres (9.3.3) ',
+                'NAME': os.environ['RDS_DB_NAME'],
+                'USER': os.environ['RDS_USERNAME'],
+                'PASSWORD': os.environ['RDS_PASSWORD'],
+                'HOST': os.environ['RDS_HOSTNAME'],
+                'PORT': os.environ['RDS_PORT'],
+            }
+        }
+    return psycopg2.connect(DATABASES)
+
 
 def init_db():
     with closing(connect_db()) as db:
