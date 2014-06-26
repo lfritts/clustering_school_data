@@ -6,8 +6,12 @@ DB_GET_DISTRICTS = """
 SELECT DISTINCT district FROM demographics ORDER BY district;
 """
 
+# DB_GET_SCHOOLS = """
+# SELECT school FROM demographics WHERE district = %s ORDER BY school;
+# """
+
 DB_GET_SCHOOLS = """
-SELECT school FROM demographics WHERE district = %s ORDER BY school;
+SELECT school FROM demographics ORDER BY school;
 """
 
 DB_GET_SCHOOLS_BY_TYPE = """
@@ -28,7 +32,7 @@ def connect_db():
     con = psycopg2.connect('''
         host=w2-schoolwebapp.cp9cgekjzx3g.us-west-2.rds.amazonaws.com
         dbname=school_data_2013 user=lfritts
-        password=year2k13:DB:Xl9ux!Y%3v''')
+        password=''')
     return con.cursor()
 
 
