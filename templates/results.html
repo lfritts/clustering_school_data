@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block head %}
-  <script src="{{ url_for('static', filename='jquery.tablesorter.js') }}">
-  </script>
+<!--   <script src="{{ url_for('static', filename='jquery.tablesorter.js') }}">
+  </script> -->
 {% endblock %}
 {% block body %}
   <h1>Results</h1>
@@ -16,18 +16,23 @@
     </thead>
     <tbody>
   {% for school in results %}
-      <tr class="schools" id="school_id={{school.buildingid}}">
-          <td>{{ school.district }}</td>
-          <td>{{ school.school }}</td>
-          <td>{{ school.enrollment}}</td>
-          <td>{{ school.lowses }}</td>
+      <tr class="schools" id="school_id={{school[0]}}">
+          <td>{{ school[1] }}</td>
+          <td>{{ school[2] }}</td>
+          <td>{{ school[3] }}</td>
+          <td>{{ school[4] }}</td>
       </tr>
+  {% endfor %}
     </tbody>
   </table>
+{% endblock %}
 
+{% block scripts %}
+<!-- <script>
 $(document).ready(function()
   {
     $('#final_results').tablesorter( {sortList: [[1,0]]} );
   }
 );
+</script> -->
 {% endblock %}
