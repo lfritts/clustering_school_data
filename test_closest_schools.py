@@ -126,6 +126,37 @@ def test_find_n_closest_schools_mini_small_big(mini_big_and_small_data_tuples):
     assert 5961 not in results
 
 
+def test_find_n_closest_schools_n_too_big(mini_big_and_small_data_tuples):
+    # results are interesting, look at excel file
+    # test_data/k_mini_big_and_small_nrml_demographics_data_RESULTS.xlsx
+    # reason that we get 11 results back.
+    search_id = 5961
+    results = cs.find_n_closest_schools(
+        search_id, mini_big_and_small_data_tuples, 50)
+    assert len(results) == 19
+    assert 1767 in results
+    assert 4178 in results
+    assert 4225 in results
+    assert 5113 in results
+    assert 5280 in results
+    assert 5283 in results
+    assert 1880 in results
+    assert 4433 in results
+    assert 1603 in results
+    assert 1960 in results
+    assert 5062 in results
+    assert 5111 in results
+    assert 2415 in results
+    assert 3640 in results
+    assert 2272 in results
+    assert 4523 in results
+    assert 2134 in results
+    assert 2797 in results
+    assert 5164 in results
+
+    assert 5961 not in results
+
+
 def test_closest_schools(full_data_tuples):
     # search on Seattle Pathfinder Elementary
     # actual results calculated in excel spreadsheet
