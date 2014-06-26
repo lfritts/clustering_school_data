@@ -88,12 +88,15 @@ def find_n_closest_schools(search_ID, data, n):
     * the function will truncate n to the number of schools.
     * If a user calls the function with n < 1, it will raise a ValueError
     """
+    data_len = len(data)
     # check the input
     if n < 1:
         raise ValueError("find_n_closest_schools called with n<1")
     # reduce n if necessary
-    elif n > len(data):
-        n = len(data)
+    elif n > data_len:
+        # needs to be data_len - 1 because we will remove the search school
+        # from the data before passing it to _pick_n()
+        n = data_len - 1
 
     # prep the data sk._prep_data raises Error if search_ID not in data
     search_ID_data, id_list, X = _prep_data(search_ID, data)
