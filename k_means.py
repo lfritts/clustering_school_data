@@ -18,14 +18,8 @@ def find_closest_centroids(X, centroids):
     I.e. idx = m x 1 and each entry in idx in range [1..K]
     """
     X = X.astype(float)
-    # print "in find_closest_centroids"
-    # Set K
     K = centroids.shape[0]
-    # print "K is {}".format(K)
-    # Set m
     m = X.shape[0]
-    # print "m is {}".format(m)
-    # initialize idx
     idx = np.zeros(m)
     # loop over m training examples
     for i in range(m):
@@ -110,7 +104,6 @@ def run_k_means(X, initial_centroids, max_iters, tol=0):
     # start with the initial centroids
     centroids = initial_centroids
     for i in range(max_iters):
-        # print "inside for loop"
         last_centroids = centroids
         idx = find_closest_centroids(X, centroids)
         centroids = compute_centroids(X, idx, K)
