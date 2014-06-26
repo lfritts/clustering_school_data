@@ -9,8 +9,7 @@ from flask import redirect
 from flask import session
 from forms import ContactForm
 from gevent.wsgi import WSGIServer
-from db_methods import get_districts, get_schools, get_similar_schools
-from db_methods import get_id_for_selected_school
+from db_methods import get_districts, get_schools, get_results
 import json
 
 app = Flask(__name__)
@@ -44,7 +43,7 @@ def choose_school():
 def results_page():
     school_name = request.args.get('school')
     number_to_return = request.args.get('numschools')
-    results = not_implemented_db_get_results(school, numschools)
+    results = get_results(school_name, number_to_return)
     return render_template('results.html', results)
 
 
@@ -56,10 +55,6 @@ def contact():
     elif request.method == 'GET':
         return render_template('contact.html', form=form)
 
-
-def get_results(school_id, school_type, num2return):
-    # not needed
-    return get_similar_schools(school_id, school_type, num2return)
 
 if __name__ == '__main__':
     http_server = WSGIServer(('', 5000), app)
