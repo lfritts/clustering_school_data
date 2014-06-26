@@ -59,7 +59,7 @@ def get_results(school_name, number_to_return):
     school_type = cur.fetchone()
     cur.execute(DB_GET_SCHOOLS_BY_TYPE, [school_type])
     search_schools = cur.fetchall()
-    return_schools = find_schools(school_id, search_schools, number_to_return)
+    return_schools = find_schools(school_id[0], search_schools, number_to_return)
     return get_schools_by_id(return_schools)
 
 
