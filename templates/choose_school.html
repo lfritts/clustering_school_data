@@ -7,7 +7,8 @@
 {% block body %}
 <!-- <form id="school_form" action="/results/{{ selectedSchool, numberSchools }}"> -->
 <form id="school_form" action="/results/">
-  <h1>Choose Your School</h1>
+  <h1>{{ district }}</h1>
+  <h2>Choose Your School</h2>
   <p class="lead">Enter your school's name below.</p>
   <input type="text" class="form-control" id="school" name="school" placeholder="School Name"><br>
   <input type="text" class="form-control" id="numschools" name="numschools"><br>
