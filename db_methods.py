@@ -6,10 +6,6 @@ DB_GET_DISTRICTS = """
 SELECT DISTINCT district FROM demographics ORDER BY district;
 """
 
-# DB_GET_SCHOOLS = """
-# SELECT school FROM demographics WHERE district = %s ORDER BY school;
-# """
-
 DB_GET_SCHOOLS = """
 SELECT school FROM demographics ORDER BY school;
 """
@@ -28,12 +24,16 @@ DB_GET_ID_FOR_SCHOOL = """
 SELECT buildingid FROM demographics WHERE school = %s;
 """
 
+DB_GET_TYPE_FOR_SCHOOL = """
+SELECT schooltype FROM demograhics where buildingid = %s;
+"""
+
+
 def connect_db():
     #user only has read access
     con = psycopg2.connect('''
         host=mpl-schooldata.cp9cgekjzx3g.us-west-2.rds.amazonaws.com
-        dbname=school_data_2013 user=ourapp
-        password=%t$31Dzw24mo''')
+        dbname=school_data_2013''')
     return con.cursor()
 
 
@@ -51,15 +51,16 @@ def get_schools(district):
     return [i[0] for i in schools]
 
 
-def get_similar_schools(school_id, school_type, num2return):
+def get_results(school_name, number_to_return):
     cur = connect_db()
+    cur.execute(DB_GET_ID_FOR_SCHOOL, [school_name])
+    school_id = cur.fetchone()
+    cur.execute(DB_GET_TYPE_FOR_SCHOOL, [school_id])
+    school_type = cur.fetchone()
     cur.execute(DB_GET_SCHOOLS_BY_TYPE, [school_type])
-    return get_schools_by_id(find_schools(school_id, cur.fetchall(),
-                             num2return))
-
-def get_id_for_selected_school(school_id):
-    cur = connect_db()
-    return cur.execute(DB_GET_ID_FOR_SCHOOL, [school_id])
+    search_schools = cur.fetchall()
+    return_schools = find_schools(school_id, search_schools, number_to_return)
+    return get_schools_by_id(return_schools)
 
 
 def get_schools_by_id(school_ids):
