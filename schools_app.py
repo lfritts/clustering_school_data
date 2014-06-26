@@ -35,8 +35,10 @@ def main_page():
 @app.route('/schools/')
 def choose_school():
     district = request.args.get('district')
+    session['district'] = district
     schools = get_schools(district)
-    return render_template('choose_school.html', school_list=schools)
+    return render_template(
+        'choose_school.html', school_list=schools, district=session['district'])
 
 
 @app.route('/results/')
