@@ -10,19 +10,15 @@ SELECT school FROM demographics WHERE DISTRICT = %s ORDER BY school;
 """
 
 DB_GET_SCHOOLS_BY_TYPE = """
-SELECT buildingid, per_black, per_hispanic FROM demographics
-WHERE schooltype = %s;
+SELECT buildingid, {} FROM demographics WHERE schooltype = %s;
 """
-
-DB_GET_SCHOOLS_BY_TYPE_DEMO = """
-SELECT {} FROM demographics
-WHERE schooltype = %s;
-"""
-
 
 DB_GET_SCHOOLS_BY_ID = """
-SELECT buildingid, district, school, enrollment, lowses FROM demographics
-WHERE buildingid IN %s;
+SELECT * FROM demographics WHERE buildingid IN %s;
+"""
+
+DB_GET_SCHOOL_BY_ID = """
+SELECT * FROM demographics WHERE buildingid = %s;
 """
 
 DB_GET_ID_FOR_SCHOOL = """
@@ -34,7 +30,8 @@ SELECT schooltype FROM demographics where buildingid = %s;
 """
 
 sub_keys = {
-    "enrollment": "enrollment",
+    "buildingid": "buildingid",
+    "normalized_enrollment": "normalized_enrollment",
     "lowses": "lowses",
     "per_black": "per_black"
     }
@@ -73,39 +70,38 @@ def get_school_type(school_type):
     cur.execute(DB_GET_TYPE_FOR_SCHOOL, [school_type])
     return cur.fetchone()[0]
 
-def get_schools_by_type_demo(school_type, *args):
+def get_schools_by_type(school_type, *args):
     cur = connect_db()
     sub_query = []
     for arg in args[0]:
         sub_query.append(sub_keys.get(arg, ""))
     sub_query = ", ".join(sub_query)
     print "sub_query is: %s" % sub_query
-    query = DB_GET_SCHOOLS_BY_TYPE_DEMO.format(sub_query)
+    query = DB_GET_SCHOOLS_BY_TYPE.format(sub_query)
     print "query is: {}\n".format(query)
     cur.execute(query, [school_type])
     return cur.fetchall()
 
 
-def get_schools_by_type(school_type):
-    cur = connect_db()
-    cur.execute(DB_GET_SCHOOLS_BY_TYPE, [school_type])
-    return cur.fetchall()
-
 def get_results(school_name, district, number_to_return, *args):
-# def get_results(school_name, district, number_to_return):
     school_id = int(get_school_id(school_name, district))
     school_type = str(get_school_type(school_id))
-    # search_schools = get_schools_by_type(school_type)
-    search_schools = get_schools_by_type_demo(school_type, args)
-    print school_id in search_schools[:][0]
+    search_schools = get_schools_by_type(school_type, args)
     return_schools = find_schools(school_id, search_schools,
                                   int(number_to_return))
-    return get_schools_by_id(return_schools)
+    return get_schools_by_id(return_schools), get_school_by_id(school_id)
 
 
 def get_schools_by_id(school_ids):
     school_list = []
     cur = connect_db()
     cur.execute(DB_GET_SCHOOLS_BY_ID, [tuple(school_ids)])
+    school_list.append(cur.fetchall())
+    return school_list[0]
+
+def get_school_by_id(school_ids):
+    school_list = []
+    cur = connect_db()
+    cur.execute(DB_GET_SCHOOL_BY_ID, [school_ids])
     school_list.append(cur.fetchall())
     return school_list[0]
