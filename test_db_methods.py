@@ -31,5 +31,5 @@ def test_schools_by_id():
 
 def test_get_results():
     the_list = dbm.get_results("Chiawana High School", "Pasco School District",
-                               20)
+                               20, "normalized_enrollment", "lowses", "per_black")
     print the_list
