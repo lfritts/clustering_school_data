@@ -10,20 +10,20 @@
     <table id="final_results" class="table table-striped sortable">
       <thead>
         <tr>
-            <th>District</th>
-            <th>School</th>
-            <th>Enrollment</th>
-            <th>% Free/Reduced</th>
+            {% for heading in headings %}
+                <th>{{ heading }}</th>
+            {% endfor %}
         </tr>
       </thead>
       <tbody>
         {% for school in results %}
-          <tr class="schools" id="school_id={{school[0]}}">
-              <td>{{ school[1] }}</td>
-              <td>{{ school[2] }}</td>
-              <td>{{ school[3] }}</td>
-              <td>{{ school[4] }}</td>
-          </tr>
+            {{% for elt in school %}}
+                <tr class="schools" id="school_id={{school[0]}}">
+                    {{% for i in range(1, len(elt)) %}}
+                        <td>{{ school[i] }}</td>
+                    {{% endfor %}}
+                </tr>
+            {{% endfor %}}
         {% endfor %}
       </tbody>
     </table>

@@ -15,11 +15,15 @@ SELECT buildingid, {} FROM demographics WHERE schooltype = %s;
 """
 
 DB_GET_SCHOOLS_BY_ID = """
-SELECT * FROM demographics WHERE buildingid IN %s;
+SELECT buildingid, district, school, enrollment, lowses, per_native,
+per_asian, per_PI, per_API, per_black, per_hispanic, per_migrant, per_bil,
+per_sped FROM demographics WHERE buildingid IN %s;
 """
 
 DB_GET_SCHOOL_BY_ID = """
-SELECT * FROM demographics WHERE buildingid = %s;
+SELECT buildingid, district, school, enrollment, lowses, per_native,
+per_asian, per_PI, per_API, per_black, per_hispanic, per_migrant, per_bil,
+per_sped FROM demographics WHERE buildingid = %s;
 """
 
 DB_GET_ID_FOR_SCHOOL = """
@@ -31,10 +35,17 @@ SELECT schooltype FROM demographics where buildingid = %s;
 """
 
 sub_keys = {
-    "buildingid": "buildingid",
     "normalized_enrollment": "normalized_enrollment",
     "lowses": "lowses",
-    "per_black": "per_black"
+    "per_native": "per_native",
+    "per_asian": "per_asian",
+    "per_PI": "per_PI",
+    "per_API": "per_API",
+    "per_black": "per_black",
+    "per_hispanic": "per_hispanic",
+    "per_migrant": "per_migrant",
+    "per_bil": "per_bil",
+    "per_sped": "per_sped"
     }
 
 
@@ -91,7 +102,7 @@ def get_schools_by_type(school_type, *args):
 def get_results(school_name, district, number_to_return, *args):
     school_id = int(get_school_id(school_name, district))
     school_type = str(get_school_type(school_id))
-    search_schools = get_schools_by_type(school_type, args)
+    search_schools = get_schools_by_type(school_type, args[0])
     return_schools = find_schools(school_id, search_schools,
                                   int(number_to_return))
     return get_schools_by_id(return_schools), get_school_by_id(school_id)
