@@ -28,3 +28,8 @@ def test_schools_by_id():
     school_ids = [2824, 2890, 2530, 4149]
     return_list = dbm.get_schools_by_id(school_ids)
     assert len(return_list) == 4
+
+def test_get_results():
+    the_list = dbm.get_results("Chiawana High School", "Pasco School District",
+                               20)
+    print the_list
