@@ -1,6 +1,7 @@
 
 import psycopg2
 from closest_schools import find_n_closest_schools as find_schools
+import os
 
 DB_GET_DISTRICTS = """
 SELECT DISTINCT district FROM demographics ORDER BY district;
@@ -31,9 +32,13 @@ SELECT schooltype FROM demographics where buildingid = %s;
 
 def connect_db():
     #user only has read access
-    con = psycopg2.connect('''
-        host=mpl-schoolappdata.ck0b6t86e1sf.us-west-2.rds.amazonaws.com
-        dbname=school_data_2013''')
+    host_name = os.environ.get('HOST', 'host')
+    db_name = os.environ.get('DBNAME', 'school_data_2013')
+    user_name = os.environ.get('USER', 'admin')
+    passwd = os.environ.get('PASSWORD', 'admin')
+    conn_string = '''host={0} dbname={1} user={2} password={3}'''.format(
+        host_name, db_name, user_name, passwd)
+    con = psycopg2.connect('''{}'''.format(conn_string))
     return con.cursor()
 
 
