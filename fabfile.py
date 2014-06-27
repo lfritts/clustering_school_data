@@ -156,9 +156,7 @@ def deployment_control():
     upload_template(
         'simple_nginx_config', '~/',
         context={'host_dns': env.active_instance.public_dns_name})
-    upload_template(
-        'supervisord.conf', '~/',
-        context={'host_envs': db_envs()})
+    upload_template('supervisord.conf', '~/', context={'host_envs': db_envs()})
     sudo('mv supervisord.conf /etc/supervisor/conf.d/schools_app.conf')
     sudo('mv /etc/nginx/sites-available/default '
          '/etc/nginx/sites-available/default.orig')
