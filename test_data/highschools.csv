@@ -1,0 +1,412 @@
+,School_ID,School_TYPE,School District,School,Enroll,Low_SES,NRML_Enroll,per_native,per_asian,per_PI,per_API,per_black,per_hispanic,per_migrant,per_bil,per_sped
+,5164,High,Pasco School District,Chiawana High School,2240,67.31,100,0.31,1.65,0.27,1.92,3.3,63.35,8,13.15,12.09
+,3640,High,Kent School District,Kentridge High School,2185,31.72,97.54464286,0.59,23.89,1.42,25.31,9.15,9.61,0,3.08,7.98
+,5111,High,Evergreen School District (Clark),Union High School,2176,26.9,97.14285714,0.55,9.38,1.1,10.48,2.9,9.28,0,2.12,8.48
+,2272,High,South Kitsap School District,South Kitsap High School,2169,34.64,96.83035714,1.24,3.6,1.66,5.26,1.38,11.8,0,0.58,12.21
+,2134,High,Wenatchee School District,Wenatchee High School,2164,50.6,96.60714286,0.51,0.88,0.14,1.02,0.51,40.48,18.73,4.14,8.86
+,3215,High,Moses Lake School District,Moses Lake High School,2151,52.08,96.02678571,1.21,1.16,0.05,1.21,1.44,39.24,3.24,2.81,8.71
+,4523,High,Evergreen School District (Clark),Heritage High School,2145,50.75,95.75892857,1.07,5.03,1.4,6.43,2.66,16.32,0,3.06,13.32
+,2415,High,Battle Ground School District,Battle Ground High School,2132,36.02,95.17857143,0.23,1.03,0.05,1.08,0.56,6.85,0,1.48,12.4
+,2797,High,Kent School District,Kent-Meridian High School,2131,69.59,95.13392857,1.17,20.65,4.08,24.73,18.21,22.67,0,15.68,10.55
+,4433,High,Mukilteo School District,Kamiak High School,2118,18.12,94.55357143,0.8,20.21,0.33,20.54,2.64,7.84,0,2.72,5.34
+,3688,High,Mukilteo School District,Mariner High School,2094,65.3,93.48214286,0.86,15.14,2.01,17.14,8.02,30.8,0,10.08,13.49
+,2116,High,Yakima School District,Davis High School,2091,79.79,93.34821429,0.81,0.77,0.05,0.81,1.15,81.78,20.1,15.44,9.69
+,5071,High,Quillayute Valley School District,Insight School of Washington,2029,0.24,90.58035714,2.37,2.96,1.23,4.19,4.93,10.84,0,0,0
+,4495,High,Issaquah School District,Skyline High School,2015,4.2,89.95535714,0.35,22.93,0.1,23.03,2.43,5.31,0,0.65,5
+,4128,High,Kent School District,Kentwood High School,2015,35.13,89.95535714,0.89,20.4,1.19,21.59,8.14,13.7,0,4.93,7.47
+,3385,High,Issaquah School District,Issaquah High School,2014,9.1,89.91071429,0.2,18.37,0.15,18.52,1.74,6.8,0,1.97,7.12
+,3206,High,Yakima School District,Eisenhower High School,1973,69,88.08035714,1.57,1.12,0.15,1.27,1.01,60.36,15.38,10.01,10.12
+,4504,High,Vancouver School District,Skyview High School,1960,27.68,87.5,0.87,4.59,1.07,5.66,3.06,9.69,0,1.71,9.31
+,3065,High,Central Valley School District,Central Valley High School,1955,28.25,87.27678571,0.46,1.64,0.26,1.89,1.23,5.27,0,1.43,8.62
+,4438,High,Everett School District,Henry M. Jackson High School,1951,19.96,87.09821429,0.72,20.04,0.51,20.55,3.18,9.69,0,1.74,6.32
+,4162,High,Evergreen School District (Clark),Mountain View High School,1922,35.32,85.80357143,0.68,10.2,1.66,11.86,3.23,15.5,0,3.91,13.35
+,2295,High,Mount Vernon School District,Mount Vernon High School,1920,60.12,85.71428571,0.78,2.45,0.73,3.18,1.09,48.65,8.27,8.98,11.1
+,2917,High,Pasco School District,Pasco Senior High School,1916,75.04,85.53571429,0.16,1.3,0.31,1.62,2.04,77.14,7.01,19.78,11.64
+,3468,High,Walla Walla Public Schools,Walla Walla High School,1911,42.21,85.3125,0.37,1.99,0.21,2.2,0.84,32.91,0,4.89,9.52
+,2724,High,Evergreen School District (Clark),Evergreen High School,1910,50.62,85.26785714,1.26,4.92,2.83,7.75,4.5,14.5,0,3.39,12.75
+,4567,High,Camas School District,Camas High School,1893,19.18,84.50892857,0.42,6.44,0.58,7.03,1.16,5.92,0,0.11,9.43
+,3511,High,Richland School District,Richland High School,1888,26.23,84.28571429,0.95,3.6,0.26,3.87,2.81,9.85,0,1.19,7.84
+,4570,High,Federal Way School District,Todd Beamer High School,1870,44.67,83.48214286,1.02,17.43,3.05,20.48,13.16,14.33,0,3.16,12.21
+,5033,High,Bethel School District,Graham Kapowsin High School,1866,33.58,83.30357143,1.71,6.65,0.96,7.61,7.4,10.34,0,0.11,14.26
+,3528,High,Lake Washington School District,Redmond High,1864,12.53,83.21428571,0.11,14.54,0.05,14.59,1.45,9.82,0,3.12,12.8
+,3407,High,Everett School District,Cascade High School,1862,41.69,83.125,0.38,13,0.81,13.8,4.24,14.66,0,3.96,9.31
+,2172,High,Spokane School District,Lewis & Clark High School,1828,34.99,81.60714286,0.82,3.83,1.37,5.2,3.99,7,0,3.77,0.68
+,2849,High,Tahoma School District,Tahoma Senior High School,1827,11.45,81.5625,0.66,3.5,0.16,3.67,2.52,7.28,0,0.22,8.43
+,2959,High,Sunnyside School District,Sunnyside High School,1810,74.04,80.80357143,0,0,0,0,0.17,89.06,19.11,13.46,8.67
+,3132,High,Olympia School District,Olympia High School,1767,17.84,78.88392857,0.51,8.43,0.28,8.72,1.98,8.15,0.06,0.76,7.45
+,2428,High,Snohomish School District,Snohomish High School,1753,21.64,78.25892857,0.63,1.48,0.17,1.65,0.8,7.59,0,0.59,14.45
+,2426,High,Lake Stevens School District,Lake Stevens Sr High School,1750,21.85,78.125,1.09,5.83,0.91,6.74,2.06,10.34,0,1.01,10.63
+,3584,High,Federal Way School District,Thomas Jefferson High School,1743,47.49,77.8125,0.46,19.45,1.03,20.48,8.78,19.91,0,3.35,8.18
+,3415,High,Central Valley School District,University High School,1699,38.08,75.84821429,1.06,0.71,0.41,1.12,1.35,5.36,0,0.12,13.02
+,3645,High,Puyallup School District,Rogers High School,1699,33.17,75.84821429,0.77,5.71,1.41,7.12,6.18,12.18,0,1.25,11.4
+,2285,High,Seattle Public Schools,Roosevelt High School,1699,16.74,75.84821429,0.94,14.95,0,14.95,6.71,8.59,0.49,2.62,10.16
+,3486,High,Bellevue School District,Newport Senior High School,1698,13.19,75.80357143,0.29,40.64,0.18,40.81,2.24,4.65,0,0.78,6.15
+,4081,High,Peninsula School District,Gig Harbor High,1690,12.42,75.44642857,0.36,1.78,0.36,2.13,1.01,4.56,0,0,6.66
+,2084,High,Tacoma School District,Stadium,1685,35.05,75.22321429,1.78,10.8,1.25,12.05,16.56,9.14,0,1.19,6.39
+,2306,High,Seattle Public Schools,Garfield High School,1671,40.05,74.59821429,0.9,20.89,0.3,21.18,31.06,7.36,0.62,5.52,5.64
+,2850,High,Snoqualmie Valley School District,Mount Si High School,1669,12.26,74.50892857,0.66,3.3,0.06,3.36,1.14,4.67,0,0.43,8.48
+,3731,High,Kennewick School District,Kamiakin High School,1654,29.91,73.83928571,0.6,2.36,0.42,2.78,3.39,14.09,4.6,3.53,10.45
+,4158,High,Bethel School District,Spanaway Lake High School,1652,51.48,73.75,1.76,11.56,4.6,16.16,17.74,13.38,0,3.15,15.15
+,4492,High,Kent School District,Kentlake High School,1652,34.72,73.75,0.73,7.81,1.21,9.02,7.08,13.08,0,4.93,10.95
+,3412,High,Spokane School District,Ferris High School,1649,41.19,73.61607143,0.79,4.12,0.36,4.49,3.34,7.94,0,5.01,0.7
+,3123,High,Edmonds School District,Edmonds Woodway High School,1644,27.53,73.39285714,0.79,15.33,0.43,15.75,6.57,12.04,0,4.4,10.35
+,5128,High,Snohomish School District,Glacier Peak High School,1640,10.96,73.21428571,0.3,7.68,0.24,7.93,1.65,6.34,0,0.5,9.33
+,3710,High,North Thurston Public Schools,Timberline High School,1638,32.15,73.125,1.04,8.36,1.77,10.13,8.24,13.68,0,0.56,9.27
+,3492,High,Northshore School District,Inglemoor HS,1633,14.62,72.90178571,0.55,16.17,0.67,16.84,2.33,8.21,0,2.27,9.64
+,2402,High,Mead School District,Mead Senior High School,1632,24.94,72.85714286,0,0,0,0,0.92,5.51,0,2.03,9.95
+,2220,High,Seattle Public Schools,Ballard High School,1620,20.59,72.32142857,1.17,9.94,0.12,10.06,5.25,11.11,2.57,1.69,11.08
+,4474,High,Auburn School District,Auburn Riverside High School,1618,35.81,72.23214286,0.68,9.95,1.05,11,4.64,19.28,0,3.49,6.03
+,4439,High,Lake Washington School District,Eastlake High School,1618,6.11,72.23214286,0.62,11.31,0,11.31,1.17,6.86,0,0.13,10.33
+,4540,High,Puyallup School District,Emerald Ridge High School,1615,27.71,72.09821429,0.87,4.95,1.49,6.44,3.96,11.02,0,0.45,9.63
+,4528,High,Monroe School District,Monroe High School,1614,25.64,72.05357143,0.81,3.22,0.25,3.47,0.62,14.87,0,2.3,14.8
+,2974,High,Oak Harbor School District,Oak Harbor High School,1609,34.21,71.83035714,1.24,15.72,0.44,16.16,7.64,9.26,0,1.51,11.45
+,3247,High,Sumner School District,Sumner High School,1600,29.55,71.42857143,1.31,2.88,0.88,3.75,1.38,10.94,0,1.96,11.48
+,2795,High,Auburn School District,Auburn Senior High School,1592,55.63,71.07142857,2.64,6.34,3.02,9.36,6.72,22.17,0,5.08,15.16
+,3279,High,Highline School District,Mount Rainier High School,1591,49.86,71.02678571,0.69,12.07,2.95,15.02,8.3,26.4,0,6.9,9.07
+,3755,High,Edmonds School District,Lynnwood High School,1588,45.07,70.89285714,0.57,21.22,1.01,22.23,8.31,16.69,0,7.52,12.06
+,2417,High,Federal Way School District,Federal Way High School,1588,59.36,70.89285714,0.5,11.84,7.75,19.58,15.99,26.83,0,7.33,12.33
+,2807,High,Bethel School District,Bethel High School,1582,47.11,70.625,2.65,7.08,1.01,8.09,9.99,9.42,0,0.07,14.55
+,3106,High,Northshore School District,Bothell High School,1582,18.77,70.625,0.7,12.33,0.57,12.9,1.9,11.88,0,2.11,11.79
+,3833,High,Richland School District,Hanford High School,1578,21.1,70.44642857,1.01,5.51,0.32,5.83,2.22,9.76,0,1.7,7.45
+,2523,High,Arlington School District,Arlington High School,1566,25.42,69.91071429,1.02,1.92,0.57,2.49,1.47,8.88,0,1.11,8.71
+,3464,High,Edmonds School District,Meadowdale High School,1546,28.95,69.01785714,0.39,12.55,0.32,12.87,5.11,10.22,0,3.09,6.78
+,2266,High,Kelso School District,Kelso High School,1544,49.09,68.92857143,4.15,2.01,0.13,2.14,0.91,12.18,0,0.68,11.48
+,3588,High,Bellevue School District,Interlake Senior High School,1542,24.82,68.83928571,0,32.3,0.06,32.36,3.05,12.91,0,1.91,9.37
+,2826,High,Kennewick School District,Kennewick High School,1539,64.78,68.70535714,0.52,1.75,0.19,1.95,3.18,41.91,16.73,11.43,10.94
+,2125,High,Puyallup School District,Puyallup High School,1538,32.1,68.66071429,1.37,4.94,0.91,5.85,1.63,9.95,0,0.89,11.41
+,4484,High,Kennewick School District,Southridge High School,1534,42.54,68.48214286,0.78,2.67,0.52,3.19,1.69,23.79,8.09,3.95,8.43
+,3189,High,Spokane School District,Shadle Park High School,1505,44.61,67.1875,1.93,1.73,0.47,2.19,1.4,6.58,0,0.63,1.74
+,3398,High,Tacoma School District,Mt Tahoma,1494,72,66.69642857,2.54,15.66,2.41,18.07,22.62,19.48,0,6.98,10.08
+,5037,High,Auburn School District,Auburn Mountainview High School,1490,40.18,66.51785714,0.74,7.99,1.54,9.53,8.99,13.09,0,5.46,6.62
+,3921,High,Shoreline School District,Shorewood High School,1490,25.14,66.51785714,0.67,18.93,0.07,18.99,6.64,11.21,0,6.74,10.35
+,2581,High,Stanwood-Camano School District,Stanwood High School,1488,22.49,66.42857143,1.01,1.34,0.47,1.81,0.81,6.72,0,1.05,12.44
+,4491,High,Mead School District,Mt Spokane High School,1486,25.89,66.33928571,0.4,0.2,0.27,0.47,0.87,4.85,0,1.77,11.38
+,3010,High,North Thurston Public Schools,North Thurston High School,1484,35.63,66.25,1.28,13.54,0.61,14.15,5.86,14.76,0,6.07,10.39
+,2479,High,Spokane School District,Rogers High School,1468,76.31,65.53571429,3.54,4.56,3.2,7.77,4.43,9.74,0,7.4,1.7
+,2126,High,Everett School District,Everett High School,1462,46.51,65.26785714,1.85,7.11,1.37,8.48,4.45,16.14,0,8.02,11.66
+,2215,High,Tacoma School District,Lincoln,1457,78.28,65.04464286,2.61,15.37,3.23,18.6,26.9,25.39,0,6.14,9.74
+,3029,High,Mercer Island School District,Mercer Island High School,1455,3.87,64.95535714,0.41,19.86,0.14,20,1.44,2.89,0,1.11,8.71
+,3630,High,Renton School District,Hazen Senior High School,1455,36.25,64.95535714,0.69,25.84,0.55,26.39,7.63,19.45,0,6.3,10.29
+,2182,High,Seattle Public Schools,Franklin High School,1447,70.16,64.59821429,1.04,53.28,0.48,53.77,28.61,8.29,0.29,16.04,9.61
+,3330,High,Enumclaw School District,Enumclaw Sr High School,1446,24.09,64.55357143,2.35,0.69,0.14,0.83,0.48,10.17,0,1.28,10.16
+,2701,High,Bellevue School District,Bellevue High School,1443,11.84,64.41964286,0.14,26.75,0.14,26.89,3.19,5.82,0,7.4,8.1
+,2681,High,Peninsula School District,Peninsula High School,1442,27.33,64.375,0.21,1.46,0.35,1.8,0.42,3.61,0,0.36,8.39
+,4104,High,Battle Ground School District,Prairie High School,1430,29.15,63.83928571,0.21,3.22,0.21,3.43,1.33,8.81,0,1.44,9.88
+,2179,High,Vancouver School District,Fort Vancouver High School,1420,72.92,63.39285714,0.77,4.51,4.51,9.01,5.35,26.69,0,14.02,14.24
+,2739,High,Lake Washington School District,Lake Washington High,1409,17.13,62.90178571,0.64,10.57,0.14,10.72,1.92,9.16,0,2.65,14.48
+,2488,High,Ferndale School District,Ferndale High School,1406,41.11,62.76785714,5.41,3.41,0.07,3.49,0.64,17.35,0.95,1.76,13.17
+,4208,High,Northshore School District,Woodinville HS,1406,11.9,62.76785714,0.43,7.75,0.36,8.11,1.71,8.32,0,1.59,7.93
+,3456,High,Clover Park School District,Lakes High School,1402,50.26,62.58928571,0.86,5.92,2.78,8.7,16.19,16.05,0,0.45,9.72
+,3766,High,Federal Way School District,Decatur High School,1402,44.97,62.58928571,1,12.62,2.21,14.84,12.2,21.68,0,4.45,12.2
+,3600,High,University Place School District,Curtis Senior High,1398,29.93,62.41071429,0.21,10.87,0.5,11.37,10.3,10.09,0,1.49,8.19
+,2727,High,Eastmont School District,Eastmont Senior High,1359,45.99,60.66964286,0.15,0.37,0.07,0.44,0.22,37.82,7.78,6.78,12.71
+,4515,High,Bellingham School District,Squalicum High School,1350,37.84,60.26785714,1.41,9.7,0.3,10,0.74,16.81,1.09,4.51,12.82
+,3246,High,Tacoma School District,Wilson,1348,41.1,60.17857143,1.56,6.45,0.37,6.82,18.47,6.97,0,2.4,6.35
+,4585,High,Sumner School District,Bonney Lake High School,1347,29.17,60.13392857,1.41,2.45,0.37,2.82,1.41,7.94,0,0.38,12.49
+,3081,High,Vancouver School District,Hudson's Bay High School,1342,63.67,59.91071429,1.27,3.5,1.94,5.44,4.55,22.58,0,4.14,14.22
+,2325,High,Highline School District,Highline High School,1331,64.64,59.41964286,1.05,12.7,3.08,15.78,8.26,38.32,0,12,14.56
+,3423,High,Vancouver School District,Columbia River High,1325,23.97,59.15178571,1.06,5.51,0.6,6.11,3.7,7.17,0,0.23,9.91
+,3960,High,Olympia School District,Capital High School,1317,25.95,58.79464286,0.91,6.99,0.46,7.44,2.28,8.43,0,1.01,10.44
+,3771,High,Lake Washington School District,Juanita High,1303,22.89,58.16964286,0.38,12.13,0.54,12.66,3.22,12.28,0,3.24,17.28
+,2475,High,Renton School District,Renton Senior High School,1284,63.4,57.32142857,0.62,31.39,0.23,31.62,34.11,16.59,0,10.67,14.77
+,3343,High,Shoreline School District,Shorecrest High School,1276,26.59,56.96428571,0.47,14.66,0.39,15.05,7.05,10.97,0,4.29,9.37
+,3236,High,North Kitsap School District,North Kitsap High School,1275,25.23,56.91964286,1.88,4,0.24,4.24,1.33,10.9,0,1.74,11.62
+,3096,High,Seattle Public Schools,Chief Sealth International High School,1274,59.51,56.875,1.81,17.74,2.28,20.02,20.49,22.76,1.07,10.53,15.31
+,2395,High,Bainbridge Island School District,Bainbridge High School,1259,6.31,56.20535714,0.71,4.53,0,4.53,0.56,4.61,0,0.32,6.71
+,2615,High,Central Kitsap School District,Central Kitsap High School,1256,22.97,56.07142857,0.32,7.48,1.04,8.52,3.03,10.11,0,1.27,10.9
+,3741,High,Renton School District,Lindbergh Senior High School,1255,46.74,56.02678571,1.43,25.66,0.8,26.45,18.57,15.14,0,4.46,11.56
+,3962,High,Issaquah School District,Liberty Sr High School,1253,12.92,55.9375,0.64,12.53,0.4,12.93,1.92,9.02,0,0.82,7.57
+,3303,High,Edmonds School District,Mountlake Terrace High School,1225,31.7,54.6875,1.14,12.41,0.49,12.9,6.53,12.49,0,4.4,12.12
+,5213,High,Marysville School District,MP Pathways of Choice,1219,35.76,54.41964286,3.77,3.04,0.16,3.2,0.74,17.56,0,2.69,13.45
+,2633,High,Yelm School District,Yelm High School 12,1216,38.72,54.28571429,1.56,1.48,0.41,1.89,1.64,8.31,0,0.61,10.66
+,3109,High,Bremerton School District,Bremerton High School,1208,57.86,53.92857143,1.99,6.95,1.9,8.86,7.45,14.57,0,2.28,14.05
+,2106,High,Spokane School District,North Central High School,1195,52.91,53.34821429,2.76,1.17,2.34,3.51,2.43,9.54,0,2.42,1.35
+,2908,High,Port Angeles School District,Port Angeles High School,1184,40.9,52.85714286,3.97,1.27,0,1.27,1.35,5.15,0,0.62,11.93
+,4569,High,White River School District,White River High School,1177,28.08,52.54464286,1.36,0.68,0.17,0.85,0.42,6.03,0,0.43,13.61
+,3610,High,Cheney School District,Cheney High School,1175,39.74,52.45535714,1.45,2.81,0.43,3.23,1.36,8.68,0,0.18,11.98
+,3479,High,Seattle Public Schools,Nathan Hale High School,1172,29.23,52.32142857,1.28,13.99,0.43,14.42,14.16,8.96,0.36,4.89,16.56
+,2150,High,Sedro-Woolley School District,Sedro Woolley Senior High School,1160,44.62,51.78571429,1.81,1.12,0.09,1.21,0.69,15.86,2.39,1.56,12.05
+,2425,High,Clover Park School District,Clover Park High School,1139,78.11,50.84821429,0.61,7.64,6.67,14.31,13.96,37.23,0,13.51,12.82
+,3362,High,Tumwater School District,Tumwater High School,1135,25.24,50.66964286,0.79,1.23,0.44,1.67,1.41,7.93,0,0.44,12.27
+,3360,High,East Valley School District (Spokane),East Valley High School,1128,47.35,50.35714286,0.71,2.22,0.18,2.39,0.89,9.75,0,1.28,13.53
+,4427,High,North Thurston Public Schools,River Ridge High School,1120,40.65,50,2.86,10.09,1.96,12.05,9.38,15.36,0,2,12.88
+,2553,High,Bellingham School District,Bellingham High School,1118,30.49,49.91071429,0.54,2.59,0.45,3.04,1.7,12.16,0.28,0.93,9.82
+,3151,High,Longview School District,Mark Morris High School,1115,37.51,49.77678571,0.72,1.35,0.18,1.52,0.54,13.45,0,0.65,12.91
+,2876,High,Franklin Pierce School District,Franklin Pierce High School,1106,55.49,49.375,0.81,5.79,2.98,8.77,12.21,16.91,0,2.54,8.92
+,3576,High,Bellingham School District,Sehome High School,1105,23.78,49.33035714,1,4.8,0.27,5.07,0.9,9.86,0.18,1.2,11.15
+,2362,High,Burlington-Edison School District,Burlington Edison High School,1100,40.98,49.10714286,1.18,2.45,0.09,2.55,0.73,30.18,2.59,4.89,12.48
+,2166,High,Centralia School District,Centralia High School,1067,59.56,47.63392857,0.56,0.94,0.19,1.12,1.97,22.68,2.4,1.63,12.3
+,3282,High,Bellevue School District,Sammamish Senior High,1054,40.52,47.05357143,0.57,20.21,0,20.21,6.45,18.5,0,11.9,12.19
+,3015,High,Othello School District,Othello High School,1052,69.97,46.96428571,0.29,0.29,0,0.29,0,81.65,9.03,15.6,13.64
+,3074,High,West Valley School District (Yakima),West Valley High School,1028,32.69,45.89285714,0.78,2.53,0,2.53,0.88,17.02,1.02,2.45,9.4
+,3276,High,Seattle Public Schools,Ingraham High School,1021,38.96,45.58035714,1.96,23.02,0.1,23.11,12.24,13.32,1.66,6.01,11.19
+,2471,High,Sequim School District,Sequim Senior High,1014,40.16,45.26785714,1.68,1.78,0.1,1.87,0.79,11.93,0,0.51,11.62
+,3241,High,Shelton School District,Shelton High School,1012,50.68,45.17857143,5.14,0.4,0.2,0.59,0.89,14.72,0,2.42,11.67
+,3880,High,Tacoma School District,Foss,1012,69.79,45.17857143,0.99,17,2.37,19.37,27.47,16.7,0,4.57,12.45
+,2799,High,Chehalis School District,W F West High School,1008,37.11,45,0.6,1.79,0.1,1.88,1.09,11.61,0,0.62,12.47
+,3648,High,Franklin Pierce School District,Washington High School,1004,66.67,44.82142857,1.39,9.36,10.06,19.42,14.14,17.33,0,3.18,12
+,2416,High,Longview School District,R A Long High School,995,58.48,44.41964286,1.51,2.61,0.1,2.71,2.01,19.6,0,2.45,10.14
+,2234,High,Seattle Public Schools,West Seattle High School,973,41.48,43.4375,1.85,17.27,0.72,17.99,18.09,13.36,0.33,6.19,16.83
+,2848,High,Tukwila School District,Foster Senior High School,938,72.86,41.875,0.75,31.02,4.26,35.29,19.4,22.17,0,29.37,8.9
+,3476,High,Aberdeen School District,J M Weatherwax High School,926,53.46,41.33928571,3.78,4.43,0.86,5.29,0.76,22.57,2.88,3.57,11.29
+,3524,High,Riverview School District,Cedarcrest High School,922,16.17,41.16071429,1.3,3.8,0,3.8,1.19,8.13,0,0.44,9.29
+,4100,High,Central Kitsap School District,Olympic High School,920,39.37,41.07142857,0.33,9.78,2.07,11.85,3.15,9.02,0,0.9,14.48
+,3195,High,West Valley School District (Spokane),West Valley High School,908,39.88,40.53571429,1.21,1.65,0.11,1.76,1.76,7.71,0,1.17,11.7
+,3147,High,Washougal School District,Washougal High School,907,35.7,40.49107143,1.32,2.65,0.11,2.76,0.77,8.05,0,0.93,14.42
+,2996,High,Ellensburg School District,Ellensburg High School,899,30.81,40.13392857,1.56,1.45,0.11,1.56,0.78,11.9,0.92,1.26,10.88
+,5085,High,North Kitsap School District,Kingston High School,893,31.77,39.86607143,6.38,1.68,0.22,1.9,0.67,6.49,0,0.69,9.6
+,2508,High,Prosser School District,Prosser High School,879,47.4,39.24107143,0.46,1.14,0,1.14,0.34,54.49,25.65,6.97,11.23
+,4500,High,Tumwater School District,A G West Black Hills High School,858,25.5,38.30357143,0.93,4.55,0.35,4.9,2.21,8.62,0,0.83,8.78
+,4131,High,Steilacoom Hist. School District,Steilacoom High,856,18.69,38.21428571,0.7,9,2.1,11.1,8.29,13.2,0,0.61,5.95
+,3141,High,Wapato School District,Wapato High School,855,98.03,38.16964286,13.45,1.87,0,1.87,0.23,76.26,28.73,16.15,7.03
+,4201,High,Lynden School District,Lynden High School,851,33.21,37.99107143,0.47,3.76,0,3.76,1.06,22.91,3.24,3.48,12.59
+,2467,High,Anacortes School District,Anacortes High School,849,27.48,37.90178571,1.88,2.83,0.12,2.94,1.3,7.18,0,0.74,5.89
+,2392,High,Seattle Public Schools,Cleveland High School,838,73.41,37.41071429,1.91,39.74,1.67,41.41,36.99,11.22,1.59,6,13.24
+,2344,High,East Valley School District (Yakima),East Valley High School,836,47.32,37.32142857,0.96,0.84,0.24,1.08,1.08,39.71,6.6,2.62,9.96
+,2900,High,Toppenish School District,Toppenish High School,789,100,35.22321429,7.6,0.25,0,0.25,0,88.09,18.04,14.19,12.33
+,2555,High,Grandview School District,Grandview High School,788,78.2,35.17857143,0.13,0.51,0,0.51,0.13,86.8,14.71,12.81,8.72
+,3088,High,Quincy School District,Quincy High School,786,75.66,35.08928571,0,0.38,0,0.38,0,82.7,14.89,16.62,7.85
+,2773,High,Fife School District,Fife High School,761,37.67,33.97321429,0.66,6.31,3.68,9.99,4.2,16.29,0,3.7,8.36
+,2942,High,Orting School District,Orting High School,756,33.96,33.75,0.4,0.93,0.4,1.32,1.32,10.05,0,0.81,10.28
+,2299,High,Clarkston School District,Charles Francis Adams High School,739,43.67,32.99107143,1.62,0.95,0.14,1.08,1.22,5.41,0,0.44,15.14
+,4204,High,Lakewood School District,Lakewood High School,725,22.78,32.36607143,1.38,2.48,0.14,2.62,3.03,9.66,0,0.42,8.33
+,4123,High,Deer Park School District,Deer Park High School,701,52.91,31.29464286,2.43,0.14,0.14,0.29,0.86,2.57,0,0,13.9
+,3175,High,North Mason School District,North Mason Senior High School,698,41.43,31.16071429,0.29,1.72,0.57,2.29,1.43,9.74,0,2.78,16.54
+,4568,High,Hockinson School District,Hockinson High School,692,21.5,30.89285714,0.14,3.32,0,3.32,1.16,3.03,0,0.29,7.07
+,2390,High,Ridgefield School District,Ridgefield High School,688,28.34,30.71428571,0.15,2.18,0.73,2.91,1.16,8.14,0,0.6,10.49
+,2920,High,Ephrata School District,Ephrata High School,687,43.16,30.66964286,0.29,0.58,0,0.58,0.29,23.58,2.86,2.86,10.23
+,2388,High,Selah School District,Selah High School,685,32.63,30.58035714,0.44,0.29,0.15,0.44,0.29,21.17,0,2.25,10.78
+,2499,High,Pullman School District,Pullman High School,671,23.05,29.95535714,0.89,7.9,0,7.9,2.24,11.18,0,1.65,9.13
+,3546,High,Woodland School District,Woodland High School,663,38.83,29.59821429,0.9,0.9,0.3,1.21,1.06,10.11,0,0.65,8.9
+,2206,High,Eatonville School District,Eatonville High School,640,0,28.57142857,2.34,0.31,0.16,0.47,1.41,5.63,0,0,6.92
+,3136,High,Blaine School District,Blaine High School,637,45.22,28.4375,0.63,3.77,0.78,4.55,1.57,13.66,0,1.3,10.05
+,2580,High,Granite Falls School District,Granite Falls High School,631,36.8,28.16964286,2.22,1.9,0,1.9,0.79,6.02,0,0.66,9.57
+,2343,High,Mount Baker School District,Mount Baker Senior High,622,49.15,27.76785714,4.66,0.96,0.32,1.29,0.64,8.2,0,2.55,13.95
+,4326,High,Rochester School District,Rochester High School,596,44.87,26.60714286,2.18,0.67,0.17,0.84,0.84,16.61,0,1.39,13.57
+,5109,High,Monroe School District,WAVA,591,20,26.38392857,1.02,3.89,0.34,4.23,4.57,8.97,0,0,10.68
+,3310,High,Colville School District,Colville Senior High School,579,44.14,25.84821429,1.04,0.52,0,0.52,0.35,5.7,0,1.62,11.89
+,2137,High,Elma School District,Elma High School,570,45.13,25.44642857,1.23,0.35,0,0.35,0.7,11.23,0,0.72,16.61
+,4274,High,Sultan School District,Sultan Senior High School,563,42.7,25.13392857,1.6,1.24,0.18,1.42,1.24,13.32,0,1.48,15.71
+,3272,High,North Franklin School District,Connell High School,546,64.86,24.375,0,1.28,0,1.28,0,61.36,15.14,14.95,12.71
+,4333,High,Nine Mile Falls School District,Lakeside High School,544,24.29,24.28571429,2.02,0.37,0,0.37,0,2.57,0,0,7.72
+,2890,High,Medical Lake School District,Medical Lake High School,532,30.35,23.75,0.19,2.82,0.56,3.38,1.69,8.27,0,0.19,11.09
+,4149,High,South Whidbey School District,South Whidbey High School,531,22.67,23.70535714,0.56,3.39,0.19,3.58,0.94,3.01,0,0,12.38
+,4431,High,La Center School District,La Center High School,520,25.1,23.21428571,0.96,0.58,0.19,0.77,0.38,5.38,0,0.6,9.64
+,4254,High,Wahluke School District,Wahluke High School,515,98.19,22.99107143,0.97,0,0,0,0,95.53,19.35,25.4,12.7
+,1860,High,Tacoma School District,Tacoma School of the Arts,514,22.44,22.94642857,1.36,6.42,0.39,6.81,12.84,6.42,0,0.2,3.61
+,2419,High,Vashon Island School District,Vashon Island High School,512,16.94,22.85714286,1.17,3.13,0.2,3.32,0.2,6.84,0,1.02,9.39
+,3622,High,Hoquiam School District,Hoquiam High School,506,53.8,22.58928571,4.74,1.78,0,1.78,2.77,17,0,0.43,11.93
+,5197,High,Omak School District,Washington Virtual Academy Omak High School,485,24.15,21.65178571,0.62,2.68,0.41,3.09,3.92,8.87,0,0,12.19
+,4228,High,Riverside School District,Riverside High School,482,47.32,21.51785714,1.87,0.21,0,0.21,0.41,2.28,0,0.86,17.13
+,2554,High,Meridian School District,Meridian High School,478,36.38,21.33928571,1.67,3.35,0.42,3.77,0.42,19.25,1.53,3.7,12.42
+,2904,High,Kiona-Benton City School District,Kiona-Benton City High School,471,61.24,21.02678571,0,0.21,0.42,0.64,1.06,34.18,10.06,0,12.63
+,2503,High,Port Townsend School District,Port Townsend High School,470,36.8,20.98214286,1.28,4.04,0.21,4.26,2.77,4.68,0,0.65,13.64
+,2591,High,Naches Valley School District,Naches Valley High School,464,40.39,20.71428571,0.43,1.08,0,1.08,0.43,16.16,0,1.3,9.07
+,3268,High,Cashmere School District,Cashmere High School,455,43.5,20.3125,0.66,0.88,0,0.88,0.88,35.82,7.85,4.71,5.83
+,2281,High,Castle Rock School District,Castle Rock High School,452,43.76,20.17857143,1.55,1.77,0,1.77,1.11,7.74,0,1.59,14.29
+,5064,High,Highline School District,Global Connections High School,435,82.42,19.41964286,0.46,21.61,4.37,25.98,12.87,38.62,0,23.99,21.85
+,3516,High,Royal School District,Royal High School,431,100,19.24107143,0.23,0.46,0,0.46,0.46,78.65,5.47,14.18,9.2
+,3314,High,Granger School District,Granger High School,429,89.02,19.15178571,3.26,0,0,0,0,89.74,17.8,19.76,9.51
+,3553,High,Highline School District,Aviation High School,426,17.58,19.01785714,0.7,18.08,0.23,18.31,4.46,10.09,0,0.71,1.43
+,3564,High,Cascade School District,Cascade High School,422,40.29,18.83928571,0.95,0.71,0.24,0.95,1.18,28.91,4.91,4.91,9.34
+,4260,High,Lake Chelan School District,Chelan High School,416,55.72,18.57142857,0,0.72,0,0.72,0,44.71,3.65,8.52,5.35
+,3327,High,Seattle Public Schools,Rainier Beach High School,404,83.79,18.03571429,0.99,19.8,4.46,24.26,51.98,14.11,1.37,22.8,15.66
+,5169,High,Tacoma School District,Science and Math Institute,404,42.21,18.03571429,1.49,9.41,1.49,10.89,15.84,8.17,0,1.01,7.79
+,2240,High,Zillah School District,Zillah High School,403,47.8,17.99107143,4.22,0.5,0,0.5,0.5,41.44,6.1,3.9,11.95
+,5210,High,Marysville School District,Bio Med Academy,401,36.44,17.90178571,1.25,13.22,2.49,15.71,0.75,19.95,0,2.93,4.79
+,4559,High,Highland School District,Highland High School,398,68.45,17.76785714,0.25,0.25,0,0.25,0.25,61.81,20.87,8.65,10.43
+,2031,High,Omak School District,Omak High School,398,55.12,17.76785714,24.37,2.01,0,2.01,0.75,22.11,0.55,2.22,14.68
+,4118,High,Skills Centers,Tri-Tech Skills Center,395,18.25,17.63392857,0,1.52,0,1.52,1.77,34.18,0,0,0
+,5211,High,Marysville School District,Intl Sch of Communications,390,31.45,17.41071429,2.56,6.41,0.77,7.18,2.31,12.56,0,1.34,6.99
+,4450,High,Battle Ground School District,Summit View High School,384,46.95,17.14285714,0.26,0,0.78,0.78,0.26,4.43,0,3.52,5.87
+,5214,High,Marysville School District,School for the Entrepreneur,378,42.82,16.875,3.44,3.7,0.79,4.5,2.38,23.28,0,3.31,7.46
+,5063,High,Highline School District,Academy of Citizenship and Empowerment,373,81.89,16.65178571,0.8,15.55,5.36,20.91,17.96,38.34,0,28.35,15.75
+,5101,High,Highline School District,Health Sciences & Human Services,373,83.06,16.65178571,0.27,31.1,4.02,35.12,11.26,35.39,0,12.84,19.4
+,3509,High,Tenino School District,Tenino High School,373,46.76,16.65178571,1.07,0.54,0,0.54,2.41,6.97,0,1.13,12.11
+,2856,High,Goldendale School District,Goldendale High School,366,51.96,16.33928571,5.46,0.27,0.55,0.82,0.27,12.84,0,2.51,10.34
+,1628,High,West Valley School District (Spokane),CBE Alternative Programs,359,69.28,16.02678571,1.95,0.28,0.28,0.56,2.79,9.47,0,0,14.49
+,2330,High,White Salmon Valley School District,Columbia High School,358,42.29,15.98214286,0.28,1.96,0,1.96,0.56,28.21,3.43,6.57,15.71
+,2518,High,Newport School District,Newport High School,354,53.39,15.80357143,0.28,1.41,0,1.41,0.56,3.67,0,0,12.98
+,4093,High,Yakima School District,Stanton Alternative School,352,92.2,15.71428571,3.69,0.28,0,0.28,2.27,76.14,32.08,23.41,11.27
+,5209,High,Marysville School District,Academy of Const and Engineering,348,49.84,15.53571429,2.01,8.05,1.15,9.2,2.01,20.69,0,5.99,9.46
+,3868,High,Seattle Public Schools,Nova High School,340,30.15,15.17857143,2.06,6.76,0.29,7.06,7.94,10,0.31,0,20
+,5098,High,Kent School District,Kent Phoenix Academy,338,55.36,15.08928571,0.3,7.1,1.78,8.88,16.27,21.01,0,3.77,9.86
+,1927,High,Marysville School District,Marysville Arts and Technology High School,335,44.73,14.95535714,2.99,0.9,0,0.9,0.6,10.45,0,0.96,16.93
+,2679,High,Tonasket School District,Tonasket High School,331,56.39,14.77678571,1.21,0.6,0,0.6,3.02,29.91,5.3,2.8,6.23
+,3275,High,Chimacum School District,Chimacum High School,330,42.33,14.73214286,0.91,2.12,0.61,2.73,0.61,7.27,0,0,9.2
+,5275,High,Kent School District,iGrad,310,56.55,13.83928571,0.65,7.1,2.26,9.35,18.06,25.16,0,9.15,8.73
+,3119,High,Stevenson-Carson School District,Stevenson High School,310,45.15,13.83928571,3.55,1.61,0,1.61,0.97,8.71,0,1.34,12.04
+,2625,High,Coupeville School District,Coupeville High School,305,29.53,13.61607143,1.64,1.97,0,1.97,1.97,7.54,0,1.01,13.09
+,3192,High,Freeman School District,Freeman High School,305,17.49,13.61607143,3.28,0.66,0,0.66,0.98,2.3,0,0,7.59
+,5103,High,Highline School District,Technology Engineering & Communications,305,72.79,13.61607143,1.64,26.56,4.92,31.48,7.87,36.72,0,12.72,13.43
+,2349,High,Quillayute Valley School District,Forks High School,302,51.34,13.48214286,7.95,1.32,0,1.32,0.33,27.81,3.69,3.69,18.46
+,4049,High,Columbia (Walla Walla) School District,Columbia High School,295,39.01,13.16964286,0.34,0.68,0,0.68,0.68,23.73,4.26,4.96,9.22
+,5265,High,Lake Washington School District,Unnamed STEM School-Under Construction,294,3.85,13.125,0,36.73,0,36.73,0.34,4.42,0,0.35,4.2
+,2329,High,Cle Elum-Roslyn School District,Cle Elum Roslyn High School,293,35.37,13.08035714,1.37,3.75,0,3.75,1.02,6.48,0,0,8.16
+,2367,High,Finley School District,River View High School,292,60.28,13.03571429,0.68,1.03,0,1.03,0.34,32.88,0,4.88,12.2
+,3273,High,Warden School District,Warden High School,290,72.5,12.94642857,0,0.34,0,0.34,0,75.86,18.57,16.79,14.29
+,1856,High,Seattle Public Schools,The Center School,285,19.17,12.72321429,1.4,7.72,0,7.72,8.42,5.26,0,0,13.91
+,2879,High,San Juan Island School District,Friday Harbor High School,283,32.63,12.63392857,0.35,1.77,0,1.77,0.71,10.95,0,0.7,10.53
+,2616,High,Toledo School District,Toledo High School,282,45.67,12.58928571,1.06,0.71,0.71,1.42,1.42,8.87,0,0.79,19.69
+,2246,High,Okanogan School District,Okanogan High School,280,53.18,12.5,12.86,1.43,0,1.43,0.71,24.29,1.87,5.62,13.11
+,5102,High,Highline School District,Arts & Academics Academy,274,81.92,12.23214286,1.82,15.33,3.28,18.61,12.04,47.45,0,23.46,20
+,4137,High,Everett School District,Sequoia High School,271,60.97,12.09821429,1.48,5.17,1.48,6.64,5.9,16.61,0,6.32,7.43
+,2532,High,Mount Adams School District,White Swan High School,270,99.24,12.05357143,50.74,0,0.37,0.37,0,37.04,0,9.47,17.05
+,5950,High,Unaffiliated Colleges/Universities,Bates Technical High School,267,0,11.91964286,1.5,3.37,2.62,5.99,11.99,13.11,0,0,0
+,2468,High,Rainier School District,Rainier Senior High School,262,44.53,11.69642857,1.91,0.38,0,0.38,2.29,4.96,0,0,8.3
+,5301,High,Spokane School District,The Community School,258,72.6,11.51785714,6.98,0.39,0.78,1.16,1.94,10.08,0,0.36,12.81
+,4233,High,Marysville School District,Marysville Mountain View High School,256,51.83,11.42857143,7.03,1.17,0,1.17,0.39,12.89,0,1.83,15.14
+,3854,High,Edmonds School District,Scriber Lake High School,255,53.23,11.38392857,3.14,1.96,0.39,2.35,6.27,20,0,1.85,32.31
+,1537,High,Sedro-Woolley School District,State Street High School,247,57.43,11.02678571,2.02,1.21,1.21,2.43,7.29,19.03,1.2,4.42,12.85
+,1832,High,Bellevue School District,Bsd Voc Ed/Career Educ Options,245,4.69,10.9375,1.63,8.98,0.41,9.39,7.35,13.06,0,0,0.36
+,2800,High,Brewster School District,Brewster High School,244,97.02,10.89285714,0.41,0,0,0,0,82.79,13.19,22.55,11.49
+,4206,High,Kettle Falls School District,Kettle Falls High School,243,52.02,10.84821429,1.23,1.23,0,1.23,0.82,4.12,0,0,14.11
+,4109,High,Tacoma School District,Oakland High School,240,81.92,10.71428571,2.5,7.5,3.33,10.83,24.17,20,0,2.31,5.38
+,1613,High,Wenatchee School District,Westside High School,240,73.09,10.71428571,1.25,0,0,0,0.42,55,22.09,13.25,4.02
+,2702,High,Auburn School District,West Auburn Senior High School,228,65.08,10.17857143,3.51,2.19,1.32,3.51,5.7,28.07,0,2.71,6.44
+,2276,High,La Conner School District,La Conner High School,227,39.91,10.13392857,25.99,1.32,1.32,2.64,0,5.29,0,0.46,10.09
+,2331,High,Onalaska School District,Onalaska High School,225,48.11,10.04464286,1.78,0.89,0.44,1.33,0,10.22,0,1.42,12.26
+,2728,High,North Beach School District,North Beach Senior High School,216,64.59,9.642857143,9.26,2.31,0,2.31,1.39,6.94,0,0,6.7
+,2801,High,Grand Coulee Dam School District,Lake Roosevelt High School,209,58.13,9.330357143,47.37,0.96,0,0.96,0,10.53,0,0,21.18
+,1842,High,West Valley School District (Spokane),Spokane Valley Transition School,208,59.67,9.285714286,2.88,0,0.96,0.96,2.4,5.29,0,1.65,13.17
+,4042,High,Evergreen School District (Clark),Legacy High School,207,56.04,9.241071429,1.93,1.45,0.97,2.42,1.93,18.84,0,0.37,10.26
+,2788,High,Bridgeport School District,Bridgeport High School,206,98.99,9.196428571,0,0.49,0,0.49,0,88.35,13.07,27.64,10.05
+,5250,High,Spokane School District,On Track Academy,205,65.52,9.151785714,5.37,0.98,0.49,1.46,2.93,9.76,0,0,4.48
+,3932,High,Vancouver School District,Lewis And Clark High School,205,62.3,9.151785714,0.49,0,0.49,0.49,1.46,26.34,0,3.83,12.57
+,5307,High,Tacoma School District,Fresh Start,203,27.78,9.0625,0.99,4.43,0,4.43,15.27,12.32,0,0,1.01
+,4247,High,Mukilteo School District,ACES High School,198,70.97,8.839285714,1.01,5.05,0,5.05,4.55,45.96,0,9.68,0
+,5014,High,Tumwater School District,New Market High School,198,24.26,8.839285714,0.51,0.51,0,0.51,5.56,13.64,0,0,3.55
+,3899,High,South Kitsap School District,Discovery,189,60.98,8.4375,1.59,2.12,1.06,3.17,3.7,6.88,0,0,16.1
+,3597,High,Winlock School District,Winlock Senior High,187,54.14,8.348214286,0.53,2.14,0.53,2.67,0.53,19.25,11.6,6.08,16.57
+,2027,High,Institutions,Green Hill Academic School,182,71.79,8.125,4.95,1.65,2.2,3.85,21.43,26.92,0,3.59,26.67
+,2623,High,Manson School District,Manson High School,181,80.56,8.080357143,0,1.1,0,1.1,0,70.72,6.67,15,13.33
+,4314,High,North Thurston Public Schools,South Sound High School,177,63.19,7.901785714,1.69,4.52,1.13,5.65,6.21,16.95,0,1.1,20.88
+,3936,High,Central Kitsap School District,Alternative High School,173,53.29,7.723214286,0.58,0.58,0.58,1.16,1.16,13.87,0,0,14.37
+,3311,High,Mary Walker School District,Mary Walker High School,173,100,7.723214286,8.09,0.58,1.73,2.31,0.58,1.73,0,0,14.62
+,4071,High,Walla Walla Public Schools,Lincoln High School,173,74.71,7.723214286,0,0.58,0,0.58,1.16,32.37,0,3.53,30.59
+,1544,High,White River School District,Collins Alternative Programs,172,32.31,7.678571429,3.49,1.16,0.58,1.74,1.16,9.88,0,0,5.38
+,2810,High,Concrete School District,Concrete High School,171,47.71,7.633928571,1.17,0.58,0,0.58,0.58,3.51,0,0,11.11
+,1547,High,Seattle Public Schools,Middle College High School,169,58.9,7.544642857,5.33,13.02,0,13.02,35.5,16.57,0.91,8.68,15.07
+,5245,High,Ferndale School District,WINDWARD HIGH SCHOOL,168,45.16,7.5,4.76,0.6,0,0.6,1.19,10.12,0,1.29,1.94
+,3467,High,Wahkiakum School District,Wahkiakum High School,160,46.15,7.142857143,0,0.63,0,0.63,1.88,9.38,0,0,24.36
+,3188,High,Darrington School District,Darrington Sr High School,156,46.31,6.964285714,4.49,0,0,0,1.28,3.85,0,0,14.77
+,5163,High,Federal Way School District,Career Academy at Truman High School,154,68.71,6.875,1.95,6.49,3.9,10.39,11.69,33.12,0,6.12,7.48
+,5104,High,Camas School District,Hayes Freedom High School,153,42.41,6.830357143,1.31,1.96,1.96,3.92,3.27,7.19,0,0.63,17.09
+,1516,High,Peninsula School District,Henderson Bay Alt High School,151,42.86,6.741071429,1.32,0,0.66,0.66,1.99,7.28,0,0.57,25.71
+,2750,High,Orcas Island School District,Orcas Island High School,148,31.16,6.607142857,1.35,2.7,0.68,3.38,0.68,4.05,0,0.72,8.7
+,1707,High,Stanwood-Camano School District,Lincoln Hill High School,147,41.09,6.5625,0,0.68,0,0.68,2.04,14.29,0,3.88,10.85
+,5116,High,Highline School District,Career Link,144,24.18,6.428571429,0.69,14.58,4.86,19.44,12.5,29.86,0,5.88,0.65
+,3416,High,Liberty School District,Liberty High School,144,43.57,6.428571429,2.08,0,0.69,0.69,0,2.78,0,0,14.29
+,1935,High,Bainbridge Island School District,Eagle Harbor High School,140,10.07,6.25,0,2.14,0,2.14,0.71,6.43,0,0,30.22
+,5171,High,Granite Falls School District,Crossroads High School,140,59.44,6.25,2.86,0,2.14,2.14,0.71,10,0,0,15.56
+,4287,High,Arlington School District,Weston High School,138,52.42,6.160714286,1.45,0,0,0,0.72,10.87,0,1.61,20.16
+,1737,High,Bremerton School District,Renaissance Alternative High School,138,79.34,6.160714286,2.9,0.72,2.9,3.62,5.07,9.42,0,1.41,13.15
+,1972,High,Highline School District,New Start,138,85.51,6.160714286,2.17,2.17,2.9,5.07,12.32,55.8,0,15.22,28.26
+,5060,High,Edmonds School District,Edmonds Career Access,135,13.89,6.026785714,0,11.11,0,11.11,0.74,15.56,0,0,0
+,1768,High,Olympia School District,Avanti High School,134,27.92,5.982142857,2.24,0,0.75,0.75,1.49,8.21,0,0.65,10.39
+,1627,High,Yelm School District,Yelm Extension School,133,55.17,5.9375,2.26,0,0,0,1.5,9.77,0,0,0
+,5302,High,Institutions,Washington Youth Academy,132,100,5.892857143,1.52,0.76,6.06,6.82,10.61,31.06,0,0,10.87
+,2407,High,Walla Walla Public Schools,Alternative Education Program,131,3.79,5.848214286,0,1.53,0.76,2.29,0.76,35.88,0,3.03,1.52
+,1825,High,Clover Park School District,Alfaretta House,128,7.43,5.714285714,0.78,2.34,3.91,6.25,8.59,25.78,0,0,100
+,3135,High,Ferndale School District,Lummi High School,128,27.12,5.714285714,94.53,0,0,0,0,0.78,0,0,0
+,4265,High,Snohomish School District,AIM High School,127,45.07,5.669642857,0.79,0,0.79,0.79,0.79,8.66,0,2.82,15.49
+,3778,High,Seattle Public Schools,South Lake High School,126,78.2,5.625,2.38,11.11,0.79,11.9,50.79,32.54,3.76,6.02,19.55
+,3857,High,Aberdeen School District,Harbor High School,124,78.69,5.535714286,6.45,0.81,0,0.81,0,23.39,1.64,0.82,11.48
+,2132,High,Ritzville School District,Ritzville High School,117,31.58,5.223214286,3.42,1.71,0,1.71,0,5.13,0,0,7.02
+,3579,High,Republic School District,Republic Senior High School,115,46.3,5.133928571,2.61,2.61,0,2.61,0,9.57,0,0,10.19
+,1647,High,Bellingham School District,Options High School,114,72.48,5.089285714,0,1.75,0,1.75,2.63,21.05,0,0.92,21.1
+,3918,High,Central Valley School District,Barker Center,114,55.86,5.089285714,0.88,0,0,0,0.88,5.26,0,0,9.01
+,1838,High,West Valley School District (Spokane),Spokane Valley High School,107,54.64,4.776785714,0,0,0,0,0,5.61,0,2.06,13.4
+,2386,High,Waitsburg School District,Waitsburg High School,106,22,4.732142857,0,0.94,0,0.94,0.94,3.77,0,0,13
+,2968,High,Coulee-Hartline School District,Almira Coulee Hartline High School,103,25.49,4.598214286,0,0,0,0,0.97,3.88,0,0,11.76
+,1806,High,Monroe School District,Leaders In Learning,101,41.27,4.508928571,0.99,0.99,0.99,1.98,1.98,22.77,0,1.59,2.38
+,5166,High,Central Valley School District,I-TRACC,100,57.55,4.464285714,0,0,0,0,0,3,0,0,1.89
+,1540,High,Issaquah School District,Tiger Mountain Community High School,100,31.43,4.464285714,1,7,3,10,2,11,0,0.95,26.67
+,1645,High,Grandview School District,Compass High School,98,87.91,4.375,0,0,0,0,0,93.88,21.98,13.19,7.69
+,1803,High,Mead School District,Mead Alternative High School,97,55,4.330357143,0,0,0,0,3.09,2.06,0,0.83,9.17
+,5065,High,Highline School District,Odyssey - The Essential School,90,80.77,4.017857143,0,15.56,3.33,18.89,13.33,43.33,0,20.51,12.82
+,3111,High,Lyle School District,Lyle High School,90,95.18,4.017857143,5.56,0,0,0,0,7.78,0,0,15.66
+,5212,High,Marysville School District,Marysville On-line Move Up Program,90,20.59,4.017857143,2.22,1.11,0,1.11,1.11,13.33,0,0,0
+,1657,High,Marysville School District,Heritage School,88,80.49,3.928571429,60.23,0,0,0,0,10.23,0,0,32.93
+,2550,High,Wellpinit School District,Wellpinit High School,87,65.33,3.883928571,75.86,0,0,0,0,9.2,0,0,20
+,4003,High,Port Angeles School District,Lincoln High School,86,64.71,3.839285714,8.14,1.16,0,1.16,1.16,9.3,0,0,10.59
+,3068,High,St. John School District,St John/Endicott High,86,29.76,3.839285714,0,8.14,1.16,9.3,0,3.49,0,0,9.52
+,5226,High,Selkirk School District,Selkirk High School,85,46.25,3.794642857,0,1.18,0,1.18,2.35,5.88,0,0,8.75
+,5258,High,Vancouver School District,Vancouver Contracted Programs,79,50,3.526785714,0,0,3.8,3.8,5.06,21.52,0,0,7.89
+,4862,High,Clover Park School District,Lakewood Career Academy,78,71.64,3.482142857,1.28,1.28,1.28,2.56,19.23,30.77,0,11.94,10.45
+,1612,High,Wenatchee School District,Skill Source,74,40.38,3.303571429,1.35,0,0,0,2.7,32.43,3.85,4.81,6.73
+,2634,High,Palouse School District,Palouse High School,73,21.74,3.258928571,0,0,0,0,0,9.59,0,0,13.04
+,5217,High,Wellpinit School District,Wellpinit Alliance -Columbia Basin J.C.,73,37.14,3.258928571,0,1.37,0,1.37,16.44,23.29,0,0,0
+,3580,High,Taholah School District,Taholah High School,71,73.02,3.169642857,59.15,0,0,0,0,8.45,0,0,12.7
+,3855,High,Lake Washington School District,Emerson High School,70,43.53,3.125,1.43,0,0,0,1.43,24.29,0,0,27.06
+,5268,High,Mead School District,Riverpoint Academy,66,31.75,2.946428571,0,0,0,0,0,3.03,0,0,1.59
+,1776,High,Grandview School District,Contract Learning Center,65,83.08,2.901785714,0,0,0,0,0,81.54,18.46,7.69,9.23
+,1795,High,Woodland School District,TEAM High School,64,47.78,2.857142857,1.56,0,0,0,1.56,9.38,0,0,5.56
+,1903,High,Central Kitsap School District,East Side Alt,61,63.93,2.723214286,0,3.28,0,3.28,1.64,11.48,0,0,16.39
+,2958,High,Northport School District,Northport High School,60,60,2.678571429,1.67,0,0,0,0,3.33,0,0,10
+,1506,High,Quincy School District,Quincy High Tech High,60,95.59,2.678571429,0,0,0,0,0,86.67,11.76,14.71,2.94
+,1769,High,Cheney School District,Three Springs High School,57,51.61,2.544642857,0,0,1.75,1.75,1.75,17.54,0,0,6.45
+,1528,High,Washougal School District,Excelsior High School,57,56.16,2.544642857,0,0,0,0,0,7.02,0,0,21.92
+,1928,High,Burlington-Edison School District,Burlington-Edison Alternative School,56,73.77,2.5,1.79,1.79,0,1.79,0,51.79,4.92,1.64,0
+,1519,High,Edmonds School District,Edmonds Independent Learning,56,20.99,2.5,1.79,5.36,0,5.36,1.79,7.14,0,1.23,4.94
+,2903,High,Lind School District,Lind-Ritzville High School,56,50,2.5,1.79,0,0,0,0,26.79,9.62,3.85,7.69
+,1682,High,South Whidbey School District,Bayview Alternative School,55,43.28,2.455357143,3.64,1.82,0,1.82,3.64,10.91,0,0,10.45
+,1804,High,Lake Washington School District,Futures School,54,34.38,2.410714286,0,5.56,0,5.56,1.85,20.37,0,3.13,20.31
+,2603,High,Inchelium School District,Inchelium High School,50,65.91,2.232142857,62,2,0,2,0,4,0,0,13.64
+,5254,High,Highline School District,Gateway to College,48,34,2.142857143,0,12.5,2.08,14.58,16.67,22.92,0,4,0
+,1680,High,North Mason School District,PACE Academy (OPTIONS),48,60.78,2.142857143,0,0,0,0,0,8.33,0,1.96,29.41
+,5106,High,Kennewick School District,Phoenix High School,47,57.89,2.098214286,0,4.26,0,4.26,0,8.51,3.51,3.51,21.05
+,1940,High,Lake Chelan School District,Glacier Valley High School,47,94.44,2.098214286,0,0,0,0,0,91.49,55.56,63.89,5.56
+,1518,High,Soap Lake School District,Smokiam Alternative High School,45,100,2.008928571,0,0,0,0,0,13.33,0,0,24.53
+,5114,High,Sultan School District,Sky Valley Options,45,61.36,2.008928571,0,0,0,0,0,17.78,0,2.27,13.64
+,1585,High,Tacoma School District,Comm Based Trans Program,45,60,2.008928571,0,17.78,0,17.78,24.44,6.67,0,0,0
+,1950,High,Federal Way School District,Employment Transition Program,44,69.77,1.964285714,4.55,20.45,2.27,22.73,18.18,9.09,0,0,100
+,5958,High,Skills Centers,Washington Network for Innovative Careers,43,0,1.919642857,0,4.65,0,4.65,2.33,6.98,0,0,0
+,5176,High,Anacortes School District,Cap Sante High School,40,75,1.785714286,2.5,0,0,0,0,15,0,0,0
+,1835,High,Wahluke School District,Sentinel Tech Alt School,40,96.15,1.785714286,0,0,0,0,0,95,34.62,15.38,0
+,1754,High,North Franklin School District,Palouse Junction High School,39,79.41,1.741071429,2.56,0,0,0,0,69.23,8.82,29.41,44.12
+,1500,High,Quillayute Valley School District,Forks Alternative School,37,59.46,1.651785714,10.81,0,0,0,0,24.32,0,2.7,29.73
+,1698,High,Spokane School District,SCCP Images,37,34.21,1.651785714,2.7,2.7,0,2.7,10.81,5.41,0,2.63,7.89
+,5042,High,Medical Lake School District,Medical Lake Alternative High School,36,61.11,1.607142857,2.78,0,0,0,0,5.56,0,0,19.44
+,1793,High,Fife School District,Learning Opportunity Center,34,62.5,1.517857143,0,2.94,0,2.94,0,23.53,0,0,5
+,1911,High,Wellpinit School District,Wellpinit-Fort Semco High School,34,36.36,1.517857143,8.82,0,0,0,11.76,5.88,0,0,0
+,2088,High,LaCrosse School District,Lacrosse High School,33,20,1.473214286,0,0,0,0,0,0,0,0,17.14
+,1728,High,Prosser School District,Prosser Falls Education Center,32,72.5,1.428571429,0,0,0,0,0,53.13,27.5,0,17.5
+,1738,High,Vancouver School District,Gate Program,32,56.67,1.428571429,0,3.13,0,3.13,9.38,6.25,0,0,100
+,2186,High,Sprague School District,Sprague High School,31,48.39,1.383928571,0,0,0,0,0,3.23,0,0,6.45
+,1756,High,Riverview School District,CLIP,30,50,1.339285714,3.33,0,0,0,6.67,6.67,0,0,20
+,5272,High,Brewster School District,Brewster Alternative School,28,81.82,1.25,0,0,0,0,0,89.29,18.18,9.09,4.55
+,5255,High,Federal Way School District,Gateway to College,28,41.38,1.25,0,3.57,3.57,7.14,21.43,39.29,0,0,3.45
+,1962,High,Garfield School District,Garfield at Palouse High School,28,48.15,1.25,3.57,0,0,0,0,0,0,0,11.11
+,1900,High,Bridgeport School District,Bridgeport Aurora High School,26,95.83,1.160714286,0,0,0,0,0,84.62,8.33,62.5,8.33
+,1629,High,Elma School District,East Grays Harbor High School,26,79.31,1.160714286,0,0,0,0,0,7.69,0,0,3.45
+,1934,High,Kelso School District,Loowit High School,24,96.15,1.071428571,8.33,0,0,0,0,25,0,0,0
+,1735,High,Rochester School District,H.e.a.r.t. High School,23,62.07,1.026785714,0,0,0,0,0,4.35,0,0,0
+,5223,High,Valley School District,Paideia High School,21,63.64,0.9375,0,0,0,0,0,0,0,0,13.64
+,5199,High,Central Kitsap School District,CK Online Academy,19,22.58,0.848214286,0,10.53,0,10.53,0,5.26,0,0,3.23
+,1621,High,Methow Valley School District,Alternative School,19,71.43,0.848214286,5.26,0,0,0,0,5.26,0,4.76,9.52
+,4279,High,Omak School District,Omak Alternative High School,19,62.96,0.848214286,15.79,0,0,0,0,10.53,3.7,0,0
+,1533,High,Spokane School District,A-3 Multiagency Adolescent Prog,19,62.5,0.848214286,0,0,0,0,0,0,0,0,20.83
+,1807,High,Kent School District,Regional Justice Center,17,31.82,0.758928571,0,0,11.76,11.76,35.29,23.53,0,0,4.55
+,1980,High,Okanogan School District,Okanogan Alternative High School,17,65,0.758928571,0,0,0,0,0,58.82,5,0,0
+,1938,High,Vashon Island School District,Student Link,16,23.53,0.714285714,0,0,0,0,0,12.5,0,0,11.76
+,5077,High,White Salmon Valley School District,White Salmon Academy,16,68.18,0.714285714,0,0,0,0,0,31.25,0,18.18,31.82
+,3981,High,Snohomish School District,High School Re Entry,12,37.14,0.535714286,0,8.33,0,8.33,0,0,0,0,2.86
+,1694,High,Bellingham School District,Home Port Learning Center,11,70.59,0.491071429,0,0,0,0,0,18.18,0,0,35.29
+,2513,High,Skykomish School District,Skykomish High School,10,87.5,0.446428571,0,0,0,0,0,20,0,0,0
+,1797,High,Tacoma School District,Day Reporting School,9,50,0.401785714,0,0,0,0,33.33,22.22,0,12.5,0
+,5298,High,Clover Park School District,Oakridge Group Home,8,0,0.357142857,0,25,0,25,12.5,25,0,0,18.18
+,1663,High,Everett School District,NW Learning Center,8,57.14,0.357142857,12.5,0,0,0,25,0,0,0,85.71
+,1527,High,Renton School District,Sartori Education Center,8,37.5,0.357142857,0,12.5,0,12.5,0,62.5,0,0,0
+,5273,High,Moses Lake School District,Wenatchee Valley Technical Skill Center Branch Campus at Moses Lake,7,25,0.3125,0,0,0,0,0,42.86,0,0,0
+,5081,High,Quilcene School District,Crossroads Community School,7,57.14,0.3125,0,0,0,0,0,0,0,0,0
+,3396,High,Institutions,Woodinville Community Center,6,25,0.267857143,0,16.67,0,16.67,50,33.33,0,0,50
+,1605,High,Concrete School District,Twin Cedars High School,5,58.33,0.223214286,0,0,0,0,0,0,0,0,8.33
+,2986,High,Institutions,Canyon View Group Home,5,0,0.223214286,0,0,0,0,0,0,0,0,40
+,4105,High,Skills Centers,Wenatchee Valley Technical Skills Center,4,0,0.178571429,0,0,0,0,0,50,0,0,0
+,5184,High,Tacoma School District,Tacoma Pierce County Education Center,4,50,0.178571429,0,0,0,0,50,25,0,0,30
+,5172,High,Highline School District,Puget Sound High School,3,53.57,0.133928571,0,0,0,0,33.33,0,0,0,0
+,5235,High,Kennewick School District,Benton County Jail,2,83.33,0.089285714,0,0,0,0,0,0,16.67,0,0
+,1880,High,Clover Park School District,Re-Entry High School,1,73.33,0.044642857,0,0,0,0,0,100,0,0,33.33
+,5283,High,Columbia (Stevens) School District,Columbia Alternative School,1,0,0.044642857,0,0,0,0,0,0,0,0,0
+,4225,High,Skills Centers,New Market Skills Center,1,0,0.044642857,0,0,0,0,0,0,0,0,0

@@ -36,6 +36,28 @@ def mini_big_and_small_data_tuples():
     return tuples
 
 
+@pytest.fixture(scope="module")
+def high_school_and_demo_tuples():
+    scData = pd.DataFrame.from_csv('test_data/highschools.csv')
+    ids = scData[:]['School_ID'].values
+    enroll = scData[:]['NRML_Enroll'].values
+    lowSES = scData[:]['Low_SES'].values
+    per_native = scData[:]['per_native'].values
+    per_asian = scData[:]['per_asian'].values
+    per_PI = scData[:]['per_PI'].values
+    per_API = scData[:]['per_API'].values
+    per_black = scData[:]['per_black'].values
+    per_hispanic = scData[:]['per_hispanic'].values
+    per_migrant = scData[:]['per_migrant'].values
+    per_bil = scData[:]['per_bil'].values
+    per_sped = scData[:]['per_sped'].values
+    tuples = [(
+        ids[i], enroll[i], lowSES[i], per_native[i], per_asian[i], per_PI[i],
+        per_API[i], per_black[i], per_hispanic[i], per_migrant[i], per_bil[i],
+        per_sped[i]) for i in range(len(ids))]
+    return tuples
+
+
 def test_prep_data_Error(full_data_tuples):
     # 1111 is not in the data
     search_ID = 1111
@@ -46,13 +68,13 @@ def test_prep_data_Error(full_data_tuples):
 def test_prep_data(full_data_tuples):
     # Edmonds Challenge Elementary ID is 1520
     search_ID = 1520
-    tuple = cs._prep_data(search_ID, full_data_tuples)
-    assert tuple[0] == (13.03571429, 6.21)
+    tuples = cs._prep_data(search_ID, full_data_tuples)
+    assert tuples[0] == (13.03571429, 6.21)
     # Wa He Lut Indian Elementary ID is 8407
-#    print tuple[1][2304]
-    assert tuple[1][2303] == 8407
+#    print tuples[1][2304]
+    assert tuples[1][2303] == 8407
     # Wa He Lut % low SES is 7.27
-    assert tuple[2][2303][1] == 7.27
+    assert tuples[2][2303][1] == 7.27
 
 
 def test_pick_n_easy_data():
@@ -126,6 +148,16 @@ def test_find_n_closest_schools_mini_small_big(mini_big_and_small_data_tuples):
     assert 5961 not in results
 
 
+def test_many_dimension_data(hi_d_high_school_and_demo_tuples):
+    search_ID = 5164
+    results = cs.find_n_closest_schools(
+        search_ID, hi_d_high_school_and_demo_tuples, 20)
+    print "results are: \n"
+    print results
+    assert len(results) == 20
+    assert 5164 not in results
+
+
 def test_find_n_closest_schools_n_too_big(mini_big_and_small_data_tuples):
     # results are interesting, look at excel file
     # test_data/k_mini_big_and_small_nrml_demographics_data_RESULTS.xlsx
@@ -134,6 +166,7 @@ def test_find_n_closest_schools_n_too_big(mini_big_and_small_data_tuples):
     results = cs.find_n_closest_schools(
         search_id, mini_big_and_small_data_tuples, 50)
     assert len(results) == 19
+    assert 5961 not in results
     assert 1767 in results
     assert 4178 in results
     assert 4225 in results
@@ -153,8 +186,6 @@ def test_find_n_closest_schools_n_too_big(mini_big_and_small_data_tuples):
     assert 2134 in results
     assert 2797 in results
     assert 5164 in results
-
-    assert 5961 not in results
 
 
 def test_closest_schools(full_data_tuples):
