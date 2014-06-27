@@ -75,14 +75,15 @@ def get_school_type(school_type):
 
 def get_schools_by_type_demo(school_type, *args):
     cur = connect_db()
-    sub_query = ""
-    for arg in args:
-        sub_query = sub_query + " " + sub_keys.get(arg, "")
-    print "sub_query is: {}\n".format(sub_query)
+    sub_query = []
+    for arg in args[0]:
+        sub_query.append(sub_keys.get(arg, ""))
+    sub_query = ", ".join(sub_query)
+    print "sub_query is: %s" % sub_query
     query = DB_GET_SCHOOLS_BY_TYPE_DEMO.format(sub_query)
     print "query is: {}\n".format(query)
     cur.execute(query, [school_type])
-    cur.fetchall()
+    return cur.fetchall()
 
 
 def get_schools_by_type(school_type):
@@ -96,6 +97,7 @@ def get_results(school_name, district, number_to_return, *args):
     school_type = str(get_school_type(school_id))
     # search_schools = get_schools_by_type(school_type)
     search_schools = get_schools_by_type_demo(school_type, args)
+    print school_id in search_schools[:][0]
     return_schools = find_schools(school_id, search_schools,
                                   int(number_to_return))
     return get_schools_by_id(return_schools)
