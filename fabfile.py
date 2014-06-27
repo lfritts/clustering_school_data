@@ -150,7 +150,7 @@ def deployment_control():
     upload_template(
         'simple_nginx_config', '~/',
         context={'host_dns': env.active_instance.public_dns_name})
-    sudo('mv supervisord.conf /etc/supervisor/conf.d/bookapp.conf')
+    sudo('mv supervisord.conf /etc/supervisor/conf.d/schools_app.conf')
     sudo('mv /etc/nginx/sites-available/default '
          '/etc/nginx/sites-available/default.orig')
     sudo('mv simple_nginx_config /etc/nginx/sites-available/default')
