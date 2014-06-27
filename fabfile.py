@@ -133,24 +133,31 @@ def terminate_instance():
     env.ec2.terminate_instances(instance_ids=[env.active_instance.id])
 
 
+def db_envs():
+    with open('credentials.txt') as f:
+        return str(f.read().rstrip())
+
+
 def deploy():
     run_command_on_selected_server(deployment_control)
 
 
 def deployment_control():
-    sudo('apt-get update')
+    # sudo('apt-get update')
     install_nginx()
     sudo('apt-get install -y supervisor')
     sudo('apt-get install -y python-pip')
     sudo('apt-get install -y libpq-dev')
     sudo('apt-get install -y python-dev')
     exclude_list = ['.git', '*.pyc', '/create_db/', '/db_methods/',
-                    'test_*.py']
+                    'test_*.py', 'fabfile.py', 'supervisord.conf',
+                    'simple_nginx_config']
     rsync_project(exclude=exclude_list, local_dir='./', remote_dir='~/')
     upload_template(
         'simple_nginx_config', '~/',
         context={'host_dns': env.active_instance.public_dns_name})
-    sudo('mv supervisord.conf /etc/supervisor/conf.d/bookapp.conf')
+    upload_template('supervisord.conf', '~/', context={'host_envs': db_envs()})
+    sudo('mv supervisord.conf /etc/supervisor/conf.d/schools_app.conf')
     sudo('mv /etc/nginx/sites-available/default '
          '/etc/nginx/sites-available/default.orig')
     sudo('mv simple_nginx_config /etc/nginx/sites-available/default')

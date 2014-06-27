@@ -8,5 +8,4 @@ $(document).ready (function() {
         $("#dist_form").submit()
       }
     });
-    // $("#school").quickselect({data:['School1', 'School2', 'School3']});
   });

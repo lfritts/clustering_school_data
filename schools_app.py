@@ -45,9 +45,24 @@ def choose_school():
 def results_page():
     school_name = request.args.get('school')
     number_to_return = request.args.get('numschools')
-    results = get_results(school_name, session['district'], number_to_return)
+    ret_list = []
+    for item in request.args:
+        if item in ('school', 'numschools'):
+            pass
+        else:
+            ret_list.append(str(request.args.get(item)))
+    print 'Returning this: {}'.format(ret_list)
+    table_headings = [
+    'District', 'School', 'Enrollment', '% Free/Reduced',
+    '% American Indian', '% Asian', '% Pacific Islander',
+    '% Asian Pacific Islander', '% Black', '% Hispanic',
+    '% Migrant', '% Bilingual', '% SPED']
+    results, chosen_school = get_results(
+        school_name, session['district'], number_to_return, tuple(ret_list))
     print results
-    return render_template('results.html', results=results)
+    return render_template(
+        'results.html',
+        results=results, school=chosen_school, headings=table_headings)
 
 
 @app.route('/contact', methods=['GET', 'POST'])

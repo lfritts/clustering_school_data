@@ -10,33 +10,34 @@
 <form id="school_form" action="/results/">
   <h1>{{ district }}</h1>
   <h2>Choose Your School</h2>
-  <p class="lead">Enter your school's name below.</p>
+  <!-- <p class="lead">Enter your school's name below.</p> -->
   <label for="school">School Name</label>
   <input type="text" class="form-control" id="school" name="school" placeholder="School Name"><br>
   <div id="search_crit">
         <label for="numschools">Number of close schools to find</label>
         <input type="text" class="form-control" id="numschools" name="numschools" placeholder="10" size="4"><br>
-        <input name="Demographics[]" type="checkbox" value="normalized_enrollment" />
+        <!-- Comment out following block to disable functionality -->
+        <input name="enrollment" type="checkbox" value="normalized_enrollment" checked/>
             Total Enrollment
-        <input name="Demographics[]" type="checkbox" value="% lowses" />
+        <input name="lowses" type="checkbox" value="lowses" />
             % Free and Reduced Lunch
-        <input name="Demographics[]" type="checkbox" value="% per_native" />
+        <input name="per_native" type="checkbox" value="per_native" />
             % American Indian
-        <input name="Demographics[]" type="checkbox" value="% per_asian" />
+        <input name="pre_asian" type="checkbox" value="per_asian" />
             % Asian
-        <input name="Demographics[]" type="checkbox" value="% per_PI" />
+        <input name="per_pi" type="checkbox" value="per_PI" />
             % Pacific Islander
-        <input name="Demographics[]" type="checkbox" value="% per_API" />
+        <input name="per_api" type="checkbox" value="per_API" />
             % Asian Pacific Islander
-        <input name="Demographics[]" type="checkbox" value="% per_black" />
+        <input name="per_black" type="checkbox" value="per_black" />
             % Black
-        <input name="Demographics[]" type="checkbox" value="% per_hispanic" />
+        <input name="per_hispanic" type="checkbox" value="per_hispanic" />
             % Hispanic
-        <input name="Demographics[]" type="checkbox" value="% per_migrant" />
+        <input name="per_migrant" type="checkbox" value="per_migrant" />
             % Migrant
-        <input name="Demographics[]" type="checkbox" value="% per_bil" />
+        <input name="per_bil" type="checkbox" value="per_bil" />
             % Bilingual
-        <input name="Demographics[]" type="checkbox" value="% per_sped" />
+        <input name="per_sped" type="checkbox" value="per_sped" />
             % Special Education
   </div>
   <a href="/main" class="btn btn-lg btn-warning" id="reset">Reset</a>
