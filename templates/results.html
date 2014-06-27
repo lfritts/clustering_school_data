@@ -5,7 +5,7 @@
   <script src="{{ url_for('static', filename='sorttable.js') }}"></script>
 {% endblock %}
 {% block body %}
-  <h1>Cohort</h1>
+  <h1>Selection Criteria Cohort</h1>
   <div class="table-responsive">
     <table id="final_results" class="table table-striped sortable">
       <thead>
@@ -17,13 +17,11 @@
       </thead>
       <tbody>
         {% for school in results %}
-            {{% for elt in school %}}
-                <tr class="schools" id="school_id={{school[0]}}">
-                    {{% for i in range(1, len(elt)) %}}
-                        <td>{{ school[i] }}</td>
-                    {{% endfor %}}
-                </tr>
-            {{% endfor %}}
+            <tr class="schools" id="school_id={{school[0]}}">
+                {% for elt in school[1:] %}
+                    <td>{{ elt }}</td>
+                {% endfor %}
+            </tr>
         {% endfor %}
       </tbody>
     </table>
