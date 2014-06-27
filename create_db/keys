@@ -1,0 +1,13 @@
+sub_keys = {
+    "normalized_enrollment": "normalized_enrollment",
+    "lowses": "lowses",
+    "per_native": "per_native",
+    "per_asian": "per_asian",
+    "per_PI": "per_PI",
+    "per_API": "per_API",
+    "per_black": "per_black",
+    "per_hispanic": "per_hispanic",
+    "per_migrant": "per_migrant",
+    "per_bil": "per_bil",
+    "per_sped": "per_sped"
+    }
