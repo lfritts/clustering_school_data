@@ -6,10 +6,9 @@
   </script>
 {% endblock %}
 {% block body %}
-<!-- <form id="dist_form" action="/schools/{{ selectedDistrict }}"> -->
 <form id="dist_form" action="/schools/">
   <h1>Choose Your School District</h1>
-  <p class="lead">Start by entering your school district below.</p>
+  <label for="district">School District</label>
   <input type="text" class="form-control" id="district" name="district" placeholder="School District"><br>
   <button type="submit" id="submit" class="btn btn-lg btn-primary">Next</button>
 </form>
