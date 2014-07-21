@@ -90,6 +90,21 @@ def compute_centroids(X, idx, K):
     return centroids
 
 
+def cost(centroids, X, idx):
+    """returns the cost of a given clustering"""
+    # calculate distance between example in X and it's assigned cluster
+    # cost = 0.
+    # m, n = X.shape
+    # for i, row in enumerate(X[:]):
+    #     centroid = centroids[idx[i]]
+    #     cost += squared_distance(row, centroid)
+    # return cost / m
+
+    # Is it really this simple?
+    m, _ = X.shape
+    return squared_distance(X[:], centroids[idx]) / float(m)
+
+
 def run_k_means(X, initial_centroids, max_iters, tol=0):
 
     print "Running K-Means Clustering\n"
@@ -116,5 +131,8 @@ def run_k_means(X, initial_centroids, max_iters, tol=0):
         # raw_input("Press enter to continue...")
 
     print "K-Means is done. \n\n"
+
+    # the return will change to:
+    # return centroids, idx, cost
 
     return (centroids, idx)
