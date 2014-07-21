@@ -41,6 +41,15 @@ def test_prep_k_data(data_tuples):
     assert data_array[2304][1] == 7.27
 
 
+def test_build_clusters():
+    K = 4
+    ids = [1, 2, 3, 4, 5, 6, 7, 8]
+    cluster_idx = [0, 1, 1, 0, 1, 2, 1, 1]
+    expected = [[1, 4], [2, 3, 5, 7, 8], [6], []]
+    result = k.build_clusters(ids, cluster_idx, K)
+    assert expected == result
+
+
 def test_school_k_means(data_tuples):
     K = 5
     result_clusters = k.find_school_clusters(data_tuples, K=K)
@@ -50,7 +59,7 @@ def test_school_k_means(data_tuples):
         num_schools += len(cluster)
     # check that we get correct number of clusters back
     assert len(result_clusters) == K
-    assert num_schools == 2305
+    assert num_schools == len(data_tuples)
     # check that each school id is only in one cluster
     for i in xrange(len(result_clusters)):
         this_cluster = result_clusters[i]

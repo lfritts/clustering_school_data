@@ -50,7 +50,7 @@ def find_school_clusters(data, K=5, tol=0, max_iters=60, num_runs=5):
     # best_centroids = None
     best_idx = None
     lowest_cost = float('inf')
-    for i in range(num_runs + 1):
+    for i in range(num_runs):
         # print "In run {}\n".format(i)
         init_centroids = km.init_centroids(X, K)
         centroids, idx = km.run_k_means(X, init_centroids, max_iters, tol)
@@ -67,10 +67,13 @@ def find_school_clusters(data, K=5, tol=0, max_iters=60, num_runs=5):
 
     # for each centroid, find the schools in that cluster and build the
     # return list
-    return_list = [[] for cluster in xrange(K)]  # initialize the list of lists
-    for school, cluster in enumerate(best_idx):
-        return_list[cluster].append(id_list[school])
+    return build_clusters(id_list, best_idx, K)
+
+
+def build_clusters(ids, cluster_idx, K):
+    """builds a list of lists, where each inner list is a cluster
+    containing the ids of schools in that cluster"""
+    return_list = [[] for k in xrange(K)]  # initialize the list of lists
+    for school_idx, cluster in enumerate(cluster_idx):
+        return_list[cluster].append(ids[school_idx])
     return return_list
-    # for i, cluster in enumerate(return_list):
-    #     print "Schools in cluster {}:".format(i)
-    #     print cluster
