@@ -20,7 +20,7 @@ def find_closest_centroids(X, centroids):
     X = X.astype(float)
     K = centroids.shape[0]
     m = X.shape[0]
-    idx = np.zeros(m)
+    idx = np.zeros(m, dtype=np.int)
     # loop over m training examples
     for i in range(m):
 
