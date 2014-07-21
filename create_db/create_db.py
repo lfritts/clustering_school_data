@@ -4,11 +4,14 @@ from contextlib import closing
 import os
 import psycopg2
 
-# database constructs
+# database constructs:
+# the database consists of several tables that all have a building id in
+# common.  The tables will be joined based on that id for the results.
 DB_SCHEMA = """
 DROP TABLE IF EXISTS demographics;
 CREATE TABLE demographics (
-    buildingid INTEGER UNIQUE PRIMARY KEY,
+    table_key SERIAL PRIMARY KEY,
+    buildingid INTEGER,
     schooltype TEXT NOT NULL,
     district TEXT NOT NULL,
     school TEXT NOT NULL,
@@ -27,53 +30,59 @@ CREATE TABLE demographics (
 );
 DROP TABLE IF EXISTS year_0;
 CREATE TABLE year_0 (
-    buildingid INTEGER UNIQUE PRIMARY KEY,
-    grade INTEGER NOT NULL,
-    reading REAL NOT NULL,
-    math REAL NOT NULL,
-    writing REAL NOT NULL,
-    science REAL NOT NULL
+    table_key SERIAL PRIMARY KEY,
+    buildingid INTEGER,
+    grade INTEGER,
+    reading REAL,
+    math REAL,
+    writing REAL,
+    science REAL
     );
 DROP TABLE IF EXISTS year_1;
 CREATE TABLE year_1 (
-    buildingid INTEGER UNIQUE PRIMARY KEY,
-    grade INTEGER NOT NULL,
-    reading REAL NOT NULL,
-    math REAL NOT NULL,
-    writing REAL NOT NULL,
-    science REAL NOT NULL
+    table_key SERIAL PRIMARY KEY,
+    buildingid INTEGER,
+    grade INTEGER,
+    reading REAL,
+    math REAL,
+    writing REAL,
+    science REAL
     );
 DROP TABLE IF EXISTS year_2;
 CREATE TABLE year_2 (
-    buildingid INTEGER UNIQUE PRIMARY KEY,
-    grade INTEGER NOT NULL,
-    reading REAL NOT NULL,
-    math REAL NOT NULL,
-    writing REAL NOT NULL,
-    science REAL NOT NULL
+    table_key SERIAL PRIMARY KEY,
+    buildingid INTEGER,
+    grade INTEGER,
+    reading REAL,
+    math REAL,
+    writing REAL,
+    science REAL
     );
 DROP TABLE IF EXISTS year_3;
 CREATE TABLE year_3 (
-    buildingid INTEGER UNIQUE PRIMARY KEY,
-    grade INTEGER NOT NULL,
-    reading REAL NOT NULL,
-    math REAL NOT NULL,
-    writing REAL NOT NULL,
-    science REAL NOT NULL
+    table_key SERIAL PRIMARY KEY,
+    buildingid INTEGER,
+    grade INTEGER,
+    reading REAL,
+    math REAL,
+    writing REAL,
+    science REAL
     );
 DROP TABLE IF EXISTS year_4;
 CREATE TABLE year_4 (
-    buildingid INTEGER UNIQUE PRIMARY KEY,
-    grade INTEGER NOT NULL,
-    reading REAL NOT NULL,
-    math REAL NOT NULL,
-    writing REAL NOT NULL,
-    science REAL NOT NULL
+    table_key SERIAL PRIMARY KEY,
+    buildingid INTEGER,
+    grade INTEGER,
+    reading REAL,
+    math REAL,
+    writing REAL,
+    science REAL
     );
 """
 
+# For testing
 DB_COPY_DATA = """
-COPY demographics FROM %s;
+COPY %s FROM %s;
 """
 
 DB_GET_BUILDING = """
@@ -81,9 +90,19 @@ SELECT buildingid, enrollment, lowses FROM demographics WHERE buildingid
 = %s;
 """
 
+DB_GET_DATA = """
+SELECT grade, reading, math, writing, science FROM %s WHERE buildingid
+= %s;
+"""
+
+#os.environ['RDS_HOSTNAME'] = "school-db.cp9cgekjzx3g.us-west-2.rds.amazonaws.com"
+# os.environ['RDS_DB_NAME'] = 'schooldata'
+# os.environ['RDS_USERNAME'] ='education'
+# os.environ['RDS_PASSWORD'] = 'adminadmin'
+# os.environ['RDS_PORT'] = '5432'
 def connect_db():
 
-    if 'RDS_HOSTNAME' in os.environ:
+    #if 'RDS_HOSTNAME' in os.environ:
         DATABASES = {
             'default': {
                 'ENGINE': 'postgres (9.3.3) ',
@@ -101,9 +120,12 @@ def init_db():
     with closing(connect_db()) as db:
         db.cursor().execute(DB_SCHEMA)
         db.commit()
-        db.cursor().execute(DB_COPY_DATA, [os.getcwd() +
-                            "/demographics_data.txt"])
+        db.cursor().execute(DB_COPY_DATA, "demographics", [os.getcwd() +
+                            "/demographics.txt"])
+        db.cursor().execute(DB_COPY_DATA, "year_0", [os.getcwd() +
+                            "/year_0"])
         db.commit()
+
 
 def get_building_info(building_id):
     con = connect_db()
