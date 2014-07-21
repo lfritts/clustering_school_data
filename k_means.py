@@ -92,15 +92,6 @@ def compute_centroids(X, idx, K):
 
 def cost(centroids, X, idx):
     """returns the cost of a given clustering"""
-    # calculate distance between example in X and it's assigned cluster
-    # cost = 0.
-    # m, n = X.shape
-    # for i, row in enumerate(X[:]):
-    #     centroid = centroids[idx[i]]
-    #     cost += squared_distance(row, centroid)
-    # return cost / m
-
-    # Is it really this simple?
     m, _ = X.shape
     return squared_distance(X[:], centroids[idx]) / float(m)
 
