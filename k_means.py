@@ -79,8 +79,7 @@ def compute_centroids(X, idx, K):
 
     # loop over centroids and set row to T/F depending on
     # membership in cluster k.
-    for k in range(K):
-        idxLogical[k] = (idx == k)
+    idxLogical = [idx == k for k in range(K)]
 
     # compute the new centroids, which are the averages of the points in
     # each cluster
@@ -123,7 +122,4 @@ def run_k_means(X, initial_centroids, max_iters, tol=0):
 
     print "K-Means is done. \n\n"
 
-    # the return will change to:
-    # return centroids, idx, cost
-
-    return (centroids, idx)
+    return centroids, idx
