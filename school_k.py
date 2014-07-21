@@ -26,11 +26,9 @@ def _prep_k_data(data):
     return id_list, data_array
 
 
-def find_schools_in_cluster(
-        search_ID, data, K=5, tol=0, max_iters=60, num_runs=5):
+def find_school_clusters(data, K=5, tol=0, max_iters=60, num_runs=5):
     """
     find_schools_in_cluster will take a
-    * search_ID
     * data (a list of tuples). The first element of the tuple is always the
     building id for the school represented in the data in the rest of the
     tuple.
@@ -43,28 +41,36 @@ def find_schools_in_cluster(
     * num_runs is the number of times this method runs K-means and chooses
     the lowest cost run of them.
 
-    Returns a list of school building ids from same cluster as search_ID
-
-    Raises NoSchoolWithIDError if search_ID is not in data.
+    - returns a list of lists. The outer list contains K inner lists, one
+      for each cluster.  Each inner list contains the school ids of
+      schools in a given cluster.
     """
-    (search_ID_idx, id_list, X) = _prep_k_data(search_ID, data)
-    # feed data to k_means multiple times, storing centroid results
-    result_centroids_list = []
-    for i in range(num_runs):
+    id_list, X = _prep_k_data(data)
+    # do K-Means num_runs times, updating best run when necessary
+    # best_centroids = None
+    best_idx = None
+    lowest_cost = float('inf')
+    for i in range(num_runs + 1):
         # print "In run {}\n".format(i)
         init_centroids = km.init_centroids(X, K)
-        centroids, _ = km.run_k_means(X, init_centroids, max_iters, tol)
-        # sort the centroids on first column
-        centroids = centroids[centroids[:, 0].argsort()]
-        result_centroids_list.append(centroids)
-        # print "K-Means Run {0} finished.  Centroids are:".format(i)
-        # print centroids
+        centroids, idx = km.run_k_means(X, init_centroids, max_iters, tol)
+        cost = km.cost(centroids, X, idx)
+        print "Cost for run {0} is {1}\n".format(i, cost)
+        if cost < lowest_cost:
+            # best_centroids = centroids
+            best_idx = idx
+            lowest_cost = cost
+        # print "K-Means Run {} finished. Best centroids so far are:".format(i)
+        # print best_centroids
+        # print "With cost: {}".format(lowest_cost)
         # raw_input("Press enter to continue...")
 
-    # TODO
-    # WE NEED TO FIND THE RUN WITH
-    # THE LOWEST COST, NOT THE AVERAGE!!!
-    # average centroid locations
-
-    # find_closest_centroids one more time on the average centroid locations
-    # idx = km.find_closest_centroids(X, avg_cents)
+    # for each centroid, find the schools in that cluster and build the
+    # return list
+    return_list = [[] for cluster in xrange(K)]  # initialize the list of lists
+    for school, cluster in enumerate(best_idx):
+        return_list[cluster].append(id_list[school])
+    return return_list
+    # for i, cluster in enumerate(return_list):
+    #     print "Schools in cluster {}:".format(i)
+    #     print cluster

@@ -2,6 +2,7 @@ import pandas as pd
 import school_k as k
 # import numpy as np
 import pytest
+import itertools
 slow = pytest.mark.slow
 
 """
@@ -38,3 +39,22 @@ def test_prep_k_data(data_tuples):
     assert data_array[2304][0] == 5.758928571
     # Wa He Lut % low SES is 7.27
     assert data_array[2304][1] == 7.27
+
+
+def test_school_k_means(data_tuples):
+    K = 5
+    result_clusters = k.find_school_clusters(data_tuples, K=K)
+    # check that we get correct number of school ids back
+    num_schools = 0
+    for cluster in result_clusters:
+        num_schools += len(cluster)
+    # check that we get correct number of clusters back
+    assert len(result_clusters) == K
+    assert num_schools == 2305
+    # check that each school id is only in one cluster
+    for i in xrange(len(result_clusters)):
+        this_cluster = result_clusters[i]
+        other_clusters = result_clusters[:i] + result_clusters[i+1:]
+        for school_id in this_cluster:
+            for other_id in itertools.chain(*other_clusters):
+                assert school_id != other_id
