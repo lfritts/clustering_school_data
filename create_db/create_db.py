@@ -25,6 +25,51 @@ CREATE TABLE demographics (
     per_bil REAL NOT NULL,
     per_sped REAL NOT NULL
 );
+DROP TABLE IF EXISTS year_0;
+CREATE TABLE year_0 (
+    buildingid INTEGER UNIQUE PRIMARY KEY,
+    grade INTEGER NOT NULL,
+    reading REAL NOT NULL,
+    math REAL NOT NULL,
+    writing REAL NOT NULL,
+    science REAL NOT NULL
+    );
+DROP TABLE IF EXISTS year_1;
+CREATE TABLE year_1 (
+    buildingid INTEGER UNIQUE PRIMARY KEY,
+    grade INTEGER NOT NULL,
+    reading REAL NOT NULL,
+    math REAL NOT NULL,
+    writing REAL NOT NULL,
+    science REAL NOT NULL
+    );
+DROP TABLE IF EXISTS year_2;
+CREATE TABLE year_2 (
+    buildingid INTEGER UNIQUE PRIMARY KEY,
+    grade INTEGER NOT NULL,
+    reading REAL NOT NULL,
+    math REAL NOT NULL,
+    writing REAL NOT NULL,
+    science REAL NOT NULL
+    );
+DROP TABLE IF EXISTS year_3;
+CREATE TABLE year_3 (
+    buildingid INTEGER UNIQUE PRIMARY KEY,
+    grade INTEGER NOT NULL,
+    reading REAL NOT NULL,
+    math REAL NOT NULL,
+    writing REAL NOT NULL,
+    science REAL NOT NULL
+    );
+DROP TABLE IF EXISTS year_4;
+CREATE TABLE year_4 (
+    buildingid INTEGER UNIQUE PRIMARY KEY,
+    grade INTEGER NOT NULL,
+    reading REAL NOT NULL,
+    math REAL NOT NULL,
+    writing REAL NOT NULL,
+    science REAL NOT NULL
+    );
 """
 
 DB_COPY_DATA = """
