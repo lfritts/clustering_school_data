@@ -8,9 +8,9 @@ def read_address_file(filename):
     Read tab delimited text file containing school addresses and call
     get_latlong function to add latitude/longitude to each.
     """
-    base_dir = os.getcwd()
+
     rec_list = []
-    with open(base_dir + '/raw_data/' + filename) as address_file:
+    with open(filename) as address_file:
         reader = csv.DictReader(address_file, delimiter='\t')
         for row in reader:
             row['LatLong'] = get_latlong(row['School name'] + ' ' +
@@ -48,9 +48,11 @@ def write_address_file(filename, rec_list):
 
 
 if __name__ == '__main__':
+    base_dir = os.getcwd() + '/raw_data/'
     print "\nReads tab delimited text file containing address information"
     print 'and queries Google Maps api for latitude/longitude information.'
     print 'Text file should be placed in raw_data folder'
     inputfile = raw_input('\n\nPlease enter the filename: ')
-    write_address_file('raw_data/adresses.txt', read_address_file(inputfile))
+    write_address_file(base_dir + 'addresses.txt',
+                       read_address_file(base_dir + inputfile))
     print '\nOutput has been written to raw_data/addresses.txt'
