@@ -16,6 +16,11 @@
         </tr>
       </thead>
       <tbody>
+        <tr class="schools" id="school_id={{chosen_school[0]}}">
+                {% for elt in chosen_school[1:] %}
+                    <td>{{ elt }}</td>
+                {% endfor %}
+            </tr>
         {% for school in results %}
             <tr class="schools" id="school_id={{school[0]}}">
                 {% for elt in school[1:] %}
