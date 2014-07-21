@@ -38,14 +38,3 @@ def test_prep_k_data(data_tuples):
     assert data_array[2304][0] == 5.758928571
     # Wa He Lut % low SES is 7.27
     assert data_array[2304][1] == 7.27
-
-"""
-# for some reason this slow test runs all the time???
-@slow
-def test_find_schools_in_cluster(data_tuples):
-    # hardcode a real id for Concrete Twin Cedars High
-    search_id = 1605
-    # print k.find_schools_in_cluster(search_id, data_tuples)
-    k.find_schools_in_cluster(
-        search_id, data_tuples, K=10, tol=0)
-"""
