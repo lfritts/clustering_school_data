@@ -24,9 +24,11 @@ def get_latlong(record):
     """
     import requests
     api_url = 'http://maps.googleapis.com/maps/api/geocode/json'
-    # used school name and zip as first pass
+    # Used school name and zip as first pass
     # parameters = {'sensor': 'false',
     #               'address': (record['School name'] + ' ' + record['ZipCode'])}
+    # Better choice is address1 and zip. School name/zip will still be needed
+    # for schools with only PO Box.
     parameters = {'sensor': 'false',
                   'address': (record['AddressLine1'] + ' ' + record['ZipCode'])}
     resp = requests.get(api_url, params=parameters)
@@ -44,8 +46,11 @@ def get_latlong(record):
 def multiprocess_latlong(rec_list):
     """
     Use IPython parallel processing to farm out api requests. Requires
-    starting clusters in a separate terminal.
+    starting clusters in a separate terminal
+    (use ipcluster start -n <num_clusters> from cli).
     """
+    # Watch for hitting download/second limits. Dial back number of
+    # clusters as needed. Also may hit gross limit for API calls (2500/24hr)
     clients = parallel.Client()
     lview = clients.load_balanced_view()
     lview.block = True
