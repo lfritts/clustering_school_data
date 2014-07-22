@@ -18,28 +18,29 @@
         <input type="text" class="form-control" id="numschools" name="numschools"
           placeholder="Please enter the number of schools you want returned." size="4"><br>
         <!-- Comment out following block to disable functionality -->
-        <input name="enrollment" type="checkbox" value="normalized_enrollment" checked/>
-            Total Enrollment
-        <input name="lowses" type="checkbox" value="lowses" />
-            % Free and Reduced Lunch
-        <input name="per_native" type="checkbox" value="per_native" />
-            % American Indian
-        <input name="pre_asian" type="checkbox" value="per_asian" />
-            % Asian
-        <input name="per_pi" type="checkbox" value="per_PI" />
-            % Pacific Islander
-        <input name="per_api" type="checkbox" value="per_API" />
-            % Asian Pacific Islander
-        <input name="per_black" type="checkbox" value="per_black" />
-            % Black
-        <input name="per_hispanic" type="checkbox" value="per_hispanic" />
-            % Hispanic
-        <input name="per_migrant" type="checkbox" value="per_migrant" />
-            % Migrant
-        <input name="per_bil" type="checkbox" value="per_bil" />
-            % Bilingual
-        <input name="per_sped" type="checkbox" value="per_sped" />
-            % Special Education
+        <div class="container-fluid">
+          <div class="col-xs-6 text-left"><input name="enrollment" type="checkbox" value="normalized_enrollment" checked/>
+              Total Enrollment</div>
+          <div class="col-xs-6 text-left"><input name="lowses" type="checkbox" value="lowses" />
+                % Free and Reduced Lunch</div>
+          <div class="col-xs-6 text-left"><input name="per_native" type="checkbox" value="per_native" />
+              % American Indian</div>
+          <div class="col-xs-6 text-left"><input name="pre_asian" type="checkbox" value="per_asian" />
+              % Asian</div>
+          <div class="col-xs-6 text-left"><input name="per_pi" type="checkbox" value="per_PI" />
+              % Pacific Islander</div>
+          <div class="col-xs-6 text-left"><input name="per_api" type="checkbox" value="per_API" />
+              % Asian Pacific Islander</div>
+          <div class="col-xs-6 text-left"><input name="per_black" type="checkbox" value="per_black" />
+              % Black</div>
+          <div class="col-xs-6 text-left"><input name="per_hispanic" type="checkbox" value="per_hispanic" />
+              % Hispanic</div>
+          <div class="col-xs-6 text-left"><input name="per_migrant" type="checkbox" value="per_migrant" />
+              % Migrant</div>
+           <div class="col-xs-6 text-left"><input name="per_bil" type="checkbox" value="per_bil" />
+              % Bilingual</div>
+          <div class="col-xs-6 text-left"><input name="per_sped" type="checkbox" value="per_sped" />
+              % Special Education</div>
   </div>
   <a href="/main" class="btn btn-lg btn-warning" id="reset">Reset</a>
   <button type="submit" id="submit" class="btn btn-lg btn-primary">Submit</button>
