@@ -60,9 +60,10 @@ def results_page():
     results, chosen_school = get_results(
         school_name, session['district'], number_to_return, tuple(ret_list))
     print results
+    print chosen_school
     return render_template(
         'results.html',
-        results=results, school=chosen_school, headings=table_headings)
+        results=results, target_school=chosen_school, headings=table_headings)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
@@ -77,4 +78,4 @@ def contact():
 if __name__ == '__main__':
     http_server = WSGIServer(('', 5000), app)
     http_server.serve_forever()
-    # app.run(debug=True)
+    app.run(debug=True)
