@@ -25,6 +25,11 @@ def _prep_k_data(data):
     return id_list, data_array
 
 
+def parallel_find_best_school_clusters(
+        data, K=5, tol=0, max_iters=60, num_runs=5, debug=False):
+    pass
+
+
 def find_best_school_clusters(
         data, K=5, tol=0, max_iters=60, num_runs=5, debug=False):
     """
