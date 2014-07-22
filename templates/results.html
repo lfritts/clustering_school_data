@@ -7,6 +7,22 @@
 {% block body %}
   <h1>Selection Criteria Cohort</h1>
   <div class="table-responsive">
+    <table id="original_school" class="table table-striped">
+      <thead>
+        <tr>
+            {% for heading in headings %}
+                <th>{{ heading }}</th>
+            {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="school" id="school_id={{target_school[0][0]}}">
+                {% for elt in target_school[0][1:] %}
+                    <td>{{ elt }}</td>
+                {% endfor %}
+        </tr>
+        </tbody>
+      </table>
     <table id="final_results" class="table table-striped sortable">
       <thead>
         <tr>
@@ -16,11 +32,6 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="schools" id="school_id={{chosen_school[0]}}">
-                {% for elt in chosen_school[1:] %}
-                    <td>{{ elt }}</td>
-                {% endfor %}
-            </tr>
         {% for school in results %}
             <tr class="schools" id="school_id={{school[0]}}">
                 {% for elt in school[1:] %}

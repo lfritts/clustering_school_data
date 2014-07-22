@@ -51,9 +51,9 @@ sub_keys = {
 
 def connect_db():
     #user only has read access
-    host_name = os.environ.get('HOST', 'host')
-    db_name = os.environ.get('DBNAME', 'school_data_2013')
-    user_name = os.environ.get('USER', 'admin')
+    host_name = os.environ.get('HOST', 'localhost')
+    db_name = os.environ.get('DBNAME', 'schools_data')
+    user_name = os.environ.get('USER', 'schools_admin')
     passwd = os.environ.get('PASSWORD', 'admin')
     conn_string = '''host={0} dbname={1} user={2} password={3}'''.format(
         host_name, db_name, user_name, passwd)

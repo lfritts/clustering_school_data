@@ -10,7 +10,6 @@ import psycopg2
 DB_SCHEMA = """
 DROP TABLE IF EXISTS demographics;
 CREATE TABLE demographics (
-    table_key SERIAL PRIMARY KEY,
     buildingid INTEGER,
     schooltype TEXT NOT NULL,
     district TEXT NOT NULL,
@@ -30,7 +29,6 @@ CREATE TABLE demographics (
 );
 DROP TABLE IF EXISTS year_0;
 CREATE TABLE year_0 (
-    table_key SERIAL PRIMARY KEY,
     buildingid INTEGER,
     grade INTEGER,
     reading REAL,
@@ -40,7 +38,6 @@ CREATE TABLE year_0 (
     );
 DROP TABLE IF EXISTS year_1;
 CREATE TABLE year_1 (
-    table_key SERIAL PRIMARY KEY,
     buildingid INTEGER,
     grade INTEGER,
     reading REAL,
@@ -50,7 +47,6 @@ CREATE TABLE year_1 (
     );
 DROP TABLE IF EXISTS year_2;
 CREATE TABLE year_2 (
-    table_key SERIAL PRIMARY KEY,
     buildingid INTEGER,
     grade INTEGER,
     reading REAL,
@@ -60,7 +56,6 @@ CREATE TABLE year_2 (
     );
 DROP TABLE IF EXISTS year_3;
 CREATE TABLE year_3 (
-    table_key SERIAL PRIMARY KEY,
     buildingid INTEGER,
     grade INTEGER,
     reading REAL,
@@ -70,7 +65,6 @@ CREATE TABLE year_3 (
     );
 DROP TABLE IF EXISTS year_4;
 CREATE TABLE year_4 (
-    table_key SERIAL PRIMARY KEY,
     buildingid INTEGER,
     grade INTEGER,
     reading REAL,
@@ -82,7 +76,7 @@ CREATE TABLE year_4 (
 
 # For testing
 DB_COPY_DATA = """
-COPY %s FROM %s;
+COPY %s FROM %s DELIMITER E'\t' CSV HEADER;
 """
 
 DB_GET_BUILDING = """
@@ -95,14 +89,9 @@ SELECT grade, reading, math, writing, science FROM %s WHERE buildingid
 = %s;
 """
 
-#os.environ['RDS_HOSTNAME'] = "school-db.cp9cgekjzx3g.us-west-2.rds.amazonaws.com"
-# os.environ['RDS_DB_NAME'] = 'schooldata'
-# os.environ['RDS_USERNAME'] ='education'
-# os.environ['RDS_PASSWORD'] = 'adminadmin'
-# os.environ['RDS_PORT'] = '5432'
 def connect_db():
 
-    #if 'RDS_HOSTNAME' in os.environ:
+    if 'RDS_HOSTNAME' in os.environ:
         DATABASES = {
             'default': {
                 'ENGINE': 'postgres (9.3.3) ',
@@ -113,7 +102,11 @@ def connect_db():
                 'PORT': os.environ['RDS_PORT'],
             }
         }
-    return psycopg2.connect(DATABASES)
+        return psycopg2.connect(DATABASES)
+    else:
+        print "Hello"
+        conn_string = "host='localhost' dbname='schools_data' user='schools_admin' password='admin'"
+    return psycopg2.connect(conn_string)
 
 
 def init_db():
