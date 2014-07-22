@@ -7,7 +7,8 @@ SELECT DISTINCT district FROM demographics ORDER BY district;
 """
 
 DB_GET_SCHOOLS = """
-SELECT school FROM demographics WHERE DISTRICT = %s ORDER BY school;
+SELECT school, schooltype FROM demographics WHERE DISTRICT = %s
+ORDER BY school;
 """
 
 DB_GET_SCHOOLS_BY_TYPE = """
@@ -99,7 +100,7 @@ def get_schools_by_type(school_type, *args):
     return cur.fetchall()
 
 
-def get_results(school_name, district, number_to_return, *args):
+def get_results(school_name, district, number_to_return, grade, test, *args):
     school_id = int(get_school_id(school_name, district))
     school_type = str(get_school_type(school_id))
     search_schools = get_schools_by_type(school_type, args[0])

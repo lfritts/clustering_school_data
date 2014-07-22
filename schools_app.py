@@ -45,9 +45,11 @@ def choose_school():
 def results_page():
     school_name = request.args.get('school')
     number_to_return = request.args.get('numschools')
+    grade = request.args.get('grade')
+    test = request.args.get('test')
     ret_list = []
     for item in request.args:
-        if item in ('school', 'numschools'):
+        if item in ('school', 'numschools', 'grade', 'test'):
             pass
         else:
             ret_list.append(str(request.args.get(item)))
@@ -58,7 +60,7 @@ def results_page():
     '% Asian Pacific Islander', '% Black', '% Hispanic',
     '% Migrant', '% Bilingual', '% SPED']
     results, chosen_school = get_results(
-        school_name, session['district'], number_to_return, tuple(ret_list))
+        school_name, session['district'], number_to_return, grade, test, tuple(ret_list))
     print results
     print chosen_school
     return render_template(
@@ -78,4 +80,4 @@ def contact():
 if __name__ == '__main__':
     http_server = WSGIServer(('', 5000), app)
     http_server.serve_forever()
-    app.run(debug=True)
+    #app.run(debug=True)
