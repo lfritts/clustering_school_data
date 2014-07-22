@@ -9,5 +9,10 @@ sub_keys = {
     "per_hispanic": "per_hispanic",
     "per_migrant": "per_migrant",
     "per_bil": "per_bil",
-    "per_sped": "per_sped"
+    "per_sped": "per_sped",
+    "grade": "grade",
+    "reading": "reading",
+    "math": "math",
+    "writing": "writing",
+    "science": "science"
     }
