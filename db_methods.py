@@ -158,4 +158,38 @@ def get_schools_by_id(grade, school_ids):
     cur = connect_db()
     cur.execute(DB_GET_SCHOOLS_BY_ID, {'grade': grade, 'id': tuple(school_ids)})
     school_list.append(cur.fetchall())
-    return school_list[0]
+    return_list = make_dict(school_list[0], grade)
+    return return_list
+
+def make_dict(schools, grade):
+    schools_dicts = []
+    for item in schools:
+        new_dict = {}
+        new_dict['bid'] = item[0]
+        new_dict['district'] = item[1]
+        new_dict['school'] = item[2]
+        demo = []
+        for i in range(3, 14):
+            demo.append(item[i])
+        new_dict['demographics'] = demo
+        scores = []
+        for i in range(14, 19):
+            scores.append(item[i])
+        new_dict['reading'] = scores
+        if grade == 4 or grade == 7 or grade == 10:
+            scores = []
+            for i in range(19, 24):
+                scores.append(item[i])
+            new_dict['writing'] = scores
+        if grade <= 8:
+            scores = []
+            for i in range(24, 29):
+                scores.append(item[i])
+            new_dict['math'] = scores
+            scores = []
+        if grade == 5 or grade == 8:
+            for i in range(29, 34):
+                scores.append(item[i])
+            new_dict['science'] = scores
+        schools_dicts.append(new_dict)
+    return schools_dicts
