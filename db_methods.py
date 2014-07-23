@@ -30,55 +30,6 @@ SELECT  d.buildingid,
         d.per_migrant,
         d.per_bil,
         d.per_sped,
-        y0.reading,
-        y0.writing,
-        y0.math,
-        y0.science,
-        y1.reading,
-        y1.writing,
-        y1.math,
-        y1.science,
-        y2.reading,
-        y2.writing,
-        y2.math,
-        y2.science,
-        y3.reading,
-        y3.writing,
-        y3.math,
-        y3.science,
-        y4.reading,
-        y4.writing,
-        y4.math,
-        y4.science
-        FROM demographics d
-        INNER JOIN y0_data y0
-        ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
-        INNER JOIN y1_data y1
-        ON d.buildingid = y1.buildingid AND y1.grade = %(grade)s
-        INNER JOIN y2_data y2
-        ON d.buildingid = y2.buildingid AND y2.grade = %(grade)s
-        INNER JOIN y0_data y3
-        ON d.buildingid = y3.buildingid AND y3.grade = %(grade)s
-        INNER JOIN y0_data y4
-        ON d.buildingid = y4.buildingid AND y4.grade = %(grade)s
-        WHERE d.buildingid IN %(id)s;
-"""
-
-DB_GET_SCHOOL_BY_ID = """
-SELECT  d.buildingid,
-        d.district,
-        d.school,
-        d.enrollment,
-        d.lowses,
-        d.per_native,
-        d.per_asian,
-        d.per_PI,
-        d.per_API,
-        d.per_black,
-        d.per_hispanic,
-        d.per_migrant,
-        d.per_bil,
-        d.per_sped,
         y4.reading,
         y3.reading,
         y2.reading,
@@ -111,7 +62,7 @@ SELECT  d.buildingid,
         ON d.buildingid = y3.buildingid AND y3.grade = %(grade)s
         INNER JOIN year_4 y4
         ON d.buildingid = y4.buildingid AND y4.grade = %(grade)s
-        WHERE d.buildingid = %(id)s;
+        WHERE d.buildingid IN %(id)s;
 """
 
 DB_GET_ID_FOR_SCHOOL = """
@@ -199,15 +150,12 @@ def get_results(school_name, district, number_to_return, grade, test, *args):
 
 
 def get_schools_by_id(grade, school_ids):
+    if not isinstance(school_ids, list):
+        temp = school_ids
+        school_ids = []
+        school_ids.append(temp)
     school_list = []
     cur = connect_db()
     cur.execute(DB_GET_SCHOOLS_BY_ID, {'grade': grade, 'id': tuple(school_ids)})
     school_list.append(cur.fetchall())
-    return school_list[0]
-
-def get_school_by_id(grade, school_id):
-    school_list = []
-    cur = connect_db()
-    cur.execute(DB_GET_SCHOOL_BY_ID, {'grade': grade, 'id': school_id})
-    school_list.append(cur.fetchone())
     return school_list[0]
