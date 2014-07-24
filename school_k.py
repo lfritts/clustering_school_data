@@ -62,7 +62,8 @@ def find_best_school_clusters(
                 print_debug_info_and_pause(
                     run, cost, centroids, lowest_cost, best_centroids)
     # find the schools in each cluster and build the return list
-    return build_clusters(id_list, best_cluster_idx, K)
+    centroids_lists = centroids_to_lists(best_centroids)
+    return centroids_lists, build_clusters(id_list, best_cluster_idx, K)
 
 
 def get_k_run_results(X, K, max_iters, tol):
@@ -90,3 +91,12 @@ def print_debug_info_and_pause(
         print best_centroids
         print "With cost: {}".format(lowest_cost)
         raw_input("Press enter to continue...")
+
+
+def centroids_to_lists(centroids):
+    list_centroids = []
+    num_rows, _ = centroids.shape
+    for centroid in centroids:
+        list_centroid = list(centroid)
+        list_centroids.append(list_centroid)
+    return list_centroids

@@ -52,7 +52,7 @@ def test_build_clusters():
 
 def test_school_k_means(data_tuples):
     K = 5
-    result_clusters = k.find_best_school_clusters(data_tuples, K=K)
+    centroids, result_clusters = k.find_best_school_clusters(data_tuples, K=K)
     # check that we get correct number of school ids back
     num_schools = 0
     for cluster in result_clusters:
