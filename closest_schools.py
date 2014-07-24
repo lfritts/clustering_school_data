@@ -1,7 +1,11 @@
 import k_means as km
-# import school_k as sk
-from school_k import NoSchoolWithIDError
 import numpy as np
+
+
+class NoSchoolWithIDError(Exception):
+
+    def __init__(self, message="search_ID supplied is not in data"):
+        Exception.__init__(self, message)
 
 
 def _pick_n(n, sd_array):
@@ -66,6 +70,9 @@ def _prep_data(search_ID, data):
             continue
         # grab the first item in the tuple, the id
         id_list.append(school[0])
+        # TODO I'm not convinced using vstack is the fasted way to do this. I
+        # think initializing the array to zeros and then setting values is
+        # faster.
         # grab the rest of the tuple, the data
         data_array = np.vstack([data_array, school[1:]])
 

@@ -17,10 +17,9 @@ def find_closest_centroids(X, centroids):
     Returns a vector idx of centroid assignments for each example.
     I.e. idx = m x 1 and each entry in idx in range [1..K]
     """
-    X = X.astype(float)
     K = centroids.shape[0]
     m = X.shape[0]
-    idx = np.zeros(m)
+    idx = np.zeros(m, dtype=np.int)
     # loop over m training examples
     for i in range(m):
 
@@ -53,7 +52,6 @@ def init_centroids(X, K):
     """
     Initializes K centroids that are to be used in K-Means on dataset X.
     """
-    X = X.astype(float)
     # create a random permutation of the indices of each vector in X
     rand_idx = np.random.permutation(X.shape[0])
     # take the first K of the random indexed samples
@@ -69,7 +67,6 @@ def compute_centroids(X, idx, K):
     centroids, where each row of centroids is the mean of data points
     assigned to it.
     """
-    X = X.astype(float)
     (m, n) = X.shape
 
     centroids = np.zeros((K, n))
@@ -79,8 +76,7 @@ def compute_centroids(X, idx, K):
 
     # loop over centroids and set row to T/F depending on
     # membership in cluster k.
-    for k in range(K):
-        idxLogical[k] = (idx == k)
+    idxLogical = [idx == k for k in range(K)]
 
     # compute the new centroids, which are the averages of the points in
     # each cluster
@@ -88,6 +84,12 @@ def compute_centroids(X, idx, K):
     centroids = np.dot(idxLogical, X) / np.sum(idxLogical, 1)[:, np.newaxis]
 
     return centroids
+
+
+def cost(centroids, X, idx):
+    """returns the cost of a given clustering"""
+    m, _ = X.shape
+    return squared_distance(X[:], centroids[idx]) / float(m)
 
 
 def run_k_means(X, initial_centroids, max_iters, tol=0):
@@ -111,10 +113,9 @@ def run_k_means(X, initial_centroids, max_iters, tol=0):
             print "covergence at {0} iterations, instead of max of {1}".format(
                 i, max_iters)
             break
-
         # print centroids
         # raw_input("Press enter to continue...")
 
     print "K-Means is done. \n\n"
 
-    return (centroids, idx)
+    return centroids, idx
