@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block head %}
+  {% block head %}
   <title>Results</title>
   <link href="{{ url_for('static', filename='css/lib/moz_fix.css')}}" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/dropdown.css')}}" rel="stylesheet">
@@ -46,7 +46,16 @@
           <!-- Display scores -->
           {% for test_sub in scores %}
             <td>{{ target_school.0[test_sub][4] }}</td>
-            <td><!-- Put sparkline here --></td>
+            <td>
+                <!-- Put sparkline here -->
+                <span class="inlinesparkline">
+                    {{ target_school.0[test_sub][0] }},
+                    {{ target_school.0[test_sub][1] }},
+                    {{ target_school.0[test_sub][2] }},
+                    {{ target_school.0[test_sub][3] }},
+                    {{ target_school.0[test_sub][4] }}
+                </span>
+            </td>
           {% endfor %}
         </tr>
       </tbody>
@@ -62,7 +71,7 @@
           <!-- Display headings for available scores & sparklines-->
           {% for subject in score_hdg %}
             <th>{{ subject }}</th>
-            <th>Trend</th>
+            <th class="sorttable_nosort">Trend</th>
           {% endfor %}
         </tr>
       </thead>
@@ -90,7 +99,16 @@
             <!-- Display scores -->
             {% for test_sub in scores %}
               <td>{{ school[test_sub][4] }}</td>
-               <td><!-- Put sparkline here --></td>
+               <td>
+                    <!-- Put sparkline here -->
+                    <span class="inlinesparkline">
+                    {{ school[test_sub][0] }},
+                    {{ school[test_sub][1] }},
+                    {{ school[test_sub][2] }},
+                    {{ school[test_sub][3] }},
+                    {{ school[test_sub][4] }}
+                    </span>
+                </td>
             {% endfor %}
           </tr>
         {% endfor %}
@@ -100,4 +118,6 @@
 {% endblock %}
 {% block scripts %}
   <script src="{{ url_for('static', filename='js/dropdown.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/lib/jquery.sparkline.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/sparkline.js') }}"></script>
 {% endblock %}
