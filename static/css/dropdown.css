@@ -1,0 +1,37 @@
+
+.dd-act {
+    position: relative;
+}
+
+.dropdown {
+    padding: 1em;
+    background-color: white;
+    border: .1em solid black;
+    color: black;
+    position: absolute;
+    top: 1em;
+    left: 0;
+    border-radius: 1em;
+    z-index: 1;
+    width: 25em;
+}
+
+/*td span {
+    float: right;
+}*/
+
+dl {
+    width: 25em;
+}
+dl dt {
+    width: 20em;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+dl dd {
+    width: 5em;
+    float: left;
+    padding: 0;
+    margin: 0;
+}

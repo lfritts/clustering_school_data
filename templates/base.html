@@ -16,9 +16,9 @@
     <!-- Bootstrap theme -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='starter-template.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lib/starter-template.css')}}" rel="stylesheet">
     <!-- CSS for Quickselect -->
-    <link href="{{ url_for('static', filename='jquery.quickselect.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lib/jquery.quickselect.css')}}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -69,8 +69,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="{{ url_for('static', filename='quicksilver.js') }}"></script>
-    <script src="{{ url_for('static', filename='jquery.quickselect.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lib/quicksilver.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lib/jquery.quickselect.js') }}"></script>
     <!-- <script src="{{ url_for('static', filename='script.js') }}"></script> -->
     {% block scripts %}{% endblock %}
   </body>

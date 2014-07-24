@@ -138,7 +138,7 @@ def get_schools_by_type(school_type, *args):
     return cur.fetchall()
 
 
-def get_results(school_name, district, number_to_return, grade, test, *args):
+def get_results(school_name, district, number_to_return, grade, *args):
     school_id = int(get_school_id(school_name, district))
     school_type = str(get_school_type(school_id))
     search_schools = get_schools_by_type(school_type, args[0])
@@ -162,6 +162,7 @@ def get_schools_by_id(grade, school_ids):
     return return_list
 
 def make_dict(schools, grade):
+    grade = int(grade)
     schools_dicts = []
     for item in schools:
         new_dict = {}
@@ -186,8 +187,8 @@ def make_dict(schools, grade):
             for i in range(24, 29):
                 scores.append(item[i])
             new_dict['math'] = scores
-            scores = []
         if grade == 5 or grade == 8:
+            scores = []
             for i in range(29, 34):
                 scores.append(item[i])
             new_dict['science'] = scores

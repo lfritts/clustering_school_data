@@ -1,45 +1,103 @@
 {% extends "base.html" %}
 {% block head %}
   <title>Results</title>
-  <link href="{{ url_for('static', filename='moz_fix.css')}}" rel="stylesheet">
-  <script src="{{ url_for('static', filename='sorttable.js') }}"></script>
-{% endblock %}
+  <link href="{{ url_for('static', filename='css/lib/moz_fix.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/dropdown.css')}}" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/lib/sorttable.js') }}"></script>
+  {% endblock %}
 {% block body %}
   <h1>Selection Criteria Cohort</h1>
   <div class="table-responsive">
+    <!-- Table for headings starts here -->
     <table id="original_school" class="table table-striped">
       <thead>
         <tr>
-            {% for heading in headings %}
-                <th>{{ heading }}</th>
-            {% endfor %}
+          <!-- Display first 2 headings (School, District) -->
+          {% for heading in headings[:2] %}
+            <th>{{ heading }}</th>
+          {% endfor %}
+          <!-- Display headings for available scores & sparklines-->
+          {% for subject in score_hdg %}
+            <th>{{ subject }}</th>
+            <th>Trend</th>
+          {% endfor %}
         </tr>
       </thead>
       <tbody>
-        <tr class="school" id="school_id={{target_school[0][0]}}">
-                {% for elt in target_school[0][1:] %}
-                    <td>{{ elt }}</td>
-                {% endfor %}
+        <!-- Display values -->
+        <tr class="school" id="school_id={{target_school.0.bid}}">
+          <!-- Demographics dropdown triggers off of click event on span -->
+          <td>{{ target_school.0.school }} <span class="dd-act glyphicon glyphicon-info-sign" data-dd-id="{{ target_school.0.bid }}">
+            <div class="dropdown" id="{{ target_school.0.bid }}">
+                <h4>Demographics</h4>
+                <hr>
+                <dl>
+                  <!-- Loop through demographics -->
+                  {% for item in target_school.0.demographics %}
+                    <!-- Display heading and value -->
+                    <dt>{{ headings[2:][loop.index0] + ':' }}</dt>
+                    <dd>{{ item }}</dd>
+                  {% endfor %}
+                </dl>
+            </div></span>
+          </td>
+          <!-- Display district -->
+          <td>{{ target_school.0.district }}</td>
+          <!-- Display scores -->
+          {% for test_sub in scores %}
+            <td>{{ target_school.0[test_sub][4] }}</td>
+            <td><!-- Put sparkline here --></td>
+          {% endfor %}
         </tr>
-        </tbody>
-      </table>
+      </tbody>
+    </table>
+    <!-- Table for results -->
     <table id="final_results" class="table table-striped sortable">
       <thead>
         <tr>
-            {% for heading in headings %}
-                <th>{{ heading }}</th>
-            {% endfor %}
+          <!-- Display first 2 headings (School, District) -->
+          {% for heading in headings[:2] %}
+            <th>{{ heading }}</th>
+          {% endfor %}
+          <!-- Display headings for available scores & sparklines-->
+          {% for subject in score_hdg %}
+            <th>{{ subject }}</th>
+            <th>Trend</th>
+          {% endfor %}
         </tr>
       </thead>
       <tbody>
+        <!-- Display values -->
         {% for school in results %}
-            <tr class="schools" id="school_id={{school[0]}}">
-                {% for elt in school[1:] %}
-                    <td>{{ elt }}</td>
-                {% endfor %}
-            </tr>
+          <tr class="schools" id="school_id={{ school.bid }}">
+            <!-- Demographics dropdown triggers off of click event on span -->
+            <td>{{ school.school }} <span class="dd-act glyphicon glyphicon-info-sign" data-dd-id="{{ school.bid }}">
+              <div class="dropdown" id="{{ school.bid }}">
+                <h4>Demographics</h4>
+                <hr>
+                <dl>
+                  <!-- Loop through demographics -->
+                  {% for item in school.demographics %}
+                    <!-- Display heading and value -->
+                    <dt>{{ headings[2:][loop.index0] + ':' }}</dt>
+                    <dd>{{ item }}</dd>
+                  {% endfor %}
+                </dl>
+              </div></span>
+            </td>
+            <!-- Display district -->
+            <td>{{ school.district }}</td>
+            <!-- Display scores -->
+            {% for test_sub in scores %}
+              <td>{{ school[test_sub][4] }}</td>
+               <td><!-- Put sparkline here --></td>
+            {% endfor %}
+          </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
+{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/dropdown.js') }}"></script>
 {% endblock %}
