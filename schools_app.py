@@ -46,26 +46,40 @@ def results_page():
     school_name = request.args.get('school')
     number_to_return = request.args.get('numschools')
     grade = request.args.get('grade')
-    test = request.args.get('test')
+    # test = request.args.get('test')
     ret_list = []
     for item in request.args:
-        if item in ('school', 'numschools', 'grade', 'test'):
+        if item in ('school', 'numschools', 'grade'):
             pass
         else:
             ret_list.append(str(request.args.get(item)))
     print 'Returning this: {}'.format(ret_list)
     table_headings = [
-    'School', 'District', 'Enrollment', '% Free/Reduced',
-    '% American Indian', '% Asian', '% Pacific Islander',
-    '% Asian Pacific Islander', '% Black', '% Hispanic',
-    '% Migrant', '% Bilingual', '% SPED']
-    results, chosen_school = get_results(
-        school_name, session['district'], number_to_return, grade, test, tuple(ret_list))
-    print results
+        'School', 'District', 'Enrollment', '% Free/Reduced',
+        '% American Indian', '% Asian', '% Pacific Islander',
+        '% Asian Pacific Islander', '% Black', '% Hispanic',
+        '% Migrant', '% Bilingual', '% SPED']
+    results, chosen_school = get_results(school_name,
+                                         session['district'],
+                                         number_to_return,
+                                         grade,
+                                         tuple(ret_list))
+    print "Results:\n", results
     print chosen_school
-    return render_template(
-        'results.html',
-        results=results, target_school=chosen_school, headings=table_headings)
+    # workaround to get scores for display - currently am not necessarily
+    # getting all scores for a given school.
+    scores = []
+    score_hdg = []
+    for subject in ['reading', 'writing', 'math', 'science']:
+        if subject in chosen_school[0]:
+            scores.append(subject)
+            score_hdg.append(subject.capitalize())
+    return render_template('results.html',
+                           results=results,
+                           target_school=chosen_school,
+                           scores=scores,
+                           score_hdg=score_hdg,
+                           headings=table_headings)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
