@@ -2,44 +2,68 @@
 {% block head %}
   <title>Results</title>
   <link href="{{ url_for('static', filename='moz_fix.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='dropdown.css')}}" rel="stylesheet">
   <script src="{{ url_for('static', filename='sorttable.js') }}"></script>
-{% endblock %}
+  {% endblock %}
 {% block body %}
   <h1>Selection Criteria Cohort</h1>
   <div class="table-responsive">
     <table id="original_school" class="table table-striped">
       <thead>
         <tr>
-            {% for heading in headings %}
-                <th>{{ heading }}</th>
-            {% endfor %}
+          {% for heading in headings %}
+            <th>{{ heading }}</th>
+          {% endfor %}
         </tr>
       </thead>
       <tbody>
-        <tr class="school" id="school_id={{target_school[0][0]}}">
-                {% for elt in target_school[0][1:] %}
-                    <td>{{ elt }}</td>
-                {% endfor %}
+        <tr class="school" id="school_id={{target_school.0.bid}}">
+          <td>{{ target_school.0.school }}<span class="dd-act glyphicon glyphicon-info-sign" data-dd-id="{{ target_school.0.bid }}">
+            <div class="dropdown" id="{{ target_school.0.bid }}">
+                <h4>Demographics</h4>
+                <hr>
+                <dl>
+                  {% for item in target_school.0.demographics %}
+                    <dt>{{ headings[2:][loop.index0] + ':' }}</dt>
+                    <dd>{{ item }}</dd>
+                  {% endfor %}
+                </dl>
+            </div></span>
+          </td>
+          <td>{{ target_school.0.district }}</td>
         </tr>
-        </tbody>
-      </table>
+      </tbody>
+    </table>
     <table id="final_results" class="table table-striped sortable">
       <thead>
         <tr>
-            {% for heading in headings %}
-                <th>{{ heading }}</th>
-            {% endfor %}
+          {% for heading in headings %}
+            <th>{{ heading }}</th>
+          {% endfor %}
         </tr>
       </thead>
       <tbody>
         {% for school in results %}
-            <tr class="schools" id="school_id={{school[0]}}">
-                {% for elt in school[1:] %}
-                    <td>{{ elt }}</td>
-                {% endfor %}
-            </tr>
+          <tr class="schools" id="school_id={{ school.bid }}">
+            <td>{{ school.school }}<span class="dd-act glyphicon glyphicon-info-sign" data-dd-id="{{ school.bid }}">
+              <div class="dropdown" id="{{ school.bid }}">
+                <h4>Demographics</h4>
+                <hr>
+                <dl>
+                  {% for item in school.demographics %}
+                    <dt>{{ headings[2:][loop.index0] + ':' }}</dt>
+                    <dd>{{ item }}</dd>
+                  {% endfor %}
+                </dl>
+              </div></span>
+            </td>
+            <td>{{ school.district }}</td>
+          </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
+{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='dropdown.js') }}"></script>
 {% endblock %}
