@@ -55,7 +55,7 @@ def results_page():
             ret_list.append(str(request.args.get(item)))
     print 'Returning this: {}'.format(ret_list)
     table_headings = [
-    'District', 'School', 'Enrollment', '% Free/Reduced',
+    'School', 'District', 'Enrollment', '% Free/Reduced',
     '% American Indian', '% Asian', '% Pacific Islander',
     '% Asian Pacific Islander', '% Black', '% Hispanic',
     '% Migrant', '% Bilingual', '% SPED']
