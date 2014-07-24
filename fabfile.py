@@ -34,7 +34,7 @@ def provision_instance(wait_for_running=False, timeout=60, interval=2):
     timeout_val = int(timeout)
     conn = get_ec2_connection()
     instance_type = 't1.micro'
-    key_name = 'pk-aws'
+    key_name = 'pk-aws-schools'
     security_group = 'ssh-access'
     image_id = 'ami-c3abd6f3'
 
@@ -143,7 +143,7 @@ def deploy():
 
 
 def deployment_control():
-    # sudo('apt-get update')
+    sudo('apt-get update')
     install_nginx()
     sudo('apt-get install -y supervisor')
     sudo('apt-get install -y python-pip')
