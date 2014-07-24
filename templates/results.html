@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block head %}
   <title>Results</title>
-  <link href="{{ url_for('static', filename='moz_fix.css')}}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='dropdown.css')}}" rel="stylesheet">
-  <script src="{{ url_for('static', filename='sorttable.js') }}"></script>
+  <link href="{{ url_for('static', filename='css/lib/moz_fix.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/dropdown.css')}}" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/lib/sorttable.js') }}"></script>
   {% endblock %}
 {% block body %}
   <h1>Selection Criteria Cohort</h1>
@@ -65,5 +65,5 @@
   </div>
 {% endblock %}
 {% block scripts %}
-  <script src="{{ url_for('static', filename='dropdown.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/dropdown.js') }}"></script>
 {% endblock %}
