@@ -94,7 +94,44 @@ def demographics():
 
 @app.route('/clusters')
 def cluster_scores():
-    return render_template('cluster_scores.html')
+    grade = request.args.get('grade')
+    test = request.args.get('test')
+    ret_list = []
+    for item in request.args:
+        if item in ('grade', 'test'):
+            pass
+        else:
+            ret_list.append(str(request.args.get(item)))
+    print 'Returning this: {}'.format(ret_list)
+    table_headings = [
+        'Enrollment', '% Free/Reduced',
+        '% American Indian', '% Asian', '% Pacific Islander',
+        '% Asian Pacific Islander', '% Black', '% Hispanic',
+        '% Migrant', '% Bilingual', '% SPED']
+    demo_results, scores = get_scores_results(grade,
+                                              test,
+                                              tuple(ret_list))
+    print "Results:\n", demo_results
+    # workaround to get scores for display - currently am not necessarily
+    # getting all scores for a given school.
+    # scores = []
+    # score_hdg = []
+    # for subject in ['reading', 'writing', 'math', 'science']:
+    #     if subject in chosen_school[0]:
+    #         scores.append(subject)
+    #         score_hdg.append(subject.capitalize())
+    # return render_template('results.html',
+    #                        results=results,
+    #                        target_school=chosen_school,
+    #                        scores=scores,
+    #                        score_hdg=score_hdg,
+    #                        headings=table_headings)
+    return render_template('cluster_scores.html',
+                           grade=grade,
+                           test=test,
+                           table_headings=table_headings,
+                           demo_results=demo_results,
+                           scores=scores)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
