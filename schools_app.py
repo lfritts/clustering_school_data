@@ -10,7 +10,7 @@ from db_methods import get_scores_results
 
 
 app = Flask(__name__)
-# app.secret_key = 'temporary development key'
+app.secret_key = 'temporary development key'
 
 
 @app.route('/')
@@ -40,7 +40,8 @@ def choose_school():
     session['district'] = district
     schools = get_schools(district)
     return render_template(
-        'choose_school.html', school_list=schools, district=session['district'])
+        'choose_school.html', school_list=schools,
+        district=session['district'])
 
 
 @app.route('/results/')
@@ -48,7 +49,6 @@ def results_page():
     school_name = request.args.get('school')
     number_to_return = request.args.get('numschools')
     grade = request.args.get('grade')
-    # test = request.args.get('test')
     ret_list = []
     for item in request.args:
         if item in ('school', 'numschools', 'grade'):
@@ -109,20 +109,6 @@ def cluster_scores():
                                               test,
                                               tuple(ret_list))
     print "Results:\n", demo_results
-    # workaround to get scores for display - currently am not necessarily
-    # getting all scores for a given school.
-    # scores = []
-    # score_hdg = []
-    # for subject in ['reading', 'writing', 'math', 'science']:
-    #     if subject in chosen_school[0]:
-    #         scores.append(subject)
-    #         score_hdg.append(subject.capitalize())
-    # return render_template('results.html',
-    #                        results=results,
-    #                        target_school=chosen_school,
-    #                        scores=scores,
-    #                        score_hdg=score_hdg,
-    #                        headings=table_headings)
     test.capitalize()
     print "Scores:\n", scores
     cluster0_scores = scores[0]
@@ -151,6 +137,6 @@ def contact():
 
 
 if __name__ == '__main__':
-    # http_server = WSGIServer(('', 5000), app)
-    # http_server.serve_forever()
-    app.run(debug=True)
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
+    # app.run(debug=True)
