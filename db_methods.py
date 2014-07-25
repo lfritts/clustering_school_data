@@ -75,7 +75,7 @@ SELECT  d.school, y0.reading FROM demographics d INNER JOIN year_0 y0
 DB_GET_WRITING_BY_ID = """
 SELECT  d.school, y0.writing FROM demographics d INNER JOIN year_0 y0
         ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
-        WHERE d.buildingid IN %(id)s AND yo.writing IS NOT NULL;
+        WHERE d.buildingid IN %(id)s AND y0.writing IS NOT NULL;
 """
 
 DB_GET_MATH_BY_ID = """
@@ -87,7 +87,7 @@ SELECT  d.school, y0.math FROM demographics d INNER JOIN year_0 y0
 DB_GET_SCIENCE_BY_ID = """
 SELECT  d.school, y0.science FROM demographics d INNER JOIN year_0 y0
         ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
-        WHERE d.buildingid IN %(id)s AND yo.science IS NOT NULL;
+        WHERE d.buildingid IN %(id)s AND y0.science IS NOT NULL;
 """
 
 DB_GET_ID_FOR_SCHOOL = """
