@@ -1,5 +1,6 @@
 import psycopg2
 from closest_schools import find_n_closest_schools as find_schools
+from school_k import find_best_school_clusters
 import os
 
 DB_GET_DISTRICTS = """
@@ -65,6 +66,30 @@ SELECT  d.buildingid,
         WHERE d.buildingid IN %(id)s;
 """
 
+DB_GET_READING_BY_ID = """
+SELECT  d.school, y0.reading FROM demographics d INNER JOIN year_0 y0
+        ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
+        WHERE d.buildingid IN %(id)s;
+"""
+
+DB_GET_WRITING_BY_ID = """
+SELECT  d.school, y0.writing FROM demographics d INNER JOIN year_0 y0
+        ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
+        WHERE d.buildingid IN %(id)s;
+"""
+
+DB_GET_MATH_BY_ID = """
+SELECT  d.school, y0.math FROM demographics d INNER JOIN year_0 y0
+        ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
+        WHERE d.buildingid IN %(id)s;
+"""
+
+DB_GET_SCIENCE_BY_ID = """
+SELECT  d.school, y0.science FROM demographics d INNER JOIN year_0 y0
+        ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
+        WHERE d.buildingid IN %(id)s;
+"""
+
 DB_GET_ID_FOR_SCHOOL = """
 SELECT buildingid FROM demographics WHERE school = %s AND district = %s;
 """
@@ -89,7 +114,6 @@ sub_keys = {
 
 
 def connect_db():
-    #user only has read access
     host_name = os.environ.get('HOST', 'localhost')
     db_name = os.environ.get('DBNAME', 'schools_data')
     user_name = os.environ.get('USER', 'schools_admin')
@@ -125,15 +149,15 @@ def get_school_type(school_type):
     cur.execute(DB_GET_TYPE_FOR_SCHOOL, [school_type])
     return cur.fetchone()[0]
 
+
 def get_schools_by_type(school_type, *args):
     cur = connect_db()
     sub_query = []
+    print args
     for arg in args[0]:
         sub_query.append(sub_keys.get(arg, ""))
     sub_query = ", ".join(sub_query)
-    print "sub_query is: %s" % sub_query
     query = DB_GET_SCHOOLS_BY_TYPE.format(sub_query)
-    print "query is: {}\n".format(query)
     cur.execute(query, [school_type])
     return cur.fetchall()
 
@@ -156,10 +180,12 @@ def get_schools_by_id(grade, school_ids):
         school_ids.append(temp)
     school_list = []
     cur = connect_db()
-    cur.execute(DB_GET_SCHOOLS_BY_ID, {'grade': grade, 'id': tuple(school_ids)})
+    cur.execute(DB_GET_SCHOOLS_BY_ID,
+                {'grade': grade, 'id': tuple(school_ids)})
     school_list.append(cur.fetchall())
     return_list = make_dict(school_list[0], grade)
     return return_list
+
 
 def make_dict(schools, grade):
     grade = int(grade)
@@ -194,3 +220,64 @@ def make_dict(schools, grade):
             new_dict['science'] = scores
         schools_dicts.append(new_dict)
     return schools_dicts
+
+
+def get_scores_results(*args):
+    if args[0] <= 5:
+        school_type = 'Elementary'
+    elif args[0] <= 8:
+        school_type = 'Middle'
+    else:
+        school_type = 'High'
+    search_schools = get_schools_by_type(school_type, args[2])
+    demos, clusters = find_best_school_clusters(search_schools, K=4)
+    keys = []
+    demo0 = demos[0]
+    demo1 = demos[1]
+    demo2 = demos[2]
+    demo3 = demos[3]
+    cluster0 = clusters[0]
+    cluster1 = clusters[1]
+    cluster2 = clusters[2]
+    cluster3 = clusters[3]
+    for item in args[2]:
+        keys.append(item)
+    demo0 = list(zip(keys, demo0))
+    demo1 = list(zip(keys, demo1))
+    demo2 = list(zip(keys, demo2))
+    demo3 = list(zip(keys, demo3))
+    scores0 = get_scores_by_id(args[0], args[1], cluster0)
+    scores1 = get_scores_by_id(args[0], args[1], cluster1)
+    scores2 = get_scores_by_id(args[0], args[1], cluster2)
+    scores3 = get_scores_by_id(args[0], args[1], cluster3)
+    return demo0, demo1, demo2, demo3, scores0, scores1, scores2, scores3
+
+
+def get_scores_by_id(grade, test, school_ids):
+    if not isinstance(school_ids, list):
+        temp = school_ids
+        school_ids = []
+        school_ids.append(temp)
+    cur = connect_db()
+    if test == 'reading':
+        SQL_QUERY = DB_GET_READING_BY_ID
+    elif test == 'writing':
+        SQL_QUERY = DB_GET_WRITING_BY_ID
+    elif test == "math":
+        SQL_QUERY = DB_GET_MATH_BY_ID
+    else:
+        SQL_QUERY = DB_GET_SCIENCE_BY_ID
+    cur.execute(SQL_QUERY, {'grade': grade, 'test': test,
+                'id': tuple(school_ids)})
+    school_list = cur.fetchall()
+    return_list = [['School', 'Score']]
+    for item in school_list:
+        temp = [item[0], item[1]]
+        return_list.append(temp)
+    return clean_scores(return_list)
+
+
+def clean_scores(return_list):
+    for item in return_list[0]:
+        if item[2] is None:
+            return_list.pop(item)
