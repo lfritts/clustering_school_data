@@ -100,6 +100,7 @@ SELECT schooltype FROM demographics where buildingid = %s;
 
 sub_keys = {
     "normalized_enrollment": "normalized_enrollment",
+    "enrollment": "enrollment",
     "lowses": "lowses",
     "per_native": "per_native",
     "per_asian": "per_asian",
@@ -108,6 +109,20 @@ sub_keys = {
     "per_black": "per_black",
     "per_hispanic": "per_hispanic",
     "per_migrant": "per_migrant",
+    "per_bil": "per_bil",
+    "per_sped": "per_sped"
+    }
+
+demo_name_keys = {
+    "normalized_enrollment": "Normalized Enrollment",
+    "lowses": "Free/Reduced Lunch",
+    "per_native": "Percent Navtive American",
+    "per_asian": "Percent Asian",
+    "per_PI": "Percent Pacific Islander",
+    "per_API": "Percent Asian Pacific Islander",
+    "per_black": "Percent Black",
+    "per_hispanic": "Percent Hispanic",
+    "per_migrant": "Percent Migrant",
     "per_bil": "per_bil",
     "per_sped": "per_sped"
     }
@@ -241,7 +256,7 @@ def get_scores_results(*args):
     cluster2 = clusters[2]
     cluster3 = clusters[3]
     for item in args[2]:
-        keys.append(item)
+        keys.append(demo_name_keys[item])
     demo0 = list(zip(keys, demo0))
     demo1 = list(zip(keys, demo1))
     demo2 = list(zip(keys, demo2))
