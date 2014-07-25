@@ -26,10 +26,15 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/main')
-def main_page():
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+
+@app.route('/district')
+def district():
     districts = get_districts()
-    return render_template('main.html', district_list=districts)
+    return render_template('district.html', district_list=districts)
 
 
 @app.route('/schools/')
@@ -80,6 +85,11 @@ def results_page():
                            scores=scores,
                            score_hdg=score_hdg,
                            headings=table_headings)
+
+
+@app.route('/demographics')
+def demographics():
+    return render_template('demographics.html')
 
 
 @app.route('/contact', methods=['GET', 'POST'])
