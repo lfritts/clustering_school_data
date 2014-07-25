@@ -220,3 +220,64 @@ def make_dict(schools, grade):
             new_dict['science'] = scores
         schools_dicts.append(new_dict)
     return schools_dicts
+
+
+def get_scores_results(*args):
+    if args[0] <= 5:
+        school_type = 'Elementary'
+    elif args[0] <= 8:
+        school_type = 'Middle'
+    else:
+        school_type = 'High'
+    search_schools = get_schools_by_type(school_type, args[2])
+    demos, clusters = find_best_school_clusters(search_schools, K=4)
+    keys = []
+    demo0 = demos[0]
+    demo1 = demos[1]
+    demo2 = demos[2]
+    demo3 = demos[3]
+    cluster0 = clusters[0]
+    cluster1 = clusters[1]
+    cluster2 = clusters[2]
+    cluster3 = clusters[3]
+    for item in args[2]:
+        keys.append(item)
+    demo0 = list(zip(keys, demo0))
+    demo1 = list(zip(keys, demo1))
+    demo2 = list(zip(keys, demo2))
+    demo3 = list(zip(keys, demo3))
+    scores0 = get_scores_by_id(args[0], args[1], cluster0)
+    scores1 = get_scores_by_id(args[0], args[1], cluster1)
+    scores2 = get_scores_by_id(args[0], args[1], cluster2)
+    scores3 = get_scores_by_id(args[0], args[1], cluster3)
+    return demo0, demo1, demo2, demo3, scores0, scores1, scores2, scores3
+
+
+def get_scores_by_id(grade, test, school_ids):
+    if not isinstance(school_ids, list):
+        temp = school_ids
+        school_ids = []
+        school_ids.append(temp)
+    cur = connect_db()
+    if test == 'reading':
+        SQL_QUERY = DB_GET_READING_BY_ID
+    elif test == 'writing':
+        SQL_QUERY = DB_GET_WRITING_BY_ID
+    elif test == "math":
+        SQL_QUERY = DB_GET_MATH_BY_ID
+    else:
+        SQL_QUERY = DB_GET_SCIENCE_BY_ID
+    cur.execute(SQL_QUERY, {'grade': grade, 'test': test,
+                'id': tuple(school_ids)})
+    school_list = cur.fetchall()
+    return_list = [['School', 'Score']]
+    for item in school_list:
+        temp = [item[0], item[1]]
+        return_list.append(temp)
+    return clean_scores(return_list)
+
+
+def clean_scores(return_list):
+    for item in return_list[0]:
+        if item[2] is None:
+            return_list.pop(item)
