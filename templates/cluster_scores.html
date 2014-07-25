@@ -1,5 +1,12 @@
 {% extends "base.html" %}
   {% block head %}
+  <script>
+    var cluster0 = {{ cluster0_scores|safe }};
+    var cluster1 = {{ cluster1_scores|safe }};
+    var cluster2 = {{ cluster2_scores|safe }};
+    var cluster3 = {{ cluster3_scores|safe }};
+
+  </script>
   <title>Test Score Histograms for Clusters</title>
   <link href="{{ url_for('static', filename='css/lib/moz_fix.css')}}" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/clusterscores.css')}}" rel="stylesheet">
@@ -11,10 +18,10 @@
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data0 = google.visualization.arrayToDataTable({{ scores.0 }})
-        var data1 = google.visualization.arrayToDataTable({{ scores.1 }})
-        var data2 = google.visualization.arrayToDataTable({{ scores.2 }})
-        var data3 = google.visualization.arrayToDataTable({{ scores.3 }})
+        var data0 = google.visualization.arrayToDataTable(cluster0)
+        var data1 = google.visualization.arrayToDataTable(cluster1)
+        var data2 = google.visualization.arrayToDataTable(cluster2)
+        var data3 = google.visualization.arrayToDataTable(cluster3)
 
         var options = {
           title: 'Scores',
@@ -29,6 +36,7 @@
         chart.draw(data2, options);
         var chart = new google.visualization.Histogram(document.getElementById('chart3_div'));
         chart.draw(data3, options);
+
       }
     </script>
 {% endblock %}
