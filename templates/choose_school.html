@@ -6,76 +6,24 @@
   </script>
 {% endblock %}
 {% block body %}
-<!-- <form id="school_form" action="/results/{{ selectedSchool, numberSchools }}"> -->
 <form id="school_form" action="/results/">
   <h1>{{ district }}</h1>
   <h2>Choose Your School</h2>
-  <!-- <p class="lead">Enter your school's name below.</p> -->
   <label for="school">School Name</label>
   <input type="text" class="form-control" id="school" name="school" placeholder="School Name"><br>
   <div id="search_crit">
-        <label for="numschools">Number of close schools to find</label>
-        <input type="text" class="form-control" id="numschools" name="numschools"
+    <label for="numschools">Number of close schools to find</label>
+    <input type="text" class="form-control" id="numschools" name="numschools"
           placeholder="Please enter the number of schools you want returned." size="4"><br>
-        <!-- Comment out following block to disable functionality -->
-        <h3 style="text-align:left;">Pick the demographics to compare on:</h3>
-        <div class="container-fluid">
-          <div class="col-xs-6 text-left"><input name="enrollment" type="checkbox" value="normalized_enrollment" checked/>
-              Total Enrollment</div>
-          <div class="col-xs-6 text-left"><input name="lowses" type="checkbox" value="lowses" />
-                % Free and Reduced Lunch</div>
-          <div class="col-xs-6 text-left"><input name="per_native" type="checkbox" value="per_native" />
-              % American Indian</div>
-          <div class="col-xs-6 text-left"><input name="pre_asian" type="checkbox" value="per_asian" />
-              % Asian</div>
-          <div class="col-xs-6 text-left"><input name="per_pi" type="checkbox" value="per_PI" />
-              % Pacific Islander</div>
-          <div class="col-xs-6 text-left"><input name="per_api" type="checkbox" value="per_API" />
-              % Asian Pacific Islander</div>
-          <div class="col-xs-6 text-left"><input name="per_black" type="checkbox" value="per_black" />
-              % Black</div>
-          <div class="col-xs-6 text-left"><input name="per_hispanic" type="checkbox" value="per_hispanic" />
-              % Hispanic</div>
-          <div class="col-xs-6 text-left"><input name="per_migrant" type="checkbox" value="per_migrant" />
-              % Migrant</div>
-           <div class="col-xs-6 text-left"><input name="per_bil" type="checkbox" value="per_bil" />
-              % Bilingual</div>
-          <div class="col-xs-6 text-left"><input name="per_sped" type="checkbox" value="per_sped" />
-              % Special Education</div>
+    {% include 'demo_choices.html' %}
+    <div class="return_criteria">
+      <div class="container-fluid">
+        {% include 'grade_lvl.html' %}
+        <!-- {% include 'tests.html' %} -->
+      </div>
+    </div>
   </div>
-  <div class="return_criteria">
-    <div class="container-fluid">
-      <div class="col-xs-6 text-left">
-        <h3>Pick the grade:</h3>
-        <div class="radio">
-          <label><input type="radio" name="grade" id="grade3" value=3>Grade 3</label></div>
-        <div class="radio">
-          <label><input type="radio" name="grade" id="grade4" value=4>Grade 4</label></div>
-        <div class="radio">
-          <label><input type="radio" name="grade" id="grade5" value=5>Grade 5</label></div>
-        <div class="radio">
-          <label><input type="radio" name="grade" id="grade6" value=6>Grade 6</label></div>
-        <div class="radio">
-          <label><input type="radio" name="grade" id="grade7" value=7>Grade 7</label></div>
-        <div class="radio">
-          <label><input type="radio" name="grade" id="grade8" value=8>Grade 8</label></div>
-        <div class="radio">
-          <label><input type="radio" name="grade" id="grade10" value=10>Grade 10</label></div>
-      </div>
-<!--       <div class="col-xs-6 text-left">
-        <h3>Pick the assessment:</h3>
-        <div class="radio">
-          <label><input type="radio" name="test" id="test1" value="reading">Reading</label></div>
-        <div class="radio">
-          <label><input type="radio" name="test" id="test2" value="writing">Writing</label></div>
-        <div class="radio">
-          <label><input type="radio" name="test" id="test3" value="math">Math</label></div>
-        <div class="radio">
-          <label><input type="radio" name="test" id="test4" value="science">Science</label></div>
-      </div>
- -->
-
-  <a href="/main" class="btn btn-lg btn-warning" id="reset">Reset</a>
+  <a href="/district" class="btn btn-lg btn-warning" id="reset">Reset</a>
   <button type="submit" id="submit" class="btn btn-lg btn-primary">Submit</button>
 </form>
 {% endblock %}
