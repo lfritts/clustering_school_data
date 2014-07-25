@@ -1,5 +1,6 @@
 import psycopg2
 from closest_schools import find_n_closest_schools as find_schools
+from school_k import find_best_school_clusters
 import os
 
 DB_GET_DISTRICTS = """
