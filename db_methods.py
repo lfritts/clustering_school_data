@@ -250,7 +250,17 @@ def get_scores_results(*args):
     scores1 = get_scores_by_id(args[0], args[1], cluster1)
     scores2 = get_scores_by_id(args[0], args[1], cluster2)
     scores3 = get_scores_by_id(args[0], args[1], cluster3)
-    return demo0, demo1, demo2, demo3, scores0, scores1, scores2, scores3
+    demos = []
+    demos.append(demo0)
+    demos.append(demo1)
+    demos.append(demo2)
+    demos.append(demo3)
+    clusters = []
+    clusters.append(cluster0)
+    clusters.append(cluster1)
+    clusters.append(cluster2)
+    clusters.append(cluster3)
+    return demos, clusters
 
 
 def get_scores_by_id(grade, test, school_ids):
