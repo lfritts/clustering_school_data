@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block head %}
+  <title>Select Demographics</title>
+{% endblock %}
+{% block body %}
+<form id="demographics_form" action="/clusters/">
+  <div id="search_crit">
+    {% include 'demo_choices.html' %}
+    <div class="return_criteria">
+      <div class="container-fluid">
+        {% include 'grade_lvl.html' %}
+        {% include 'tests.html' %}
+      </div>
+    </div>
+  </div>
+  <a href="/demographics" class="btn btn-lg btn-warning" id="reset">Reset</a>
+  <button type="submit" id="submit" class="btn btn-lg btn-primary">Submit</button>
+</form>
+{% endblock %}
