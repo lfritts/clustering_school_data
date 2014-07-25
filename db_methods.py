@@ -66,6 +66,30 @@ SELECT  d.buildingid,
         WHERE d.buildingid IN %(id)s;
 """
 
+DB_GET_READING_BY_ID = """
+SELECT  d.school, y0.reading FROM demographics d INNER JOIN year_0 y0
+        ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
+        WHERE d.buildingid IN %(id)s;
+"""
+
+DB_GET_WRITING_BY_ID = """
+SELECT  d.school, y0.writing FROM demographics d INNER JOIN year_0 y0
+        ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
+        WHERE d.buildingid IN %(id)s;
+"""
+
+DB_GET_MATH_BY_ID = """
+SELECT  d.school, y0.math FROM demographics d INNER JOIN year_0 y0
+        ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
+        WHERE d.buildingid IN %(id)s;
+"""
+
+DB_GET_SCIENCE_BY_ID = """
+SELECT  d.school, y0.science FROM demographics d INNER JOIN year_0 y0
+        ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
+        WHERE d.buildingid IN %(id)s;
+"""
+
 DB_GET_ID_FOR_SCHOOL = """
 SELECT buildingid FROM demographics WHERE school = %s AND district = %s;
 """
