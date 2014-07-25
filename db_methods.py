@@ -168,7 +168,6 @@ def get_school_type(school_type):
 def get_schools_by_type(school_type, *args):
     cur = connect_db()
     sub_query = []
-    print args
     for arg in args[0]:
         sub_query.append(sub_keys.get(arg, ""))
     sub_query = ", ".join(sub_query)

@@ -94,7 +94,7 @@ def cost(centroids, X, idx):
 
 def run_k_means(X, initial_centroids, max_iters, tol=0):
 
-    print "Running K-Means Clustering\n"
+    # print "Running K-Means Clustering\n"
     # print "Our Dataset X"
     # print X
 
@@ -116,6 +116,6 @@ def run_k_means(X, initial_centroids, max_iters, tol=0):
         # print centroids
         # raw_input("Press enter to continue...")
 
-    print "K-Means is done. \n\n"
+    # print "K-Means is done. \n\n"
 
     return centroids, idx

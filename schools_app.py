@@ -55,7 +55,6 @@ def results_page():
             pass
         else:
             ret_list.append(str(request.args.get(item)))
-    print 'Returning this: {}'.format(ret_list)
     table_headings = [
         'School', 'District', 'Enrollment', '% Free/Reduced',
         '% American Indian', '% Asian', '% Pacific Islander',
@@ -66,8 +65,6 @@ def results_page():
                                          number_to_return,
                                          grade,
                                          tuple(ret_list))
-    print "Results:\n", results
-    print chosen_school
     # workaround to get scores for display - currently am not necessarily
     # getting all scores for a given school.
     scores = []
@@ -99,7 +96,6 @@ def cluster_scores():
             pass
         else:
             ret_list.append(str(request.args.get(item)))
-    print 'Returning this: {}'.format(ret_list)
     table_headings = [
         'Enrollment', '% Free/Reduced',
         '% American Indian', '% Asian', '% Pacific Islander',
@@ -108,9 +104,7 @@ def cluster_scores():
     demo_results, scores = get_scores_results(grade,
                                               test,
                                               tuple(ret_list))
-    print "Results:\n", demo_results
     test = test.capitalize()
-    print "Scores:\n", scores
     cluster0_scores = scores[0]
     cluster1_scores = scores[1]
     cluster2_scores = scores[2]
