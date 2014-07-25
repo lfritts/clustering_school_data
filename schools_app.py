@@ -123,6 +123,8 @@ def cluster_scores():
     #                        scores=scores,
     #                        score_hdg=score_hdg,
     #                        headings=table_headings)
+    test.capitalize()
+    print "Scores:\n", scores
     return render_template('cluster_scores.html',
                            grade=grade,
                            test=test,
@@ -141,6 +143,6 @@ def contact():
 
 
 if __name__ == '__main__':
-    http_server = WSGIServer(('', 5000), app)
-    http_server.serve_forever()
-    # app.run(debug=True)
+    # http_server = WSGIServer(('', 5000), app)
+    # http_server.serve_forever()
+    app.run(debug=True)
