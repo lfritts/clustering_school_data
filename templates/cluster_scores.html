@@ -5,7 +5,6 @@
     var cluster1 = {{ cluster1_scores|safe }};
     var cluster2 = {{ cluster2_scores|safe }};
     var cluster3 = {{ cluster3_scores|safe }};
-
   </script>
   <title>Test Score Histograms for Clusters</title>
   <link href="{{ url_for('static', filename='css/lib/moz_fix.css')}}" rel="stylesheet">
@@ -43,24 +42,46 @@
 {% block body %}
   <body>
     <div class="row">
-        <div class="col-xs-3 demog-container">
+        <div class="col-xs-3 my-container">
             Demographics of Cluster 1
+            <dl>
+                {% for demog in demo_results.0 %}
+                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1 }}</dd>
+                {% endfor %}
+            </dl>
+            <hr>
+            <div id="chart0_div" style="height: 500px;"></div>
         </div>
-        <div class="col-xs-3 demog-container">
+        <div class="col-xs-3 my-container">
             Demographics of Cluster 2
+            <dl>
+                {% for demog in demo_results.1 %}
+                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1 }}</dd>
+                {% endfor %}
+            </dl>
+            <hr>
+            <div id="chart1_div" style="height: 500px;"></div>
         </div>
-        <div class="col-xs-3 demog-container">
+        <div class="col-xs-3 my-container">
             Demographics of Cluster 3
+            <dl>
+                {% for demog in demo_results.2 %}
+                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1 }}</dd>
+                {% endfor %}
+            </dl>
+            <hr>
+            <div id="chart2_div" style="height: 500px;"></div>
         </div>
-        <div class="col-xs-3 demog-container">
+        <div class="col-xs-3 my-container">
             Demographics of Cluster 4
+            <dl>
+                {% for demog in demo_results.3 %}
+                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1 }}</dd>
+                {% endfor %}
+            </dl>
+            <hr>
+            <div id="chart3_div" style="height: 500px;"></div>
         </div>
-    <div class="row">
-        <div class="col-xs-3" id="chart0_div" style="height: 500px;"></div>
-        <div class="col-xs-3" id="chart1_div" style="height: 500px;"></div>
-        <div class="col-xs-3" id="chart2_div" style="height: 500px;"></div>
-        <div class="col-xs-3" id="chart3_div" style="height: 500px;"></div>
-    </div>
   </body>
 {% endblock %}
 {% block scripts %}
