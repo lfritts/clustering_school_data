@@ -17,3 +17,7 @@
   <button type="submit" id="submit" class="btn btn-lg btn-primary">Submit</button>
 </form>
 {% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/lib/spin.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/demographics.js') }}"></script>
+{% endblock%}

@@ -10,11 +10,11 @@
   <h1>{{ district }}</h1>
   <h2>Choose Your School</h2>
   <label for="school">School Name</label>
-  <input type="text" class="form-control" id="school" name="school" placeholder="School Name"><br>
+  <input type="text" class="form-control" id="school" name="school" placeholder="School Name" required><br>
   <div id="search_crit">
     <label for="numschools">Number of close schools to find</label>
     <input type="text" class="form-control" id="numschools" name="numschools"
-          placeholder="Please enter the number of schools you want returned." size="4"><br>
+          placeholder="Please enter the number of schools you want returned." size="4" required><br>
     {% include 'demo_choices.html' %}
     <div class="return_criteria">
       <div class="container-fluid">
