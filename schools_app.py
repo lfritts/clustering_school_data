@@ -125,12 +125,20 @@ def cluster_scores():
     #                        headings=table_headings)
     test.capitalize()
     print "Scores:\n", scores
+    cluster0_scores = scores[0]
+    cluster1_scores = scores[1]
+    cluster2_scores = scores[2]
+    cluster3_scores = scores[3]
     return render_template('cluster_scores.html',
                            grade=grade,
                            test=test,
                            table_headings=table_headings,
                            demo_results=demo_results,
-                           scores=scores)
+                           cluster0_scores=cluster0_scores,
+                           cluster1_scores=cluster1_scores,
+                           cluster2_scores=cluster2_scores,
+                           cluster3_scores=cluster3_scores,
+                           )
 
 
 @app.route('/contact', methods=['GET', 'POST'])
