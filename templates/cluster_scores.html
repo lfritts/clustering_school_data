@@ -43,40 +43,41 @@
   <body>
     <div class="row">
         <div class="col-xs-3 my-container">
-            Demographics of Cluster 1
+            <h4>Demographics of Cluster 1</h4>
             <dl>
                 {% for demog in demo_results.0 %}
-                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1 }}</dd>
+                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1|round(2) }}</dd>
                 {% endfor %}
             </dl>
             <hr>
             <div id="chart0_div" style="height: 500px;"></div>
         </div>
         <div class="col-xs-3 my-container">
-            Demographics of Cluster 2
+            <h4>Demographics of Cluster 2</h4>
             <dl>
                 {% for demog in demo_results.1 %}
-                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1 }}</dd>
+                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1|round(2) }}</dd>
                 {% endfor %}
             </dl>
             <hr>
             <div id="chart1_div" style="height: 500px;"></div>
         </div>
         <div class="col-xs-3 my-container">
-            Demographics of Cluster 3
+            <h4>Demographics of Cluster 3</h4>
             <dl>
                 {% for demog in demo_results.2 %}
-                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1 }}</dd>
+                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1|round(2) }}</dd>
+
                 {% endfor %}
             </dl>
             <hr>
             <div id="chart2_div" style="height: 500px;"></div>
         </div>
         <div class="col-xs-3 my-container">
-            Demographics of Cluster 4
+            <h4>Demographics of Cluster 4</h4>
             <dl>
                 {% for demog in demo_results.3 %}
-                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1 }}</dd>
+                <dt>{{ demog.0 }}:</dt><dd>{{ demog.1|round(2) }}</dd>
                 {% endfor %}
             </dl>
             <hr>
