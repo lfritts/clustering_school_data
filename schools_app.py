@@ -1,19 +1,16 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
-from flask import g
 from flask import render_template
-from flask import abort
 from flask import request
-from flask import url_for
-from flask import redirect
 from flask import session
 from forms import ContactForm
 from gevent.wsgi import WSGIServer
 from db_methods import get_districts, get_schools, get_results
-import json
+from db_methods import get_scores_results
+
 
 app = Flask(__name__)
-app.secret_key = 'temporary development key'
+# app.secret_key = 'temporary development key'
 
 
 @app.route('/')
