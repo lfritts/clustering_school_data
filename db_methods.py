@@ -69,25 +69,25 @@ SELECT  d.buildingid,
 DB_GET_READING_BY_ID = """
 SELECT  d.school, y0.reading FROM demographics d INNER JOIN year_0 y0
         ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
-        WHERE d.buildingid IN %(id)s;
+        WHERE d.buildingid IN %(id)s AND y0.reading IS NOT NULL;
 """
 
 DB_GET_WRITING_BY_ID = """
 SELECT  d.school, y0.writing FROM demographics d INNER JOIN year_0 y0
         ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
-        WHERE d.buildingid IN %(id)s;
+        WHERE d.buildingid IN %(id)s AND yo.writing IS NOT NULL;
 """
 
 DB_GET_MATH_BY_ID = """
 SELECT  d.school, y0.math FROM demographics d INNER JOIN year_0 y0
         ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
-        WHERE d.buildingid IN %(id)s;
+        WHERE d.buildingid IN %(id)s AND y0.math IS NOT NULL;
 """
 
 DB_GET_SCIENCE_BY_ID = """
 SELECT  d.school, y0.science FROM demographics d INNER JOIN year_0 y0
         ON d.buildingid = y0.buildingid AND y0.grade = %(grade)s
-        WHERE d.buildingid IN %(id)s;
+        WHERE d.buildingid IN %(id)s AND yo.science IS NOT NULL;
 """
 
 DB_GET_ID_FOR_SCHOOL = """
@@ -223,9 +223,9 @@ def make_dict(schools, grade):
 
 
 def get_scores_results(*args):
-    if args[0] <= 5:
+    if int(args[0]) <= 5:
         school_type = 'Elementary'
-    elif args[0] <= 8:
+    elif int(args[0]) <= 8:
         school_type = 'Middle'
     else:
         school_type = 'High'
@@ -256,10 +256,10 @@ def get_scores_results(*args):
     demos.append(demo2)
     demos.append(demo3)
     clusters = []
-    clusters.append(cluster0)
-    clusters.append(cluster1)
-    clusters.append(cluster2)
-    clusters.append(cluster3)
+    clusters.append(scores0)
+    clusters.append(scores1)
+    clusters.append(scores2)
+    clusters.append(scores3)
     return demos, clusters
 
 
@@ -280,14 +280,9 @@ def get_scores_by_id(grade, test, school_ids):
     cur.execute(SQL_QUERY, {'grade': grade, 'test': test,
                 'id': tuple(school_ids)})
     school_list = cur.fetchall()
-    return_list = [['School', 'Score']]
+    return_list = []
+    return_list.append(['School', 'Score'])
     for item in school_list:
         temp = [item[0], item[1]]
         return_list.append(temp)
-    return clean_scores(return_list)
-
-
-def clean_scores(return_list):
-    for item in return_list[0]:
-        if item[2] is None:
-            return_list.pop(item)
+    return return_list
