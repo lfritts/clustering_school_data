@@ -58,6 +58,22 @@ def test_squared_distance_tuple_input():
     assert km.squared_distance(x1, x2) == correct
 
 
+def test_cost_1():
+    X = np.array([[0, 0, 0], [-2, -2, -2], [12, 9, 13], [6, 3, 5]])
+    centroids = np.array([[-1, -1, -1], [6, 3, -2], [10, 10, 10]])
+    idx = [0, 0, 2, 1]
+    cost = km.cost(centroids, X, idx)
+    assert cost == 17.25
+
+
+def test_cost_2():
+    X = np.array([[1, 1, 1], [0.5, 0.5, 0.5], [5, 5, 5]])
+    centroids = np.array([[0, 0, 0], [4, 4, 4]])
+    idx = [0, 0, 1]
+    cost = km.cost(centroids, X, idx)
+    assert cost == 2.25
+
+
 def test_run_k_means(
         X_data, dummy_centroids, correct_centroids, correct_idx):
     """

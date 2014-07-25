@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 import closest_schools as cs
-from school_k import NoSchoolWithIDError
+from closest_schools import NoSchoolWithIDError
 
 
 @pytest.fixture(scope="module")
@@ -148,10 +148,10 @@ def test_find_n_closest_schools_mini_small_big(mini_big_and_small_data_tuples):
     assert 5961 not in results
 
 
-def test_many_dimension_data(hi_d_high_school_and_demo_tuples):
+def test_many_dimension_data(high_school_and_demo_tuples):
     search_ID = 5164
     results = cs.find_n_closest_schools(
-        search_ID, hi_d_high_school_and_demo_tuples, 20)
+        search_ID, high_school_and_demo_tuples, 20)
     print "results are: \n"
     print results
     assert len(results) == 20

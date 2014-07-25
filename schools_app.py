@@ -92,6 +92,11 @@ def demographics():
     return render_template('demographics.html')
 
 
+@app.route('/clusters')
+def cluster_scores():
+    return render_template('cluster_scores.html')
+
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
@@ -104,4 +109,4 @@ def contact():
 if __name__ == '__main__':
     http_server = WSGIServer(('', 5000), app)
     http_server.serve_forever()
-    #app.run(debug=True)
+    # app.run(debug=True)
