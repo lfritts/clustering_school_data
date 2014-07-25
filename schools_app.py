@@ -109,7 +109,7 @@ def cluster_scores():
                                               test,
                                               tuple(ret_list))
     print "Results:\n", demo_results
-    test.capitalize()
+    test = test.capitalize()
     print "Scores:\n", scores
     cluster0_scores = scores[0]
     cluster1_scores = scores[1]
