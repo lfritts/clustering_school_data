@@ -114,7 +114,6 @@ sub_keys = {
 
 
 def connect_db():
-    #user only has read access
     host_name = os.environ.get('HOST', 'localhost')
     db_name = os.environ.get('DBNAME', 'schools_data')
     user_name = os.environ.get('USER', 'schools_admin')
@@ -150,15 +149,15 @@ def get_school_type(school_type):
     cur.execute(DB_GET_TYPE_FOR_SCHOOL, [school_type])
     return cur.fetchone()[0]
 
+
 def get_schools_by_type(school_type, *args):
     cur = connect_db()
     sub_query = []
+    print args
     for arg in args[0]:
         sub_query.append(sub_keys.get(arg, ""))
     sub_query = ", ".join(sub_query)
-    print "sub_query is: %s" % sub_query
     query = DB_GET_SCHOOLS_BY_TYPE.format(sub_query)
-    print "query is: {}\n".format(query)
     cur.execute(query, [school_type])
     return cur.fetchall()
 
@@ -181,10 +180,12 @@ def get_schools_by_id(grade, school_ids):
         school_ids.append(temp)
     school_list = []
     cur = connect_db()
-    cur.execute(DB_GET_SCHOOLS_BY_ID, {'grade': grade, 'id': tuple(school_ids)})
+    cur.execute(DB_GET_SCHOOLS_BY_ID,
+                {'grade': grade, 'id': tuple(school_ids)})
     school_list.append(cur.fetchall())
     return_list = make_dict(school_list[0], grade)
     return return_list
+
 
 def make_dict(schools, grade):
     grade = int(grade)
