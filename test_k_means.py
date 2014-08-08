@@ -3,13 +3,6 @@ import numpy as np
 import numpy.testing as np_testing
 import k_means as km
 
-"""
-Testing on the k_means module is limited as K-means itself was not the best way
-to do what we needed to do for our school clustering app.  We did, however,
-use the squared distance function that is part of the k_means module, so
-that is tested here.
-"""
-
 
 @pytest.fixture(scope="module")
 def X_data():
@@ -77,10 +70,10 @@ def test_cost_2():
 def test_run_k_means(
         X_data, dummy_centroids, correct_centroids, correct_idx):
     """
-    this test checks the centroids found against a known working algorithm and
-    the results it produces.  Do not alter the number of iterations as it may
-    not find the same answer.
+    Checks the centroids found against results of a known working algorithm.
     """
+
+    # Do not alter the number of iterations as it may not find the same answer.
     ans_cent, ans_idx = km.run_k_means(X_data, dummy_centroids, 10)
     np_testing.assert_allclose(
         ans_cent, correct_centroids, 1e-4, 0, "Arrays not close enough")

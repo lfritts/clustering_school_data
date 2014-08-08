@@ -4,9 +4,9 @@ from numpy.random import random_sample as rand
 
 def squared_distance(x1, x2):
     """
-    Where x1 and x2 are two Numpy arrays, returns
-    the squared distance ||x2-y(i)||^2 between the
-    two vectors x1 and x2.
+    Returns the squared distance ||x2-x1||^2 between the two vectors x1 and x2.
+
+    Inputs x1 and x2 are Numpy arrays.
     """
     return np.sum(np.square(np.subtract(x1, x2)))
 
