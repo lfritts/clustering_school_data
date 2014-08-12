@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 
 
-@pytest.yield_fixture
+@pytest.yield_fixture(scope="session")
 def driver():
     browser = webdriver.Firefox()
     yield browser
@@ -23,3 +23,6 @@ def test_start_button(driver):
     browser.implicitly_wait(3)
     browser.find_element_by_id("start_button").click()
     assert browser.title == 'Home'
+
+
+# def test_home_page
