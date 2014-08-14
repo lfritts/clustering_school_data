@@ -34,6 +34,15 @@ def district_page(driver):
     return browser
 
 
+@pytest.fixture(scope="function")
+def school_page(district_page):
+    browser = district_page
+    inputbox = browser.find_element_by_id("district")
+    inputbox.send_keys("Enumclaw School District")
+    browser.find_element_by_id("submit").click()
+    return browser
+
+
 def test_front_page(main_page):
     browser = main_page
     assert browser.title == 'School Clustering'
@@ -98,3 +107,64 @@ def test_district_with_entry_submit(district_page):
         "Enumclaw School District"
     assert browser.find_element_by_id("school")
     assert browser.find_element_by_id("numschools")
+    assert browser.find_element_by_name("enrollment")
+    assert browser.find_element_by_id("grade3")
+    assert browser.find_element_by_id("submit")
+    assert browser.find_element_by_id("reset")
+
+
+def test_school_reset_button(school_page):
+    browser = school_page
+    browser.find_element_by_id("reset").click()
+    assert browser.title == "Select District"
+
+
+def test_school_submit_no_entry_raise_alert_return_to_page(school_page):
+    browser = school_page
+    browser.find_element_by_id("submit").click()
+    assert expected_conditions.alert_is_present()
+    alert = browser.switch_to_alert()
+    alert.accept()
+    assert browser.title == "Select School"
+
+
+def test_school_submit_no_number_return_to_page(school_page):
+    browser = school_page
+    inputbox = browser.find_element_by_id("school")
+    inputbox.send_keys("Enumclaw Middle School")
+    browser.find_element_by_id("submit").click()
+    assert browser.title == "Select School"
+
+
+def test_school_submit_no_grade_return_to_page(school_page):
+    browser = school_page
+    school_inputbox = browser.find_element_by_id("school")
+    school_inputbox.send_keys("Enumclaw Middle School")
+    number_inputbox = browser.find_element_by_id("numschools")
+    number_inputbox.send_keys(10)
+    browser.find_element_by_id("submit").click()
+    assert browser.title == "Select School"
+
+
+def test_school_submit_invalid_entry_raise_alert_return_to_page(school_page):
+    browser = school_page
+    inputbox = browser.find_element_by_id("school")
+    inputbox.send_keys("Blarg Middle School")
+    browser.find_element_by_id("submit").click()
+    assert expected_conditions.alert_is_present()
+    alert = browser.switch_to_alert()
+    alert.accept()
+    assert browser.title == "Select School"
+
+
+def test_school_submit_invalid_number_raise_alert_return_to_page(school_page):
+    browser = school_page
+    school_inputbox = browser.find_element_by_id("school")
+    school_inputbox.send_keys("Enumclaw Middle School")
+    number_inputbox = browser.find_element_by_id("numschools")
+    number_inputbox.send_keys('10.5')
+    browser.find_element_by_id("submit").click()
+    assert expected_conditions.alert_is_present()
+    alert = browser.switch_to_alert()
+    alert.accept()
+    assert browser.title == "Select School"
