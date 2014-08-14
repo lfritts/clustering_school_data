@@ -1,10 +1,11 @@
 $(document).ready (function() {
     $("#school").quickselect({data: schoolList});
-    $("#submit").click(function() {
+    $("#submit").click(function(e) {
       var selectedSchool = $("#school").val();
       var numSchools = $("#numschools").val();
       if ($.inArray(selectedSchool, schoolList) == -1) {
-        alert("You must select a school");
+        e.preventDefault();
+        alert("You must select a valid school");
       } else {
         $("#school_form").submit()
       }
