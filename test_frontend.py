@@ -168,3 +168,21 @@ def test_school_submit_invalid_number_raise_alert_return_to_page(school_page):
     alert = browser.switch_to_alert()
     alert.accept()
     assert browser.title == "Select School"
+
+
+def test_school_invalid_grade_selection(school_page):
+    """
+    Not yet implemented.
+    """
+    pass
+
+
+def test_school_submit_valid_inputs(school_page):
+    browser = school_page
+    school_inputbox = browser.find_element_by_id("school")
+    school_inputbox.send_keys("Enumclaw Middle School")
+    number_inputbox = browser.find_element_by_id("numschools")
+    number_inputbox.send_keys(10)
+    browser.find_element_by_id("grade8").click()
+    browser.find_element_by_id("submit").click()
+    assert browser.title == "Results"
