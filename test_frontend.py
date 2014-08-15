@@ -37,6 +37,14 @@ def district_page(driver):
 
 
 @pytest.fixture(scope="function")
+def demo_page(driver):
+    browser = driver
+    browser.get('http://localhost:5000/demographics')
+    browser.implicitly_wait(3)
+    return browser
+
+
+@pytest.fixture(scope="function")
 def school_page(district_page):
     browser = district_page
     inputbox = browser.find_element_by_id("district")
@@ -224,3 +232,18 @@ def test_results_page_dropdowns(results_page):
     assert not browser.find_element_by_id("4210").is_displayed()
     glyph.click()
     assert browser.find_element_by_id("4210").is_displayed()
+
+
+def test_home_page_choose_demo_button(home_page):
+    browser = home_page
+    browser.find_element_by_id("choose_demo").click()
+    assert browser.title == "Select Demographics"
+
+
+def test_demographics_page_content(demo_page):
+    browser = demo_page
+    assert browser.find_element_by_name("enrollment")
+    assert browser.find_element_by_id("grade3")
+    assert browser.find_element_by_id("submit")
+    assert browser.find_element_by_id("reset")
+    assert browser.find_element_by_id("test1")
