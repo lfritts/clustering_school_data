@@ -1,6 +1,8 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 @pytest.yield_fixture(scope="session")
@@ -43,6 +45,18 @@ def school_page(district_page):
     return browser
 
 
+@pytest.fixture(scope="function")
+def results_page(school_page):
+    browser = school_page
+    school_inputbox = browser.find_element_by_id("school")
+    school_inputbox.send_keys("Enumclaw Middle School")
+    number_inputbox = browser.find_element_by_id("numschools")
+    number_inputbox.send_keys(10)
+    browser.find_element_by_id("grade8").click()
+    browser.find_element_by_id("submit").click()
+    return browser
+
+
 def test_front_page(main_page):
     browser = main_page
     assert browser.title == 'School Clustering'
@@ -73,6 +87,10 @@ def test_home_page_choose_school_button(home_page):
     browser = home_page
     browser.find_element_by_id("choose_school").click()
     assert browser.title == "Select District"
+
+
+def test_district_page_content(district_page):
+    browser = district_page
     assert browser.find_element_by_id("district")
     assert browser.find_element_by_id("submit")
 
@@ -103,6 +121,10 @@ def test_district_with_entry_submit(district_page):
     inputbox.send_keys("Enumclaw School District")
     browser.find_element_by_id("submit").click()
     assert browser.title == "Select School"
+
+
+def test_school_page_content(school_page):
+    browser = school_page
     assert browser.find_element_by_css_selector("h1").text == \
         "Enumclaw School District"
     assert browser.find_element_by_id("school")
@@ -186,3 +208,19 @@ def test_school_submit_valid_inputs(school_page):
     browser.find_element_by_id("grade8").click()
     browser.find_element_by_id("submit").click()
     assert browser.title == "Results"
+
+
+def test_results_page_content(results_page):
+    browser = results_page
+    assert browser.find_element_by_id("original_school")
+    assert browser.find_element_by_id("target_school").text == \
+        "Enumclaw Middle School"
+    assert browser.find_element_by_id("final_results")
+
+
+def test_results_page_dropdowns(results_page):
+    browser = results_page
+    glyph = browser.find_element_by_xpath("//td[@id='target_school']/span[1]")
+    assert not browser.find_element_by_id("4210").is_displayed()
+    glyph.click()
+    assert browser.find_element_by_id("4210").is_displayed()
