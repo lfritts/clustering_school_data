@@ -65,6 +65,42 @@ def results_page(school_page):
     return browser
 
 
+@pytest.fixture(scope="function")
+def grade7_reading(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("grade7").click()
+    browser.find_element_by_id("test1").click()
+    browser.find_element_by_id("submit").click()
+    return browser
+
+
+@pytest.fixture(scope="function")
+def grade10_writing(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("grade10").click()
+    browser.find_element_by_id("test2").click()
+    browser.find_element_by_id("submit").click()
+    return browser
+
+
+@pytest.fixture(scope="function")
+def grade5_math(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("grade5").click()
+    browser.find_element_by_id("test3").click()
+    browser.find_element_by_id("submit").click()
+    return browser
+
+
+@pytest.fixture(scope="function")
+def grade5_science(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("grade5").click()
+    browser.find_element_by_id("test4").click()
+    browser.find_element_by_id("submit").click()
+    return browser
+
+
 def test_front_page(main_page):
     browser = main_page
     assert browser.title == 'School Clustering'
@@ -284,35 +320,23 @@ def test_demo_page_submit_no_score_returns_to_page(demo_page):
     assert browser.title == "Select Demographics"
 
 
-def test_demo_page_submit_grade7_reading(demo_page):
-    browser = demo_page
-    browser.find_element_by_id("grade7").click()
-    browser.find_element_by_id("test1").click()
-    browser.find_element_by_id("submit").click()
+def test_demo_page_submit_grade7_reading(grade7_reading):
+    browser = grade7_reading
     assert browser.title == "Test Score Histograms for Clusters"
 
 
-def test_demo_page_submit_grade10_writing(demo_page):
-    browser = demo_page
-    browser.find_element_by_id("grade10").click()
-    browser.find_element_by_id("test2").click()
-    browser.find_element_by_id("submit").click()
+def test_demo_page_submit_grade10_writing(grade10_writing):
+    browser = grade10_writing
     assert browser.title == "Test Score Histograms for Clusters"
 
 
-def test_demo_page_submit_grade5_math(demo_page):
-    browser = demo_page
-    browser.find_element_by_id("grade5").click()
-    browser.find_element_by_id("test3").click()
-    browser.find_element_by_id("submit").click()
+def test_demo_page_submit_grade5_math(grade5_math):
+    browser = grade5_math
     assert browser.title == "Test Score Histograms for Clusters"
 
 
-def test_demo_page_submit_grade5_science(demo_page):
-    browser = demo_page
-    browser.find_element_by_id("grade5").click()
-    browser.find_element_by_id("test4").click()
-    browser.find_element_by_id("submit").click()
+def test_demo_page_submit_grade5_science(grade5_science):
+    browser = grade5_science
     assert browser.title == "Test Score Histograms for Clusters"
 
 
