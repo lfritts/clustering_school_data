@@ -1,7 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
@@ -106,7 +106,7 @@ def test_district_page_content(district_page):
 def test_district_submit_no_entry_raise_alert_return_to_page(district_page):
     browser = district_page
     browser.find_element_by_id("submit").click()
-    assert expected_conditions.alert_is_present()
+    assert EC.alert_is_present()
     alert = browser.switch_to_alert()
     alert.accept()
     assert browser.title == "Select District"
@@ -117,7 +117,7 @@ def test_district_submit_invalid_entry_alert_return_to_page(district_page):
     inputbox = browser.find_element_by_id("district")
     inputbox.send_keys("Blarg School District")
     browser.find_element_by_id("submit").click()
-    assert expected_conditions.alert_is_present()
+    assert EC.alert_is_present()
     alert = browser.switch_to_alert()
     alert.accept()
     assert browser.title == "Select District"
@@ -152,7 +152,7 @@ def test_school_reset_button(school_page):
 def test_school_submit_no_entry_raise_alert_return_to_page(school_page):
     browser = school_page
     browser.find_element_by_id("submit").click()
-    assert expected_conditions.alert_is_present()
+    assert EC.alert_is_present()
     alert = browser.switch_to_alert()
     alert.accept()
     assert browser.title == "Select School"
@@ -181,7 +181,7 @@ def test_school_submit_invalid_entry_raise_alert_return_to_page(school_page):
     inputbox = browser.find_element_by_id("school")
     inputbox.send_keys("Blarg Middle School")
     browser.find_element_by_id("submit").click()
-    assert expected_conditions.alert_is_present()
+    assert EC.alert_is_present()
     alert = browser.switch_to_alert()
     alert.accept()
     assert browser.title == "Select School"
@@ -194,7 +194,7 @@ def test_school_submit_invalid_number_raise_alert_return_to_page(school_page):
     number_inputbox = browser.find_element_by_id("numschools")
     number_inputbox.send_keys('10.5')
     browser.find_element_by_id("submit").click()
-    assert expected_conditions.alert_is_present()
+    assert EC.alert_is_present()
     alert = browser.switch_to_alert()
     alert.accept()
     assert browser.title == "Select School"
@@ -255,21 +255,72 @@ def test_demo_page_reset(demo_page):
     assert browser.title == "Select Demographics"
 
 
-def test_demo_page_submit_no_grade_no_score(demo_page):
-    assert False
+def test_demo_page_submit_no_grade_no_score_returns_to_page(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("submit").click()
+    assert EC.alert_is_present()
+    alert = browser.switch_to_alert()
+    alert.accept()
+    assert browser.title == "Select Demographics"
 
 
-def test_demo_page_submit_no_grade(demo_page):
-    assert False
+def test_demo_page_submit_no_grade_returns_to_page(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("test1").click()
+    browser.find_element_by_id("submit").click()
+    assert EC.alert_is_present()
+    alert = browser.switch_to_alert()
+    alert.accept()
+    assert browser.title == "Select Demographics"
 
 
-def test_demo_page_submit_no_score(demo_page):
-    assert False
+def test_demo_page_submit_no_score_returns_to_page(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("grade7").click()
+    browser.find_element_by_id("submit").click()
+    assert EC.alert_is_present()
+    alert = browser.switch_to_alert()
+    alert.accept()
+    assert browser.title == "Select Demographics"
 
 
-def test_demo_page_submit(demo_page):
-    assert False
+def test_demo_page_submit_grade7_reading(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("grade7").click()
+    browser.find_element_by_id("test1").click()
+    browser.find_element_by_id("submit").click()
+    assert browser.title == "Test Score Histograms for Clusters"
+
+
+def test_demo_page_submit_grade10_writing(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("grade10").click()
+    browser.find_element_by_id("test2").click()
+    browser.find_element_by_id("submit").click()
+    assert browser.title == "Test Score Histograms for Clusters"
+
+
+def test_demo_page_submit_grade5_math(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("grade5").click()
+    browser.find_element_by_id("test3").click()
+    browser.find_element_by_id("submit").click()
+    assert browser.title == "Test Score Histograms for Clusters"
+
+
+def test_demo_page_submit_grade5_science(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("grade5").click()
+    browser.find_element_by_id("test4").click()
+    browser.find_element_by_id("submit").click()
+    assert browser.title == "Test Score Histograms for Clusters"
 
 
 def test_demo_page_submit_multi_demographics(demo_page):
-    assert False
+    browser = demo_page
+    browser.find_element_by_name("lowses").click()
+    browser.find_element_by_name("per_black").click()
+    browser.find_element_by_id("grade5").click()
+    browser.find_element_by_id("test4").click()
+    browser.find_element_by_id("submit").click()
+    assert browser.title == "Test Score Histograms for Clusters"
