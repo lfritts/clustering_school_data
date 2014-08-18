@@ -18,6 +18,15 @@ var opts = {
 };
 var target = document.getElementById('submit');
 
-$('#submit').click(function() {
-  var spinner = new Spinner(opts).spin(target);
+$('#submit').click(function(e) {
+  if (typeof ($('input[name=grade]:checked').val()) === 'undefined') {
+    e.preventDefault();
+    alert("Please select a grade");
+  } else if (typeof ($('input[name=test]:checked').val()) === 'undefined') {
+    e.preventDefault();
+    alert("Please select an assessment");
+  } else {
+    $('#demographics_form').submit();
+    var spinner = new Spinner(opts).spin(target);
+  };
 });
