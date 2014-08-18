@@ -247,3 +247,29 @@ def test_demographics_page_content(demo_page):
     assert browser.find_element_by_id("submit")
     assert browser.find_element_by_id("reset")
     assert browser.find_element_by_id("test1")
+
+
+def test_demo_page_reset(demo_page):
+    browser = demo_page
+    browser.find_element_by_id("reset").click()
+    assert browser.title == "Select Demographics"
+
+
+def test_demo_page_submit_no_grade_no_score(demo_page):
+    assert False
+
+
+def test_demo_page_submit_no_grade(demo_page):
+    assert False
+
+
+def test_demo_page_submit_no_score(demo_page):
+    assert False
+
+
+def test_demo_page_submit(demo_page):
+    assert False
+
+
+def test_demo_page_submit_multi_demographics(demo_page):
+    assert False
