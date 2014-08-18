@@ -1,8 +1,6 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 
 
 @pytest.yield_fixture(scope="session")
@@ -348,3 +346,51 @@ def test_demo_page_submit_multi_demographics(demo_page):
     browser.find_element_by_id("test4").click()
     browser.find_element_by_id("submit").click()
     assert browser.title == "Test Score Histograms for Clusters"
+
+
+def test_demo_results_content_grade7_reading(grade7_reading):
+    browser = grade7_reading
+    assert browser.find_element_by_css_selector("h1").text == \
+        "Test Score Histograms for Statewide Clusters"
+    assert browser.find_element_by_id("grade").text == "Grade 7"
+    assert browser.find_element_by_id("test").text == "Reading"
+    assert browser.find_element_by_id("chart0_div")
+    assert browser.find_element_by_id("chart1_div")
+    assert browser.find_element_by_id("chart2_div")
+    assert browser.find_element_by_id("chart3_div")
+
+
+def test_demo_results_content_grade10_writing(grade10_writing):
+    browser = grade10_writing
+    assert browser.find_element_by_css_selector("h1").text == \
+        "Test Score Histograms for Statewide Clusters"
+    assert browser.find_element_by_id("grade").text == "Grade 10"
+    assert browser.find_element_by_id("test").text == "Writing"
+    assert browser.find_element_by_id("chart0_div")
+    assert browser.find_element_by_id("chart1_div")
+    assert browser.find_element_by_id("chart2_div")
+    assert browser.find_element_by_id("chart3_div")
+
+
+def test_demo_results_content_grade5_math(grade5_math):
+    browser = grade5_math
+    assert browser.find_element_by_css_selector("h1").text == \
+        "Test Score Histograms for Statewide Clusters"
+    assert browser.find_element_by_id("grade").text == "Grade 5"
+    assert browser.find_element_by_id("test").text == "Math"
+    assert browser.find_element_by_id("chart0_div")
+    assert browser.find_element_by_id("chart1_div")
+    assert browser.find_element_by_id("chart2_div")
+    assert browser.find_element_by_id("chart3_div")
+
+
+def test_demo_results_content_grade5_science(grade5_science):
+    browser = grade5_science
+    assert browser.find_element_by_css_selector("h1").text == \
+        "Test Score Histograms for Statewide Clusters"
+    assert browser.find_element_by_id("grade").text == "Grade 5"
+    assert browser.find_element_by_id("test").text == "Science"
+    assert browser.find_element_by_id("chart0_div")
+    assert browser.find_element_by_id("chart1_div")
+    assert browser.find_element_by_id("chart2_div")
+    assert browser.find_element_by_id("chart3_div")
