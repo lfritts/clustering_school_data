@@ -10,8 +10,8 @@
   <link href="{{ url_for('static', filename='css/lib/moz_fix.css')}}" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/clusterscores.css')}}" rel="stylesheet">
     <h1 class="text-center">Test Score Histograms for Statewide Clusters</h1>
-    <h2 class="text-center col-xsm-6">Grade {{ grade }}</h2>
-    <h2 class="text-center col-xsm-6">{{ test }}</h2>
+    <h2 class="text-center col-xsm-6" id="grade">Grade {{ grade }}</h2>
+    <h2 class="text-center col-xsm-6" id="test">{{ test }}</h2>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
