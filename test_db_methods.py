@@ -24,12 +24,19 @@ def test_school_type():
     school_type = dbm.get_school_type(3533)
     assert school_type == "Elementary"
 
+
 def test_schools_by_id():
+    grade = 3
     school_ids = [2824, 2890, 2530, 4149]
-    return_list = dbm.get_schools_by_id(school_ids)
-    assert len(return_list) == 4
+    return_list = dbm.get_schools_by_id(grade, school_ids)
+    assert len(return_list) == 2
+    assert return_list[0]['school'] == 'Eastgate Elementary School'
+    assert return_list[1]['school'] == 'Moxee Elementary'
+
 
 def test_get_results():
-    the_list = dbm.get_results("Chiawana High School", "Pasco School District",
-                               20, "normalized_enrollment", "lowses", "per_black")
-    print the_list
+    results_list = dbm.get_results("Chiawana High School",
+                                   "Pasco School District", 20, 10,
+                                   ("normalized_enrollment", "lowses",
+                                    "per_black"))
+    assert len(results_list[0]) == 20
