@@ -131,3 +131,10 @@ def get_building_info(building_id):
     cur = con.cursor()
     cur.execute(DB_GET_BUILDING, [building_id])
     return cur.fetchone()
+
+
+def get_data(building_id):
+    con = connect_db()
+    cur = con.cursor()
+    cur.execute(DB_GET_DATA, [building_id])
+    return cur.fetchone()
