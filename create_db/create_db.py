@@ -85,9 +85,10 @@ SELECT buildingid, enrollment, lowses FROM demographics WHERE buildingid
 """
 
 DB_GET_DATA = """
-SELECT grade, reading, math, writing, science FROM %s WHERE buildingid
+SELECT grade, reading, math, writing, science FROM year_0 WHERE buildingid
 = %s;
 """
+
 
 def connect_db():
 
