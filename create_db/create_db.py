@@ -103,21 +103,26 @@ def connect_db():
                 'PORT': os.environ['RDS_PORT'],
             }
         }
-        return psycopg2.connect(DATABASES)
     else:
-        print "Hello"
-        conn_string = "host='localhost' dbname='schools_data' user='schools_admin' password='admin'"
-    return psycopg2.connect(conn_string)
+        DATABASES = os.environ.get(
+            'TEST_DB',
+            "host='localhost' dbname='schools_data' "
+            "user='schools_admin' password='admin'")
+    return psycopg2.connect(DATABASES)
 
 
 def init_db():
+    base_dir = os.path.dirname(os.getcwd())
     with closing(connect_db()) as db:
         db.cursor().execute(DB_SCHEMA)
         db.commit()
-        db.cursor().execute(DB_COPY_DATA, "demographics", [os.getcwd() +
-                            "/demographics.txt"])
-        db.cursor().execute(DB_COPY_DATA, "year_0", [os.getcwd() +
-                            "/year_0"])
+        db.cursor().execute(DB_COPY_DATA, "demographics",
+                            [os.path.join(base_dir,
+                             "raw_data/demographics.txt")])
+        for tablename in ['year_0', 'year_1, year_2, year_3, year_4']:
+            db.cursor().execute(DB_COPY_DATA, tablename,
+                                [os.path.join(base_dir,
+                                 'raw_data/' + tablename + '.txt')])
         db.commit()
 
 
