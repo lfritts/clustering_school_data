@@ -28,7 +28,7 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/district')
+@app.route('/district', methods=['GET', 'POST'])
 def district():
     districts = get_districts()
     return render_template('district.html', district_list=districts)
